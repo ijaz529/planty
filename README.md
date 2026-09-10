@@ -75,7 +75,7 @@ docker exec supabase_db_planty psql -U postgres -d postgres -c 'select * from pu
 | `/profile` | Name, email, verified phone | Signed in |
 | `/sites` | Where the plants live, with map pin and zone check | Signed in |
 | `/organizations` | Business accounts and their people | Signed in |
-| `/ops` | Catalog, pricing, subscriptions, requests, visits, zones and waitlist | Operator |
+| `/ops` | Catalog, depot, pricing, subscriptions, requests, visits, zones and waitlist | Operator |
 
 ## How it is built
 
@@ -92,16 +92,18 @@ contract.
 ## Status
 
 Features 001 (foundation), 002 (configure and price) and 003 (checkout) are
-complete, and so are 004 (the visit engine) and 005 (replacements and swaps).
+complete, and so are 004 (the visit engine), 005 (replacements and swaps) and
+006 (the stock ledger).
 A customer can price an office with
 no account, place an order that reserves stock at the price they saw, and pay by
 bank transfer. Visits are then generated automatically on the days their zone is
 served, a technician works the round from a phone, and the customer sees a photo
 and a verdict on every plant after each visit. A plant that is struggling gets
 replaced free, and each subscription carries a counted quarterly allowance of
-seasonal swaps — two promises the product keeps deliberately apart. Card payment
-is deferred until the trade licence exists. The roadmap is in
-[the PRD](docs/PRD.md).
+seasonal swaps — two promises the product keeps deliberately apart. Every plant
+that dies now leaves the fleet on the record, so the replacement rate the PRD
+calls a kill metric can actually be produced. Card payment is deferred until the
+trade licence exists. The roadmap is in [the PRD](docs/PRD.md).
 
 The pricing rule is deliberately implemented twice — `price_basket()` in
 Postgres is the authority, `src/lib/pricing.ts` keeps the basket responsive —
