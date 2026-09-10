@@ -143,20 +143,33 @@ export default async function SpeciesPage({
           </ul>
         </section>
 
-        {/* CC BY and CC BY-SA ask for the photographer wherever the photo runs. */}
+        {/* Both sources ask for the photographer named wherever the photo runs. */}
         {credits.length > 0 && (
           <p className="mt-8 text-xs text-muted">
             Photographs:{" "}
             {credits.map((c, i) => (
               <span key={c.path}>
                 {i > 0 && "; "}
+                {c.authorUrl ? (
+                  <a
+                    href={c.authorUrl}
+                    className="underline underline-offset-2"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {c.author}
+                  </a>
+                ) : (
+                  c.author
+                )}
+                {" on "}
                 <a
                   href={c.source}
                   className="underline underline-offset-2"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  {c.author}
+                  {c.sourceName}
                 </a>{" "}
                 <a
                   href={c.licenseUrl}
@@ -164,7 +177,7 @@ export default async function SpeciesPage({
                   rel="noopener noreferrer license"
                   target="_blank"
                 >
-                  {c.license}
+                  ({c.license})
                 </a>
               </span>
             ))}

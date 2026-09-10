@@ -5,7 +5,8 @@
     "author": "Enzo Rippa",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Sansevieria_Trifasciata_.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Sansevieria_Trifasciata_.jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/snake-floor.jpg",
@@ -13,7 +14,8 @@
     "author": "Rudolphous",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:20210623_Hortus_botanicus_Leiden_-_Sansevieria_trifasciata_v2.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:20210623_Hortus_botanicus_Leiden_-_Sansevieria_trifasciata_v2.jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/zz-desk.jpg",
@@ -21,7 +23,8 @@
     "author": "Dbwolfe",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_Chameleon_1.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_Chameleon_1.jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/zz-floor.jpg",
@@ -29,7 +32,8 @@
     "author": "Mx Lucy",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia.png"
+    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia.png",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/pothos-desk.jpg",
@@ -37,7 +41,8 @@
     "author": "Spnq",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_(Marble_Queen)_houseplant.png"
+    "source": "https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_(Marble_Queen)_houseplant.png",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/aglaonema-desk.jpg",
@@ -45,7 +50,8 @@
     "author": "Digigalos",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_%27Silver_Queen%27_01.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_%27Silver_Queen%27_01.jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/aglaonema-floor.jpg",
@@ -53,7 +59,8 @@
     "author": "Krzysztof Ziarnek, Kenraiz",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_kz2.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_kz2.jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/kentia-statement.jpg",
@@ -61,7 +68,8 @@
     "author": "Tournasol7",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Howea_forsteriana_in_Palm_House_Schoenbrunn_(2).jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Howea_forsteriana_in_Palm_House_Schoenbrunn_(2).jpg",
+    "sourceName": "Wikimedia Commons"
   },
   {
     "path": "seed/areca-statement.jpg",
@@ -69,6 +77,7 @@
     "author": "Juan Carlos Fonseca Mata",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Dypsis_lutescens_(Family_Arecaceae)_-_leaves_close-up.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Dypsis_lutescens_(Family_Arecaceae)_-_leaves_close-up.jpg",
+    "sourceName": "Wikimedia Commons"
   }
 ]

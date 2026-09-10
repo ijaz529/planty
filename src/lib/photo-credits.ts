@@ -1,23 +1,30 @@
 /**
  * Attribution for the seed catalog photographs.
  *
- * The seed photographs come from Wikimedia Commons under CC BY / CC BY-SA,
- * which require the photographer to be credited wherever the image is shown.
- * The same file drives `npm run seed:images`, so the credit and the upload can
- * never disagree.
+ * Both sources ask for the same thing in different words. Wikimedia Commons
+ * photos are CC BY / CC BY-SA, which require the photographer named wherever
+ * the image runs. Unsplash asks for the photographer and Unsplash itself, both
+ * as links. One credit shape serves both.
  *
- * A photograph an operator uploads has no entry here, and gets no credit —
- * correct for a picture Planty owns.
+ * The same file drives `npm run seed:images`, so the credit and the upload can
+ * never disagree. A photograph an operator uploads has no entry here, and gets
+ * no credit — correct for a picture Planty owns.
  */
 import credits from "../../scripts/plant-photos/CREDITS.json";
 
 export type PhotoCredit = {
+  /** Matches `photo_path` on the variant, e.g. "seed/snake-desk.jpg". */
   path: string;
   title: string;
   author: string;
+  /** The photographer's page, where the source publishes one. */
+  authorUrl?: string;
   license: string;
   licenseUrl: string;
+  /** The page this photo lives on. */
   source: string;
+  /** "Unsplash", "Wikimedia Commons". */
+  sourceName: string;
 };
 
 const BY_PATH = new Map<string, PhotoCredit>(
