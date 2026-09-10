@@ -28,11 +28,11 @@ Migrations are numbered in story order — `0001` foundation, `0002` catalog
 **Purpose**: A running Next.js app and a local Supabase stack that does not
 collide with the two other projects on this machine.
 
-- [ ] T001 Scaffold Next.js 16 with TypeScript, Tailwind v4, ESLint, App Router and `src/` into the repository root, preserving existing `docs/` and `specs/`; add `package.json` scripts `dev`, `build`, `start`, `lint`, `test`
-- [ ] T002 Run `supabase init`, then set `project_id = "planty"` and the 553xx ports in `supabase/config.toml` per quickstart.md (api 55321, db 55322, shadow 55320, pooler 55329, studio 55323, inbucket 55324, analytics 55327), and `[auth] site_url = "http://127.0.0.1:3020"`
-- [ ] T003 Add the four local test numbers to `[auth.sms.test_otp]` in `supabase/config.toml` as bare digits (971500000001–971500000004 → `123456`) and enable `[auth.sms.twilio]` with dummy credentials so local sign-in works without SMS
-- [ ] T004 [P] Configure Vitest in `vitest.config.ts` with `include: ["tests/unit/**/*.test.ts"]`
-- [ ] T005 [P] Add `.env.example` (force-added past the `.env*` ignore) with `NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:55321` and an empty `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `.claude/launch.json` running `npm run dev` on port 3020
+- [X] T001 Scaffold Next.js 16 with TypeScript, Tailwind v4, ESLint, App Router and `src/` into the repository root, preserving existing `docs/` and `specs/`; add `package.json` scripts `dev`, `build`, `start`, `lint`, `test`
+- [X] T002 Run `supabase init`, then set `project_id = "planty"` and the 553xx ports in `supabase/config.toml` per quickstart.md (api 55321, db 55322, shadow 55320, pooler 55329, studio 55323, inbucket 55324, analytics 55327), and `[auth] site_url = "http://127.0.0.1:3020"`
+- [X] T003 Add the four local test numbers to `[auth.sms.test_otp]` in `supabase/config.toml` as bare digits (971500000001–971500000004 → `123456`) and enable `[auth.sms.twilio]` with dummy credentials so local sign-in works without SMS
+- [X] T004 [P] Configure Vitest in `vitest.config.ts` with `include: ["tests/unit/**/*.test.ts"]`
+- [X] T005 [P] Add `.env.example` (force-added past the `.env*` ignore) with `NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:55321` and an empty `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `.claude/launch.json` running `npm run dev` on port 3020
 
 ---
 
@@ -43,14 +43,14 @@ user story depends on.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T006 Migration `supabase/migrations/0001_accounts.sql`: enable `moddatetime` and `postgis`; create enums `staff_role`, `org_role`, `light_requirement`, `size_tier`; create `profiles` and `staff_roles` per data-model.md §1–§2; `handle_new_user()` trigger on `auth.users` bridging the no-plus phone to E.164; `is_operator()` and `is_technician()` helpers; RLS policies and the column-privilege grant that makes `phone` immutable
-- [ ] T007 [P] Implement `src/lib/supabase/client.ts` and `src/lib/supabase/server.ts` with `@supabase/ssr`, including `requireUser()` that redirects to `/auth`
-- [ ] T008 [P] Implement UAE phone normalisation in `src/lib/phone.ts` — `normalizeUaePhone(input)` returning a discriminated union, accepting `05x`, `5x`, `9715x`, `+9715x` and `009715x` with spaces, dashes and brackets, rejecting landlines and non-UAE numbers with a readable reason
-- [ ] T009 [P] Unit tests in `tests/unit/phone.test.ts` covering every accepted format resolving to one E.164 value and every rejection case named in spec.md Edge Cases
-- [ ] T010 Auth session middleware in `src/middleware.ts` refreshing the Supabase session and redirecting unauthenticated users away from `/profile`, `/sites`, `/organizations` and `/ops`
-- [ ] T011 App shell: `src/app/layout.tsx` with metadata and mobile viewport, `src/app/globals.css` with the Tailwind v4 entry and `@theme inline` tokens, and `src/app/manifest.ts` for the PWA
-- [ ] T012 pgTAP tests `supabase/tests/0001_accounts_rls.sql`: anon reads no profiles; a user reads only their own; a user can change `display_name` but not `phone`; an operator reads all; a non-operator cannot insert `staff_roles`
-- [ ] T013 Base seed in `supabase/seed.sql`: the four accounts of quickstart.md inserted into `auth.users` with fixed UUIDs, phone without the leading `+`, and all eight GoTrue token columns set to `''`; display names; operator and technician rows in `staff_roles`
+- [X] T006 Migration `supabase/migrations/0001_accounts.sql`: enable `moddatetime` and `postgis`; create enums `staff_role`, `org_role`, `light_requirement`, `size_tier`; create `profiles` and `staff_roles` per data-model.md §1–§2; `handle_new_user()` trigger on `auth.users` bridging the no-plus phone to E.164; `is_operator()` and `is_technician()` helpers; RLS policies and the column-privilege grant that makes `phone` immutable
+- [X] T007 [P] Implement `src/lib/supabase/client.ts` and `src/lib/supabase/server.ts` with `@supabase/ssr`, including `requireUser()` that redirects to `/auth`
+- [X] T008 [P] Implement UAE phone normalisation in `src/lib/phone.ts` — `normalizeUaePhone(input)` returning a discriminated union, accepting `05x`, `5x`, `9715x`, `+9715x` and `009715x` with spaces, dashes and brackets, rejecting landlines and non-UAE numbers with a readable reason
+- [X] T009 [P] Unit tests in `tests/unit/phone.test.ts` covering every accepted format resolving to one E.164 value and every rejection case named in spec.md Edge Cases
+- [X] T010 Auth session middleware in `src/middleware.ts` refreshing the Supabase session and redirecting unauthenticated users away from `/profile`, `/sites`, `/organizations` and `/ops`
+- [X] T011 App shell: `src/app/layout.tsx` with metadata and mobile viewport, `src/app/globals.css` with the Tailwind v4 entry and `@theme inline` tokens, and `src/app/manifest.ts` for the PWA
+- [X] T012 pgTAP tests `supabase/tests/0001_accounts_rls.sql`: anon reads no profiles; a user reads only their own; a user can change `display_name` but not `phone`; an operator reads all; a non-operator cannot insert `staff_roles`
+- [X] T013 Base seed in `supabase/seed.sql`: the four accounts of quickstart.md inserted into `auth.users` with fixed UUIDs, phone without the leading `+`, and all eight GoTrue token columns set to `''`; display names; operator and technician rows in `staff_roles`
 
 **Checkpoint**: `supabase db reset` is clean, `npm run test` and `supabase test db` are green.
 
@@ -62,12 +62,12 @@ user story depends on.
 
 **Independent Test**: Sign up as `050 000 0001` with code `123456`, set a name, sign out, sign back in as `+971500000001`, and see the same account with the name intact (spec US1 scenarios 1–5).
 
-- [ ] T014 [US1] Phone entry screen in `src/app/auth/page.tsx`: normalises through `normalizeUaePhone`, shows inline rejection reasons, calls `signInWithOtp`, and renders the rate-limit case as a wait-and-retry message
-- [ ] T015 [US1] Code entry in `src/app/auth/verify/page.tsx`: six-digit input wrapped in `<Suspense>` because it reads search params, `verifyOtp`, distinct messages for wrong and expired codes, resend with a visible cooldown
-- [ ] T016 [US1] Context resolution in `src/lib/roles.ts`: `getUserContext()` reading staff roles and organization memberships at request time, and `postSignInPath()` sending operators to `/ops` and everyone else to `/`
-- [ ] T017 [US1] Profile screen in `src/app/(customer)/profile/page.tsx`: view and edit display name and optional email, phone shown read-only, sign-out; new users without a name are routed here after verification
-- [ ] T018 [US1] Zod schemas for the profile form in `src/lib/validation.ts`, with user-facing messages
-- [ ] T019 [US1] Customer home in `src/app/(customer)/page.tsx` — greeting and navigation for now; User Story 2 replaces its body with the public catalog
+- [X] T014 [US1] Phone entry screen in `src/app/auth/page.tsx`: normalises through `normalizeUaePhone`, shows inline rejection reasons, calls `signInWithOtp`, and renders the rate-limit case as a wait-and-retry message
+- [X] T015 [US1] Code entry in `src/app/auth/verify/page.tsx`: six-digit input wrapped in `<Suspense>` because it reads search params, `verifyOtp`, distinct messages for wrong and expired codes, resend with a visible cooldown
+- [X] T016 [US1] Context resolution in `src/lib/roles.ts`: `getUserContext()` reading staff roles and organization memberships at request time, and `postSignInPath()` sending operators to `/ops` and everyone else to `/`
+- [X] T017 [US1] Profile screen in `src/app/(customer)/profile/page.tsx`: view and edit display name and optional email, phone shown read-only, sign-out; new users without a name are routed here after verification
+- [X] T018 [US1] Zod schemas for the profile form in `src/lib/validation.ts`, with user-facing messages
+- [X] T019 [US1] Customer home in `src/app/(customer)/page.tsx` — greeting and navigation for now; User Story 2 replaces its body with the public catalog
 
 **Checkpoint**: US1 works end to end locally with the test numbers.
 
