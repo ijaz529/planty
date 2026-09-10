@@ -106,14 +106,14 @@ src/
 supabase/
 ├── migrations/
 │   ├── 0001_accounts.sql        # profiles, staff_roles, sign-up trigger, RLS
-│   ├── 0002_organizations.sql   # organizations, members, invites, guards, RLS
-│   ├── 0003_zones_sites.sql     # PostGIS zones, sites, waitlist, RLS
-│   └── 0004_catalog.sql         # species, variants, price history, storage, RLS
+│   ├── 0002_catalog.sql         # species, variants, price history, storage, RLS
+│   ├── 0003_organizations.sql   # organizations, members, invites, guards, RLS
+│   └── 0004_zones_sites.sql     # PostGIS zones, sites, waitlist, RLS
 ├── tests/
 │   ├── 0001_accounts_rls.sql
-│   ├── 0002_organizations_rls.sql
-│   ├── 0003_zones_sites_rls.sql
-│   └── 0004_catalog_rls.sql
+│   ├── 0002_catalog_rls.sql
+│   ├── 0003_organizations_rls.sql
+│   └── 0004_zones_sites_rls.sql
 ├── seed.sql
 └── config.toml                  # ports 553xx, test OTP numbers
 

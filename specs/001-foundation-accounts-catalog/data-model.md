@@ -6,8 +6,11 @@ All tables live in `public`, all have Row Level Security enabled, and all
 timestamps are `timestamptz`. Money is `numeric(10,2)` in AED. Geography uses
 SRID 4326 with coordinates in (longitude, latitude) order.
 
-Migrations: `0001_accounts.sql`, `0002_organizations.sql`, `0003_zones_sites.sql`,
-`0004_catalog.sql`.
+Migrations are numbered in user-story order so each story ships its own
+schema change: `0001_accounts.sql` (US1 and the shared foundation),
+`0002_catalog.sql` (US2), `0003_organizations.sql` (US3),
+`0004_zones_sites.sql` (US4). `0003` replaces `handle_new_user()` with the
+version that also converts pending invitations.
 
 ---
 
