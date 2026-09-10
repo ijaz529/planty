@@ -17,19 +17,19 @@ description: "Task list for feature 005 — Replacements & Rotations"
 
 ## Phase 2: US1 — Ask for a replacement
 
-- [ ] T006 [US1] Care section on the subscription page: the guarantee, its exclusions from the operator setting, and plants flagged declining at the last visit offered for replacement
-- [ ] T007 [US1] Request form: pick a plant, give a reason, submit; the database refusal shown verbatim
+- [X] T006 [US1] Care section on the subscription page: the guarantee, its exclusions from the operator setting, and plants flagged declining at the last visit offered for replacement
+- [X] T007 [US1] Request form: pick a plant, give a reason, submit; the database refusal shown verbatim
 
 ## Phase 3: US2 — Spend a rotation
 
-- [ ] T008 [US2] Rotations remaining and renewal date on the same section
-- [ ] T009 [US2] Swap flow: pick the plant to change and an in-stock published plant to receive; refusal when none remain names the renewal date
+- [X] T008 [US2] Rotations remaining and renewal date on the same section
+- [X] T009 [US2] Swap flow: pick the plant to change and an in-stock published plant to receive; refusal when none remain names the renewal date
 
 ## Phase 4: US3 — Planty acts
 
-- [ ] T010 [US3] `/ops/requests`: open requests oldest first with customer, site, plant, kind and reason; approve or decline with a note
-- [ ] T011 [US3] Technician stop shows approved work — what to bring, what to remove — and marks it carried out
+- [X] T010 [US3] `/ops/requests`: open requests oldest first with customer, site, plant, kind and reason; approve or decline with a note
+- [X] T011 [US3] Technician stop shows approved work — what to bring, what to remove — and marks it carried out
 
 ## Phase 5: Polish
 
-- [ ] T012 Full gate and the six quickstart checks; README status
+- [X] T012 Full gate and the six quickstart checks; README status

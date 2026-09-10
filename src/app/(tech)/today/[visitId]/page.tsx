@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/supabase/server";
 import { shortDate } from "@/lib/visits";
 import { VisitForm, type VisitPlant } from "./visit-form";
+import { StopJobs, type StopJob } from "./jobs";
 
 export default async function VisitPage({
   params,
@@ -25,7 +26,7 @@ export default async function VisitPage({
     label: string; building: string; unit: string | null; access_notes: string | null;
   } | null;
 
-  const [{ data: lines }, { data: records }, { data: photos }] = await Promise.all([
+  const [{ data: lines }, { data: records }, { data: photos }, { data: jobs }] = await Promise.all([
     supabase
       .from("subscription_lines")
       .select("id, species_name, size_tier, quantity")
@@ -33,6 +34,11 @@ export default async function VisitPage({
       .order("species_name"),
     supabase.from("visit_plant_records").select("subscription_line_id, condition, note").eq("visit_id", visitId),
     supabase.from("visit_photos").select("id").eq("visit_id", visitId),
+    supabase
+      .from("plant_change_requests")
+      .select("id, kind, status, reason, decision_note, subscription_lines(species_name, quantity), plant_variants(plant_species(common_name))")
+      .eq("visit_id", visitId)
+      .in("status", ["approved", "fulfilled"]),
   ]);
 
   const recorded = new Map((records ?? []).map((r) => [r.subscription_line_id, r]));
@@ -65,6 +71,22 @@ export default async function VisitPage({
           <p className="mt-1 text-sm">{site.access_notes}</p>
         </section>
       )}
+
+      <StopJobs
+        jobs={(jobs ?? []).map((j) => {
+          const line = j.subscription_lines as unknown as { species_name: string; quantity: number } | null;
+          const target = j.plant_variants as unknown as { plant_species: { common_name: string } | null } | null;
+          return {
+            id: j.id,
+            kind: j.kind as StopJob["kind"],
+            plant: line ? `${line.quantity} × ${line.species_name}` : "a plant",
+            wants: target?.plant_species?.common_name ?? null,
+            reason: j.reason,
+            note: j.decision_note,
+            done: j.status === "fulfilled",
+          };
+        })}
+      />
 
       {visit.status === "planned" ? (
         <VisitForm visitId={visit.id} plants={plants} photoCount={photos?.length ?? 0} />
