@@ -89,3 +89,26 @@ export const organizationSchema = z.object({
     .email("Enter the email invoices should go to"),
 });
 export type OrganizationInput = z.infer<typeof organizationSchema>;
+
+export const siteSchema = z.object({
+  label: z
+    .string()
+    .trim()
+    .min(2, "Give this place a name, like Marina office")
+    .max(80, "That name is too long"),
+  building: z
+    .string()
+    .trim()
+    .min(1, "Enter the building or villa name")
+    .max(160, "That is too long"),
+  unit: optionalText,
+  makani: z
+    .string()
+    .trim()
+    .regex(/^\d{10}$/, "A Makani number is 10 digits")
+    .optional()
+    .or(z.literal("")),
+  access_notes: optionalText,
+  owner: z.string().min(1, "Choose who this site belongs to"),
+});
+export type SiteInput = z.infer<typeof siteSchema>;

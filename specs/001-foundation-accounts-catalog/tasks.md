@@ -117,15 +117,15 @@ user story depends on.
 
 **Independent Test**: Save a site with the pin inside the Marina polygon and see that zone's service days; drag it into open desert and get a refusal plus a waitlist offer (spec US4 scenarios 1–6).
 
-- [ ] T036 [US4] Migration `supabase/migrations/0004_zones_sites.sql`: `service_zones` with its GIST index, `sites` with the exactly-one-owner `CHECK`, `waitlist_entries`; `zone_for_point()`; the site trigger that assigns `zone_id` and raises when the pin is outside every active zone; the `sites_needing_zone_review` view; all RLS policies per contracts/data-access.md
-- [ ] T037 [US4] pgTAP tests `supabase/tests/0004_zones_sites_rls.sql`: a point inside an active zone resolves and a site is created; a point outside every zone raises the named exception; deactivating a zone leaves existing sites intact and lists them in the review view; organization members see the organization's sites and outsiders see none; access notes are unreadable to outsiders; anon sees active zones only
-- [ ] T038 [P] [US4] Zone helpers in `src/lib/zones.ts`: render `service_weekdays` as readable day names in Asia/Dubai order and format the next service day
-- [ ] T039 [P] [US4] Unit tests in `tests/unit/zones.test.ts` for weekday rendering, ordering and the single-day and all-week edge cases
-- [ ] T040 [US4] Leaflet map components in `src/components/map/pin-picker.tsx` and `src/components/map/zone-map.tsx`, loaded client-side only, defaulting to Dubai and taking coordinates as (longitude, latitude) when writing to the database
-- [ ] T041 [US4] Sites list and creation in `src/app/(customer)/sites/page.tsx`: label, pin, building, unit, optional Makani and access notes; owned by the person or by an organization they belong to; shows the serving zone and its service days on success, and offers a waitlist entry on the out-of-zone refusal
-- [ ] T042 [US4] Operator zone management in `src/app/(ops)/ops/zones/page.tsx`: list zones with their weekdays and active flag, view boundaries on a map, and see the `sites_needing_zone_review` list
-- [ ] T043 [US4] Operator waitlist in `src/app/(ops)/ops/waitlist/page.tsx`: requests from outside served zones with their locations, newest first
-- [ ] T044 [US4] Extend `supabase/seed.sql` with the two active zones (Business Bay, Dubai Marina) as polygons with service weekdays, one organization site and one personal site inside them
+- [X] T036 [US4] Migration `supabase/migrations/0004_zones_sites.sql`: `service_zones` with its GIST index, `sites` with the exactly-one-owner `CHECK`, `waitlist_entries`; `zone_for_point()`; the site trigger that assigns `zone_id` and raises when the pin is outside every active zone; the `sites_needing_zone_review` view; all RLS policies per contracts/data-access.md
+- [X] T037 [US4] pgTAP tests `supabase/tests/0004_zones_sites_rls.sql`: a point inside an active zone resolves and a site is created; a point outside every zone raises the named exception; deactivating a zone leaves existing sites intact and lists them in the review view; organization members see the organization's sites and outsiders see none; access notes are unreadable to outsiders; anon sees active zones only
+- [X] T038 [P] [US4] Zone helpers in `src/lib/zones.ts`: render `service_weekdays` as readable day names in Asia/Dubai order and format the next service day
+- [X] T039 [P] [US4] Unit tests in `tests/unit/zones.test.ts` for weekday rendering, ordering and the single-day and all-week edge cases
+- [X] T040 [US4] Leaflet map components in `src/components/map/pin-picker.tsx` and `src/components/map/zone-map.tsx`, loaded client-side only, defaulting to Dubai and taking coordinates as (longitude, latitude) when writing to the database
+- [X] T041 [US4] Sites list and creation in `src/app/(customer)/sites/page.tsx`: label, pin, building, unit, optional Makani and access notes; owned by the person or by an organization they belong to; shows the serving zone and its service days on success, and offers a waitlist entry on the out-of-zone refusal
+- [X] T042 [US4] Operator zone management in `src/app/(ops)/ops/zones/page.tsx`: list zones with their weekdays and active flag, view boundaries on a map, and see the `sites_needing_zone_review` list
+- [X] T043 [US4] Operator waitlist in `src/app/(ops)/ops/waitlist/page.tsx`: requests from outside served zones with their locations, newest first
+- [X] T044 [US4] Extend `supabase/seed.sql` with the two active zones (Business Bay, Dubai Marina) as polygons with service weekdays, one organization site and one personal site inside them
 
 **Checkpoint**: All four stories independently functional.
 

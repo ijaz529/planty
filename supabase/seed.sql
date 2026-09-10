@@ -92,3 +92,30 @@ insert into public.organizations (id, name, billing_email) values
 
 insert into public.organization_members (organization_id, account_id, role) values
   ('20000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000002', 'owner');
+
+-- ── service zones and sites (feature 001 US4) ────────────────────────
+-- PostGIS geography takes (longitude, latitude). Dubai is around 55.2, 25.2 —
+-- a reversed pair lands in the Indian Ocean.
+-- Weekdays: 0 = Sunday … 6 = Saturday.
+
+insert into public.service_zones (id, name, boundary, service_weekdays, active) values
+  ('30000000-0000-4000-8000-000000000001', 'Business Bay',
+   extensions.st_geogfromtext('POLYGON((55.255 25.175, 55.292 25.175, 55.292 25.200, 55.255 25.200, 55.255 25.175))'),
+   array[1,3]::smallint[], true),
+  ('30000000-0000-4000-8000-000000000002', 'Dubai Marina',
+   extensions.st_geogfromtext('POLYGON((55.130 25.065, 55.160 25.065, 55.160 25.095, 55.130 25.095, 55.130 25.065))'),
+   array[2,4]::smallint[], true);
+
+insert into public.sites (id, organization_id, label, location, building, unit, makani, access_notes) values
+  ('50000000-0000-4000-8000-000000000001', '20000000-0000-4000-8000-000000000001',
+   'Northwind office',
+   extensions.st_geogfromtext('POINT(55.270 25.187)'),
+   'Bay Square Building 8', 'Level 3', '2467887634',
+   'Reception holds the pass. Ask for the office manager.');
+
+insert into public.sites (id, owner_account_id, label, location, building, unit, access_notes) values
+  ('50000000-0000-4000-8000-000000000002', '10000000-0000-4000-8000-000000000001',
+   'Home',
+   extensions.st_geogfromtext('POINT(55.142 25.079)'),
+   'Marina Gate 2', 'Apartment 1204',
+   'Building access code 4417. One cat, keep the door shut.');

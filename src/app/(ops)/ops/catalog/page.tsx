@@ -67,8 +67,9 @@ export default async function OpsCatalogPage() {
               </Link>
               {variants.some((v) => !v.published && publishGaps(v).length > 0) && (
                 <p className="border-t border-line px-4 py-2 text-xs text-muted">
-                  {variants.filter((v) => !v.published).length} draft variant(s)
-                  still incomplete
+                  {variants.filter((v) => !v.published).length === 1
+                    ? "1 draft variant still incomplete"
+                    : `${variants.filter((v) => !v.published).length} draft variants still incomplete`}
                 </p>
               )}
             </li>
