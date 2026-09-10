@@ -1,7 +1,13 @@
 <!--
 SYNC IMPACT REPORT
-Version change: (template) → 1.0.0
-Rationale: Initial ratification. All template placeholders replaced with
+Version change: (template) → 1.0.0 → 1.1.0
+Rationale for 1.1.0 (MINOR, same day): the completed research programme
+reversed the launch-market recommendation after feature 001 was built. The
+"Market & Operating Constraints" section now records the market as
+provisional and bounds where market assumptions may live, rather than
+asserting Dubai as settled. No principle was added, removed or redefined.
+
+Rationale for 1.0.0: Initial ratification. All template placeholders replaced with
 concrete principles derived from docs/research/ (14 research lenses,
 2026-09-09/10) and the founder's product brief.
 
@@ -153,17 +159,30 @@ UI and glue code are tested pragmatically, not dogmatically.
 
 ## Market & Operating Constraints
 
-- **Launch market**: Dubai, UAE. Currency **AED**. Timezone **Asia/Dubai**
-  (GST, no DST). Working week Mon–Fri, with Fri afternoon and Sat–Sun
-  treated as reduced-service. This choice rests on evidence recorded in
-  `docs/research/` and on one unresolved founder-side question recorded in
-  `docs/PRD.md` §Open Questions; changing the market requires an amendment.
+- **Launch market**: PROVISIONAL, and currently contested by our own
+  evidence. Feature 001 was built against **Dubai, UAE** — currency AED,
+  timezone Asia/Dubai — on an interim reading of the research. The completed
+  research programme (`docs/research/RESEARCH.md` §5) instead recommends
+  **Berlin, B2B only**, on two grounds: no UAE operator publishes a rental
+  price, so the same modelled office swings from roughly 61% to 7%
+  contribution margin depending on an unobservable number; and this is a
+  physical route business whose founder is resident in Germany.
+
+  Until the founder resolves this, treat the market constants as the only
+  provisional part of the codebase. They are confined to phone
+  normalisation, currency formatting, the seed, the local auth test numbers,
+  and page copy. **No feature may spread market assumptions beyond those
+  places**, and no feature may introduce multi-market configurability to
+  hedge the question — the research is explicit that a multi-city product is
+  the wrong response. Settling the market is an amendment to this section.
 - **Language**: English-first UI. Arabic/RTL is a future spec — avoid
   hardcoding that makes RTL painful (use logical CSS properties). UAE
   consumer-facing contract documents may require Arabic before commercial
   launch; that is a launch-blocker item, not an MVP feature.
-- **Visit cadence**: weekly is the Dubai market norm and the default.
-  Lower cadences are priced tiers, never silent downgrades.
+- **Visit cadence**: a priced tier, never a silent downgrade. Weekly is the
+  Dubai norm; the German trade runs two to four weeks on sub-irrigated
+  planters, and the research favours the longer cadence on cost grounds.
+  Whichever is default, the customer sees what they are paying for.
 - **Plant care**: no chemical plant-protection products in the MVP.
   Mechanical and biological control plus swap-out only.
 - **Payments**: card-on-file via a single payment provider for recurring
@@ -198,4 +217,4 @@ Amendments require a version bump and a note in the spec that prompted them.
 Versioning is semantic: MAJOR for removing or redefining a principle, MINOR
 for adding one or materially expanding guidance, PATCH for clarifications.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-10 | **Last Amended**: 2026-09-10
+**Version**: 1.1.0 | **Ratified**: 2026-09-10 | **Last Amended**: 2026-09-10

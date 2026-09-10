@@ -1,7 +1,8 @@
 # Planty — Product Requirements Document
 
-**Version**: 1.0 · **Date**: 2026-09-10 · **Status**: Draft for MVP
-**Market**: Dubai, UAE
+**Version**: 1.1 · **Date**: 2026-09-10 · **Status**: Draft for MVP
+**Market**: OPEN — built for Dubai, research recommends Berlin. See
+[the market decision](DECISION-market.md) and §3.
 **Evidence base**: `docs/research/` (14 research lenses, Sept 2026)
 
 ---
@@ -44,9 +45,54 @@ get a fresh seasonal set. When you no longer want them, they go away.
 The customer never owns a plant, never buys a pot, never carries a watering
 can, and never sees a dead plant on a windowsill.
 
-## 3. Why Dubai (and not Berlin)
+## 3. Launch market — reopened, and now favouring Berlin
 
-Both markets were researched in depth. The decision rests on four findings.
+> **Status, 2026-09-10.** This section originally argued for Dubai, and
+> feature 001 was built against it. The completed research programme then
+> reversed the recommendation to **Berlin, B2B only**
+> (`docs/research/RESEARCH.md` §5). Both cases are kept below, because the
+> founder holds one fact that decides between them. The Dubai case is
+> genuine on demand; it fails on two things that turned out to matter more.
+
+### 3.1 Why the recommendation flipped
+
+**You cannot observe a price in Dubai.** Eight competitor pages were fetched
+directly and not one carried an AED rental rate. Modelling the same
+25-display Dubai office at the two prices that circulate returns roughly 61%
+contribution margin at one and roughly 7% at the other — a spread nobody in
+the programme could close. Berlin, by contrast, has a published price
+grammar: a €6.90–22.90 per-display rate card, a €199–200 monthly entry point
+confirmed by three independent vendors, and a €299 care-only benchmark.
+Launching into a market whose clearing price you cannot see is a different
+category of risk from launching into a crowded one whose prices are printed
+on four websites.
+
+**The founder is in Germany and this is a route business.** A technician has
+to stand in the room every two to three weeks. A Berlin incumbent trading for
+25 years voluntarily restricts itself to two boroughs. No lens found a
+costed way to run a Dubai route remotely on day one.
+
+One correction to the earlier draft: it claimed Dubai labour is four to five
+times cheaper and treated that as decisive. The underlying figures span 6x
+within a single source set, and Dubai's published revenue per site is also
+lower — roughly €119 for 4.33 weekly visits against €299 for 2.17 fortnightly
+visits in Berlin. Cheap labour does not by itself mean better margin.
+
+### 3.2 What would move it back to Dubai
+
+Any one of these reopens the decision, and the first is the founder's alone:
+
+1. The founder relocates, or secures a named local operating partner willing
+   to run the route. This is the largest single weight in the scorecard.
+2. Three mystery-shopped quotes from Dubai incumbents for a defined 20-plant
+   Business Bay office come back at or above roughly AED 900 per month. Three
+   WhatsApp messages, one week, and it closes the price-legibility gap.
+3. A Berlin demand test fails — negligible search volume, or office managers
+   who reach the cart and will not proceed without a survey.
+
+### 3.3 The original Dubai case, kept for the record
+
+The decision below rested on four findings.
 
 | Factor | Dubai | Berlin |
 |---|---|---|
@@ -247,14 +293,12 @@ configure a real basket at a real price and subscribe.
 
 ## 11. Open Questions
 
-1. **Founder feasibility in Dubai (blocking the market choice).** Which UAE
-   licence and visa route allows a Germany-resident founder to own and
-   operate a plant rental and maintenance business; can incorporation,
-   banking and payment onboarding be done remotely; and who runs the first 90
-   days of physical routes? A viable answer is to subcontract visits to an
-   existing Dubai maintenance operator while Planty owns the customer,
-   the product and the plants. **Until this is answered, treat the market as
-   an assumption, not a fact.**
+1. **Which market (the decision everything else waits on).** The research
+   recommends Berlin B2B; feature 001 is built for Dubai. Only the founder
+   knows whether relocation or a trusted Dubai operating partner is on the
+   table, and that single fact decides it. If neither is, take Berlin. See §3
+   for the reopening criteria and `docs/DECISION-market.md` for exactly what
+   changes in the code either way.
 2. **Real incumbent rental prices.** Nobody publishes them. Three
    mystery-shopped quotes would replace the entire pricing hypothesis with
    evidence.

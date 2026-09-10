@@ -90,7 +90,9 @@ Feature 001 (foundation: accounts, organizations, service zones, plant catalog)
 is complete. Next up is 002, which turns the published catalog into a priced
 basket. The roadmap is in [the PRD](docs/PRD.md).
 
-One open question outranks all the others and is a business decision, not a
-technical one: whether a founder resident in Germany can license and operate a
-field-service business in Dubai. It is recorded in
-[the PRD](docs/PRD.md#11-open-questions).
+**One decision is open and blocks feature 002.** The app is built for Dubai;
+the completed research recommends Berlin, B2B only, mainly because no UAE
+operator publishes a rental price and because the founder lives in Germany
+while this is a physical route business. The structure of feature 001 works
+unchanged in either city — only constants and copy differ. See
+[the market decision](docs/DECISION-market.md).
