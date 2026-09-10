@@ -59,14 +59,10 @@ order it replaced.
 
 ## Moving the depot
 
-It seeds to Al Quoz, where most Dubai nurseries and their warehouses are. There
-is no screen for it yet — an operator with a real address changes the one row:
+It seeds to Al Quoz, where most Dubai nurseries and their warehouses are.
+Feature 009 put it on a map: an operator opens `/ops/depot`, presses **Move the
+depot**, drags the pin and saves. The coordinates are shown beside the map so a
+wrong pin is visible before it is saved rather than after.
 
-```sql
-update public.depot
-   set label = 'Planty depot',
-       location = extensions.st_point(<lon>, <lat>)::extensions.geography;
-```
-
-PostGIS is (longitude, latitude). Reversed, Dubai lands in the sea and the
-routes will be confidently wrong.
+Placing it by pin is also what stops longitude and latitude being transposed.
+Reversed, Dubai lands in the sea and every route is confidently wrong.
