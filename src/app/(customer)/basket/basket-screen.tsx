@@ -137,8 +137,8 @@ export function BasketScreen({ config }: { config: PricingConfig }) {
         {quote?.lines.map((line) => {
           const unavailable = line.status === "unavailable";
           return (
-            <li key={line.variant_id} className="flex flex-wrap items-center gap-3 p-4">
-              <div className="min-w-0 flex-1">
+            <li key={line.variant_id} className="space-y-3 p-4">
+              <div className="min-w-0">
                 <p className={`font-medium ${unavailable ? "text-muted" : ""}`}>
                   {line.species_name}
                   {line.size_tier && (
@@ -166,40 +166,42 @@ export function BasketScreen({ config }: { config: PricingConfig }) {
                 )}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() =>
+                      setQuantity(line.variant_id, line.requested_quantity - 1)
+                    }
+                    aria-label={`One fewer ${line.species_name}`}
+                    className="size-9 rounded-lg border border-line text-lg leading-none"
+                  >
+                    −
+                  </button>
+                  <span className="min-w-8 text-center text-sm font-semibold">
+                    {line.requested_quantity}
+                  </span>
+                  <button
+                    onClick={() =>
+                      setQuantity(line.variant_id, line.requested_quantity + 1)
+                    }
+                    aria-label={`One more ${line.species_name}`}
+                    className="size-9 rounded-lg border border-line text-lg leading-none"
+                  >
+                    +
+                  </button>
+                </div>
+
                 <button
-                  onClick={() =>
-                    setQuantity(line.variant_id, line.requested_quantity - 1)
-                  }
-                  aria-label={`One fewer ${line.species_name}`}
-                  className="size-9 rounded-lg border border-line text-lg leading-none"
+                  onClick={() => remove(line.variant_id)}
+                  className="text-sm text-muted underline underline-offset-4"
                 >
-                  −
+                  Remove
                 </button>
-                <span className="min-w-8 text-center text-sm font-semibold">
-                  {line.requested_quantity}
-                </span>
-                <button
-                  onClick={() =>
-                    setQuantity(line.variant_id, line.requested_quantity + 1)
-                  }
-                  aria-label={`One more ${line.species_name}`}
-                  className="size-9 rounded-lg border border-line text-lg leading-none"
-                >
-                  +
-                </button>
+
+                <p className="ml-auto font-semibold">
+                  {unavailable ? "—" : formatPrecise(line.line_total_aed)}
+                </p>
               </div>
-
-              <p className="w-24 text-right font-semibold">
-                {unavailable ? "—" : formatPrecise(line.line_total_aed)}
-              </p>
-
-              <button
-                onClick={() => remove(line.variant_id)}
-                className="text-sm text-muted underline underline-offset-4"
-              >
-                Remove
-              </button>
             </li>
           );
         })}
