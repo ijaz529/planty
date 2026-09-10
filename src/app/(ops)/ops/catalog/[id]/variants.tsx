@@ -8,7 +8,6 @@ import {
   heightRange,
   publishGapMessage,
   tierLabel,
-  type SizeTier,
 } from "@/lib/catalog";
 import { createClient } from "@/lib/supabase/client";
 import { variantSchema } from "@/lib/validation";

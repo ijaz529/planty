@@ -22,7 +22,11 @@ export function PinPicker({
   const mapRef = useRef<LeafletMap | null>(null);
   const markerRef = useRef<Marker | null>(null);
   const onMoveRef = useRef(onMove);
-  onMoveRef.current = onMove;
+
+  // Keep the callback fresh without re-running the map setup below.
+  useEffect(() => {
+    onMoveRef.current = onMove;
+  }, [onMove]);
 
   useEffect(() => {
     let cancelled = false;

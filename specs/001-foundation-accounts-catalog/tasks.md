@@ -133,10 +133,10 @@ user story depends on.
 
 ## Phase 7: Polish & Cross-Cutting Concerns
 
-- [ ] T045 [P] Shared navigation and sign-out across the customer and operator surfaces, showing the active organization context where one exists
-- [ ] T046 [P] Write `README.md` from quickstart.md: pitch, links to the constitution, PRD and research, stack, setup, test sign-ins, commands and the surfaces table
-- [ ] T047 Accessibility and mobile pass over every screen: logical CSS properties so a later RTL pass is possible, labelled form controls, visible focus, and a body that never scrolls horizontally
-- [ ] T048 Run the full validation gate — `npm run build`, `npm run test`, `supabase test db` — and walk the seven manual checks in quickstart.md, fixing anything red
+- [X] T045 [P] Shared navigation and sign-out across the customer and operator surfaces, showing the active organization context where one exists
+- [X] T046 [P] Write `README.md` from quickstart.md: pitch, links to the constitution, PRD and research, stack, setup, test sign-ins, commands and the surfaces table
+- [X] T047 Accessibility and mobile pass over every screen: logical CSS properties so a later RTL pass is possible, labelled form controls, visible focus, and a body that never scrolls horizontally
+- [X] T048 Run the full validation gate — `npm run build`, `npm run test`, `supabase test db` — and walk the seven manual checks in quickstart.md, fixing anything red
 
 ---
 
