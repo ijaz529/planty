@@ -237,15 +237,156 @@ begin
    where id = '40000000-0000-4000-8000-000000000108';
 end $$;
 
+-- ── a day worth routing (feature 008) ────────────────────────────────
+--
+-- One customer means one stop a day, and a route planner with one stop
+-- demonstrates nothing. These are the rest of a real round: five more offices
+-- inside the Business Bay polygon, and two homes inside Dubai Marina.
+--
+-- Every one goes in through the same path as the first — pinned inside a served
+-- zone, priced by price_basket, stock allocated — so the numbers on screen are
+-- arrived at rather than typed. Visits come from generate_visits() below, which
+-- puts Business Bay on its Mondays and Wednesdays and Marina on its Tuesdays
+-- and Thursdays, exactly as it would in production.
+--
+-- Baskets lean on the plants with spare stock, so nothing here changes which
+-- variants are out of stock.
+
+insert into public.sites (id, organization_id, owner_account_id, label, location, building, unit, access_notes) values
+  ('50000000-0000-4000-8000-000000000003', '20000000-0000-4000-8000-000000000001', null,
+   'Northwind Bay Square 6', extensions.st_geogfromtext('POINT(55.270 25.193)'),
+   'Bay Square Building 6', 'Level 2', 'Loading bay at the back, before 11am.'),
+  ('50000000-0000-4000-8000-000000000004', '20000000-0000-4000-8000-000000000001', null,
+   'Northwind Executive', extensions.st_geogfromtext('POINT(55.265 25.185)'),
+   'Executive Towers Tower B', 'Office 1907', 'Sign in at the desk; lifts need a pass.'),
+  ('50000000-0000-4000-8000-000000000005', '20000000-0000-4000-8000-000000000001', null,
+   'Northwind Bay Avenue', extensions.st_geogfromtext('POINT(55.260 25.178)'),
+   'Bay Avenue', 'Unit 4', 'Shutter is up from 8am.'),
+  ('50000000-0000-4000-8000-000000000006', '20000000-0000-4000-8000-000000000001', null,
+   'Northwind Churchill', extensions.st_geogfromtext('POINT(55.282 25.188)'),
+   'Churchill Towers', 'Office 2204', 'Ask for facilities on arrival.'),
+  ('50000000-0000-4000-8000-000000000007', '20000000-0000-4000-8000-000000000001', null,
+   'Northwind Opus', extensions.st_geogfromtext('POINT(55.276 25.183)'),
+   'The Opus', 'Level 5', 'Service lift only.'),
+  ('50000000-0000-4000-8000-000000000008', null, '10000000-0000-4000-8000-000000000001',
+   'Marina Gate', extensions.st_geogfromtext('POINT(55.140 25.080)'),
+   'Marina Gate 1', 'Apartment 3302', 'Concierge holds a key.'),
+  ('50000000-0000-4000-8000-000000000009', null, '10000000-0000-4000-8000-000000000001',
+   'Cluster R', extensions.st_geogfromtext('POINT(55.145 25.070)'),
+   'JLT Cluster R', 'Apartment 808', 'Buzzer 808. No pets.');
+
+do $$
+declare
+  v_site record;
+  v_install date;
+  v_quote jsonb;
+  v_id uuid;
+  v_ref integer := 1;
+  v_weekdays smallint[];
+begin
+  for v_site in
+    select s.id, s.organization_id, s.owner_account_id, s.zone_id, b.basket
+      from public.sites s
+      join (values
+        ('50000000-0000-4000-8000-000000000003'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000105","quantity":4},
+           {"variant_id":"40000000-0000-4000-8000-000000000106","quantity":2}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000004'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000105","quantity":3},
+           {"variant_id":"40000000-0000-4000-8000-000000000104","quantity":2}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000005'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000105","quantity":5}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000006'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000106","quantity":2},
+           {"variant_id":"40000000-0000-4000-8000-000000000104","quantity":1}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000007'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000105","quantity":2},
+           {"variant_id":"40000000-0000-4000-8000-000000000107","quantity":1}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000008'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000105","quantity":3}]'::jsonb),
+        ('50000000-0000-4000-8000-000000000009'::uuid,
+         '[{"variant_id":"40000000-0000-4000-8000-000000000106","quantity":2}]'::jsonb)
+      ) as b(site_id, basket) on b.site_id = s.id
+     order by s.id
+  loop
+    -- The next day this site's own zone is served, at least two working days
+    -- out — the same rule checkout applies.
+    select service_weekdays into v_weekdays
+      from public.service_zones where id = v_site.zone_id;
+
+    select min(d)::date into v_install
+      from generate_series(public.min_installation_date(),
+                           public.min_installation_date() + 14, '1 day') d
+     where extract(dow from d)::smallint = any(v_weekdays);
+
+    v_quote := public.price_basket(
+      v_site.basket,
+      '60000000-0000-4000-8000-000000000012',
+      '61000000-0000-4000-8000-000000000001',
+      null);
+
+    insert into public.subscriptions (
+      organization_id, owner_account_id, site_id, status, payment_method,
+      payment_reference, billing_email, term_months, term_label, term_multiplier,
+      cadence_code, cadence_label, cadence_fee_aed,
+      plants_subtotal_aed, service_fee_aed, monthly_total_aed, quote,
+      installation_date, ends_on, reserved_until, created_by
+    ) values (
+      v_site.organization_id, v_site.owner_account_id, v_site.id, 'active', 'invoice',
+      'PL-' || lpad((1 + v_ref)::text, 6, '0'),
+      case when v_site.organization_id is not null
+           then 'accounts@northwind.example' else 'priya@example.com' end,
+      12, '12 months', 1.0000,
+      'fortnightly', 'Every 2 weeks', 150.00,
+      (v_quote ->> 'plants_subtotal_aed')::numeric,
+      (v_quote ->> 'service_fee_aed')::numeric,
+      (v_quote ->> 'monthly_total_aed')::numeric,
+      v_quote,
+      v_install, v_install + interval '12 months', now() + interval '7 days',
+      coalesce(v_site.owner_account_id, '10000000-0000-4000-8000-000000000002')
+    ) returning id into v_id;
+
+    insert into public.subscription_lines
+      (subscription_id, variant_id, species_name, size_tier, unit_price_aed, quantity, line_total_aed)
+    select v_id, pv.id, sp.common_name, pv.size_tier, pv.price_aed,
+           (b ->> 'quantity')::integer,
+           pv.price_aed * (b ->> 'quantity')::integer
+      from jsonb_array_elements(v_site.basket) b
+      join public.plant_variants pv on pv.id = (b ->> 'variant_id')::uuid
+      join public.plant_species sp on sp.id = pv.species_id;
+
+    insert into public.subscription_status_events (subscription_id, from_status, to_status, note)
+    values (v_id, null, 'pending', 'seeded'), (v_id, 'pending', 'active', 'seeded as paid');
+
+    update public.plant_variants pv
+       set stock_allocated = pv.stock_allocated + (b ->> 'quantity')::integer
+      from jsonb_array_elements(v_site.basket) b
+     where pv.id = (b ->> 'variant_id')::uuid;
+
+    v_ref := v_ref + 1;
+  end loop;
+end $$;
+
 select public.generate_visits(28);
 
--- Assign the first two stops to Tariq so a technician has a day to work.
+-- Give Tariq the whole of the first day. One technician drives one round, so
+-- half a day assigned would be a state the business never actually reaches —
+-- and it leaves a day worth planning a route for.
+--
+-- Numbered by site label rather than by anything meaningful, which is the point:
+-- it is the arbitrary order the route planner exists to improve on.
 update public.visits v
    set technician_id = '10000000-0000-4000-8000-000000000004',
-       sequence_no = sub.rn
-  from (select id, row_number() over (order by scheduled_date) as rn
-          from public.visits where status = 'planned') sub
- where v.id = sub.id and sub.rn <= 2;
+       sequence_no = d.rn
+  from (
+    select vv.id, row_number() over (order by si.label)::smallint as rn
+      from public.visits vv
+      join public.sites si on si.id = vv.site_id
+     where vv.status = 'planned'
+       and vv.scheduled_date = (select min(scheduled_date)
+                                  from public.visits where status = 'planned')
+  ) d
+ where v.id = d.id;
 
 -- ── ledger opening balances (feature 006) ────────────────────────────
 -- Migrations run before this file, so migration 0009's opening entries found an

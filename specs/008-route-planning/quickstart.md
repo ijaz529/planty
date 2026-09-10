@@ -2,30 +2,32 @@
 
 ## Seeing it work
 
-The seed gives every subscription a fortnightly visit, and with one customer
-that is one stop a day — which demonstrates nothing. A route planner needs a
-day worth routing.
-
 ```bash
 supabase db reset && npm run seed:images && npm run dev
 ```
 
-Then, to put six stops on one day, add sites inside the served polygons and give
-each its own subscription. A subscription may hold only one visit per day
-(`visits_one_per_day`), so five extra stops need five extra subscriptions.
+The seed leaves a round worth routing: six stops in Business Bay on its first
+Monday, all assigned to Tariq, plus two Marina stops on the Tuesday. They are
+numbered alphabetically by site, which is deliberately arbitrary — it is the
+order the planner exists to improve on.
 
-The two served zones are rectangles:
+Sign in at `/auth` as `050 000 0003` with code `123456`, open the Monday from
+`/ops/visits`, and press **Plan the route**.
 
-| Zone | Longitude | Latitude |
-| --- | --- | --- |
-| Business Bay | 55.255 – 55.292 | 25.175 – 25.200 |
-| Dubai Marina | 55.130 – 55.160 | 25.065 – 25.095 |
+## Adding more stops
 
-A point outside both is refused by `assign_site_zone()` with "we do not serve
-this location yet", which is feature 001 doing its job rather than a bug.
+Every site must sit inside a served polygon or `assign_site_zone()` refuses it
+with "we do not serve this location yet", which is feature 001 doing its job.
 
-Then sign in at `/auth` as `050 000 0003` with code `123456`, open
-`/ops/visits?date=<the day>`, and press **Plan the route**.
+| Zone | Longitude | Latitude | Served |
+| --- | --- | --- | --- |
+| Business Bay | 55.255 – 55.292 | 25.175 – 25.200 | Mon, Wed |
+| Dubai Marina | 55.130 – 55.160 | 25.065 – 25.095 | Tue, Thu |
+
+A subscription may hold only one visit a day (`visits_one_per_day`), so another
+stop means another subscription. The seed's own loop near the bottom of
+`seed.sql` is the pattern to copy: pin the site, price the basket with
+`price_basket`, allocate the stock, and let `generate_visits()` place the days.
 
 ## What you should see
 

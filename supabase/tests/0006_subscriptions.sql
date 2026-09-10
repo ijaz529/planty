@@ -22,11 +22,14 @@ select (public.min_installation_date() - 1)::text as early \gset
 -- stock assertion below is a delta from where this test started.
 select stock_allocated as base_alloc, stock_available as base_avail
   from public.plant_variants where id = '40000000-0000-4000-8000-000000000108' \gset
-select count(*)::int as base_subs from public.subscriptions \gset
 \set snake  '40000000-0000-4000-8000-000000000101'
 
 set local role authenticated;
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
+
+-- Captured as Nadia, because every count it is compared against is read as
+-- Nadia. Taken as postgres it would count subscriptions she cannot see.
+select count(*)::int as base_subs from public.subscriptions \gset
 
 -- ── refusals come first, and leave nothing behind ────────────────────
 
@@ -240,7 +243,9 @@ create temp table t_sub2 as
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000001","role":"authenticated"}';
 
 select is(
-  (select count(*) from public.subscriptions), 0::bigint,
+  (select count(*) from public.subscriptions
+    where organization_id = '20000000-0000-4000-8000-000000000001'),
+  0::bigint,
   'an outsider sees no subscriptions of another organization'
 );
 

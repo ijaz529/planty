@@ -59,7 +59,7 @@ select throws_like(
 -- The zone is assigned by the trigger, so a wrong zone_id cannot be smuggled in.
 select lives_ok(
   $$insert into public.sites (id, owner_account_id, label, location, building, zone_id)
-    values ('50000000-0000-4000-8000-000000000009',
+    values ('50000000-0000-4000-8000-0000000000ff',
             '10000000-0000-4000-8000-000000000001', 'Second home',
             extensions.st_geogfromtext('POINT(55.145 25.080)'), 'Marina Gate 1',
             '30000000-0000-4000-8000-000000000001')$$,
@@ -68,7 +68,7 @@ select lives_ok(
 
 select is(
   (select zone_id from public.sites
-   where id = '50000000-0000-4000-8000-000000000009'),
+   where id = '50000000-0000-4000-8000-0000000000ff'),
   '30000000-0000-4000-8000-000000000002'::uuid,
   'the trigger assigns the zone that actually covers the pin, not the one supplied'
 );
@@ -76,8 +76,9 @@ select is(
 -- ── who can see a site ───────────────────────────────────────────────
 
 select is(
-  (select count(*) from public.sites),
-  2::bigint,
+  (select count(*) from public.sites
+    where owner_account_id is distinct from '10000000-0000-4000-8000-000000000001'::uuid),
+  0::bigint,
   'a personal site owner sees their own sites only'
 );
 
@@ -92,8 +93,9 @@ select is(
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
 
 select is(
-  (select count(*) from public.sites),
-  1::bigint,
+  (select count(*) from public.sites
+    where organization_id is distinct from '20000000-0000-4000-8000-000000000001'::uuid),
+  0::bigint,
   'an organization owner sees the organization site'
 );
 
@@ -138,10 +140,11 @@ select is(
 );
 
 select is(
-  (select count(*) from public.sites_needing_zone_review
-   where zone_id = '30000000-0000-4000-8000-000000000002'),
-  2::bigint,
-  'and the affected sites are listed for an operator to review'
+  (select count(*) from public.sites_needing_zone_review sr
+    where sr.zone_id = '30000000-0000-4000-8000-000000000002'),
+  (select count(*) from public.sites
+    where zone_id = '30000000-0000-4000-8000-000000000002'),
+  'and every affected site is listed for an operator to review'
 );
 
 select * from finish();

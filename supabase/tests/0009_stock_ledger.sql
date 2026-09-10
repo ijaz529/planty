@@ -5,7 +5,10 @@ select plan(23);
 -- 3 snake floor and 1 kentia. Omar (...0003) is an operator, Tariq (...0004)
 -- the technician, Nadia (...0002) the customer.
 
-select id as sub_id from public.subscriptions where status = 'active' limit 1 \gset
+-- Pinned by reference: the seed has several active subscriptions now, so
+-- `limit 1` would pick an arbitrary one with different plants on it.
+select id as sub_id from public.subscriptions
+ where payment_reference = 'PL-000001' \gset
 select id as kentia_line from public.subscription_lines
  where subscription_id = :'sub_id' and species_name = 'Kentia palm' \gset
 select id as zz_line from public.subscription_lines

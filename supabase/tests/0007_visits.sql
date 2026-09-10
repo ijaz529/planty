@@ -1,14 +1,21 @@
 begin;
 select plan(23);
 
--- The seed leaves one active Northwind subscription (Business Bay, Mon+Wed,
--- fortnightly), its visits generated, and the first two assigned to Tariq
--- (...0004). Nadia (...0002) is the customer, Priya (...0001) an outsider,
--- Omar (...0003) an operator.
+-- The seed leaves several active subscriptions with their visits generated and
+-- the whole of the first day assigned to Tariq (...0004). This suite works on
+-- PL-000001, the Northwind office (Business Bay, Mon+Wed, fortnightly). Nadia
+-- (...0002) is its customer, Priya (...0001) an outsider, Omar (...0003) an
+-- operator.
 
-select id as sub_id from public.subscriptions where status = 'active' limit 1 \gset
+-- Pinned by reference: the seed has several active subscriptions now, so
+-- `limit 1` would pick an arbitrary one with different plants on it.
+select id as sub_id from public.subscriptions
+ where payment_reference = 'PL-000001' \gset
+-- Tariq now has a whole round, so take the stop belonging to the pinned
+-- subscription rather than whichever one sorts first.
 select id as visit1, site_id as site1 from public.visits
  where technician_id = '10000000-0000-4000-8000-000000000004'
+   and subscription_id = :'sub_id'
  order by scheduled_date limit 1 \gset
 
 -- ── generation rules (SC-002, SC-003) ────────────────────────────────
@@ -130,9 +137,20 @@ select is(
 
 -- ── the narrowed technician access (feature 001-s recorded correction) ──
 
+-- The point being tested is that a technician keeps sight of a site while they
+-- still have work there, so the second stop has to be at that same site rather
+-- than merely on the same round. The seed assigns Tariq one day, so this suite
+-- gives him the subscription's next stop itself instead of relying on the seed
+-- to have done it.
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000003","role":"authenticated"}';
+
 select id as visit2 from public.visits
- where technician_id = '10000000-0000-4000-8000-000000000004' and status = 'planned'
+ where status = 'planned' and subscription_id = :'sub_id'
  order by scheduled_date limit 1 \gset
+
+select public.assign_visit(:'visit2', '10000000-0000-4000-8000-000000000004', 9::smallint);
+
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000004","role":"authenticated"}';
 
 select is(
   (select count(*) from public.sites where id = :'site1'),
@@ -164,14 +182,23 @@ select is(
 
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000001","role":"authenticated"}';
 
+-- Priya has her own Marina subscriptions now, so "sees nothing" is no longer
+-- the invariant. What must hold is that she sees nothing of Northwind's.
 select is(
-  (select count(*) from public.visits), 0::bigint,
-  'an outsider sees no visits'
+  (select count(*) from public.visits v
+     join public.subscriptions s on s.id = v.subscription_id
+    where s.organization_id = '20000000-0000-4000-8000-000000000001'),
+  0::bigint,
+  'an outsider sees no visits of another organization'
 );
 
 select is(
-  (select count(*) from public.visit_photos), 0::bigint,
-  'nor any photos'
+  (select count(*) from public.visit_photos p
+     join public.visits v on v.id = p.visit_id
+     join public.subscriptions s on s.id = v.subscription_id
+    where s.organization_id = '20000000-0000-4000-8000-000000000001'),
+  0::bigint,
+  'nor any of its photos'
 );
 
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';

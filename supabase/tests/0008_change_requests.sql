@@ -6,7 +6,10 @@ select plan(26);
 -- Nadia (...0002) is the customer, Priya (...0001) an outsider, Omar (...0003)
 -- an operator. Default rotation allowance is 2 per 30-day window (007).
 
-select id as sub_id from public.subscriptions where status = 'active' limit 1 \gset
+-- Pinned by reference: the seed has several active subscriptions now, so
+-- `limit 1` would pick an arbitrary one with different plants on it.
+select id as sub_id from public.subscriptions
+ where payment_reference = 'PL-000001' \gset
 select id as kentia_line from public.subscription_lines
  where subscription_id = :'sub_id' and species_name = 'Kentia palm' \gset
 select id as zz_line from public.subscription_lines
