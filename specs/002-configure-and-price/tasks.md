@@ -26,16 +26,16 @@ and this feature implements one rule twice. The shared fixtures in
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T001 Migration `supabase/migrations/0005_pricing.sql` part 1: `rental_terms` and `service_cadences` per data-model.md §1–§2, each with a partial unique index enforcing exactly one active default, plus `service_zones.minimum_monthly_aed`; RLS granting active rows to `anon` and write to operators only
-- [ ] T002 Migration part 2: `bundles` and `bundle_items` per data-model.md §4, with RLS exposing published bundles to `anon` and writes to operators
-- [ ] T003 Migration part 3: `price_basket(p_items, p_term_id, p_cadence_id, p_site_id)` per data-model.md §5 — integer-fils arithmetic, per-line rounding, line classification, one rounding on the term multiplier, site-ownership check before applying a zone minimum; `security definer`, granted to `anon` and `authenticated`
-- [ ] T004 Migration part 4: `bundle_price(p_bundle_id)` delegating to `price_basket` with the active defaults, so a bundle cannot advertise a price its contents do not produce
-- [ ] T005 Extend `supabase/seed.sql` with three rental terms, two cadences, an AED 400 minimum on both zones, and four bundles — three sellable plus one containing the zero-stock Areca so the unavailable state is demonstrable
-- [ ] T006 [P] Implement the TypeScript mirror in `src/lib/pricing.ts`: `priceBasket(items, catalog, term, cadence)` following `contracts/pricing-contract.md` exactly, in integer fils, returning the same shape as the database function
-- [ ] T007 [P] Implement basket storage in `src/lib/basket.ts`: read, write, add, remove, `setQuantity`, clear, over a version-stamped `localStorage` key holding ids and quantities but never prices; every access wrapped so a blocked or corrupt store degrades to an empty basket
-- [ ] T008 Unit tests `tests/unit/pricing.test.ts` driving every case in `contracts/pricing-cases.json` through `priceBasket`, plus the six invariants in the pricing contract
-- [ ] T009 [P] Unit tests `tests/unit/basket.test.ts`: quantity rules (whole numbers, minimum one, zero removes), storage failure degrading to empty, version mismatch discarding an old basket
-- [ ] T010 pgTAP tests `supabase/tests/0005_pricing.sql` driving the same fixture file through `price_basket`, plus: anon may price, the site minimum applies only to a site the caller may see, a foreign site id falls back to guidance rather than leaking, and only operators may write terms, cadences or bundles
+- [X] T001 Migration `supabase/migrations/0005_pricing.sql` part 1: `rental_terms` and `service_cadences` per data-model.md §1–§2, each with a partial unique index enforcing exactly one active default, plus `service_zones.minimum_monthly_aed`; RLS granting active rows to `anon` and write to operators only
+- [X] T002 Migration part 2: `bundles` and `bundle_items` per data-model.md §4, with RLS exposing published bundles to `anon` and writes to operators
+- [X] T003 Migration part 3: `price_basket(p_items, p_term_id, p_cadence_id, p_site_id)` per data-model.md §5 — integer-fils arithmetic, per-line rounding, line classification, one rounding on the term multiplier, site-ownership check before applying a zone minimum; `security definer`, granted to `anon` and `authenticated`
+- [X] T004 Migration part 4: `bundle_price(p_bundle_id)` delegating to `price_basket` with the active defaults, so a bundle cannot advertise a price its contents do not produce
+- [X] T005 Extend `supabase/seed.sql` with three rental terms, two cadences, an AED 400 minimum on both zones, and four bundles — three sellable plus one containing the zero-stock Areca so the unavailable state is demonstrable
+- [X] T006 [P] Implement the TypeScript mirror in `src/lib/pricing.ts`: `priceBasket(items, catalog, term, cadence)` following `contracts/pricing-contract.md` exactly, in integer fils, returning the same shape as the database function
+- [X] T007 [P] Implement basket storage in `src/lib/basket.ts`: read, write, add, remove, `setQuantity`, clear, over a version-stamped `localStorage` key holding ids and quantities but never prices; every access wrapped so a blocked or corrupt store degrades to an empty basket
+- [X] T008 Unit tests `tests/unit/pricing.test.ts` driving every case in `contracts/pricing-cases.json` through `priceBasket`, plus the six invariants in the pricing contract
+- [X] T009 [P] Unit tests `tests/unit/basket.test.ts`: quantity rules (whole numbers, minimum one, zero removes), storage failure degrading to empty, version mismatch discarding an old basket
+- [X] T010 pgTAP tests `supabase/tests/0005_pricing.sql` driving the same fixture file through `price_basket`, plus: anon may price, the site minimum applies only to a site the caller may see, a foreign site id falls back to guidance rather than leaking, and only operators may write terms, cadences or bundles
 
 **Checkpoint**: `supabase db reset` clean; both suites green; the same fixtures pass on both sides.
 
