@@ -59,5 +59,7 @@ async function loadMemberships(
 /** Where to send someone immediately after they sign in. */
 export function postSignInPath(ctx: UserContext): string {
   if (ctx.isOperator) return "/ops";
+  // A technician's job starts at their round, not the catalog.
+  if (ctx.isTechnician) return "/today";
   return "/";
 }

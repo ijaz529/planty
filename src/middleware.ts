@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PROTECTED_PREFIXES = ["/profile", "/sites", "/organizations", "/ops"];
+const PROTECTED_PREFIXES = ["/profile", "/sites", "/organizations", "/ops", "/checkout", "/subscriptions", "/today"];
 
 /** Exact segment match: "/sites" and "/sites/..." but not "/sitesomething". */
 function isProtected(pathname: string): boolean {

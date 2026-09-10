@@ -412,6 +412,28 @@ create policy "sites: owner or organization reads"
     or public.technician_sees_site(id)
   );
 
+-- FR-019: a zone's days can change after visits exist. Existing visits stay
+-- (nobody's plan should vanish), and operators get a list to act on.
+
+create function public.visits_off_service_days()
+returns table (id uuid, scheduled_date date, label text, zone_name text)
+language sql
+security definer
+set search_path = ''
+stable
+as $$
+  select v.id, v.scheduled_date, si.label, z.name
+    from public.visits v
+    join public.sites si on si.id = v.site_id
+    join public.service_zones z on z.id = si.zone_id
+   where v.status = 'planned'
+     and public.is_operator()
+     and not (extract(dow from v.scheduled_date)::smallint = any (z.service_weekdays))
+   order by v.scheduled_date;
+$$;
+
+grant execute on function public.visits_off_service_days() to authenticated;
+
 -- ── nightly generation ───────────────────────────────────────────────
 -- 22:00 UTC is 02:00 in Asia/Dubai: after the working day, before the next.
 

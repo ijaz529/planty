@@ -36,6 +36,11 @@ export async function SiteHeader() {
               >
                 Organizations
               </Link>
+              {ctx?.isTechnician && !ctx?.isOperator && (
+                <Link href="/today" className="text-muted hover:text-foreground">
+                  Today
+                </Link>
+              )}
               {ctx?.isOperator && (
                 <Link href="/ops" className="text-muted hover:text-foreground">
                   Operations
