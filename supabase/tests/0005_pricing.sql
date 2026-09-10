@@ -1,5 +1,5 @@
 begin;
-select plan(31);
+select plan(33);
 
 -- These are the SAME cases as specs/002-configure-and-price/contracts/pricing-cases.json,
 -- which tests/unit/pricing.test.ts runs against the TypeScript mirror. If one
@@ -8,7 +8,7 @@ select plan(31);
 --
 -- Seeded terms:    3mo x1.15, 6mo x1.07, 12mo x1.00 (default)
 -- Seeded cadences: weekly AED 250, fortnightly AED 150 (default)
--- Zone minimums:   AED 400 on both zones
+-- Zone minimums:   AED 150 on both zones (feature 007)
 
 \set t3   '\'60000000-0000-4000-8000-000000000003\''
 \set t6   '\'60000000-0000-4000-8000-000000000006\''
@@ -39,8 +39,8 @@ select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]'::jsonb,
      :t12, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  205.00::numeric,
-  'one desk plant plus the fortnightly fee is AED 205'
+  156.00::numeric,
+  'one desk plant plus the fortnightly fee is AED 156'
 );
 
 -- ── fixture: quantities multiply and lines sum ───────────────────────
@@ -50,8 +50,8 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":4},
        {"variant_id":"40000000-0000-4000-8000-000000000103","quantity":3}]'::jsonb,
      :t12, :cfn, null) ->> 'plants_subtotal_aed')::numeric,
-  400.00::numeric,
-  'four snake plants and three ZZ plants come to AED 400'
+  45.00::numeric,
+  'four snake plants and three ZZ plants come to AED 45'
 );
 
 select is(
@@ -59,8 +59,8 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":4},
        {"variant_id":"40000000-0000-4000-8000-000000000103","quantity":3}]'::jsonb,
      :t12, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  550.00::numeric,
-  'and AED 550 with the fee'
+  195.00::numeric,
+  'and AED 195 with the fee'
 );
 
 -- ── fixture: weekly raises the fee, not the plant prices ─────────────
@@ -77,7 +77,7 @@ select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":4}]'::jsonb,
      :t12, :cwk, null) ->> 'plants_subtotal_aed')::numeric,
-  220.00::numeric,
+  24.00::numeric,
   'and leaves the plant subtotal alone'
 );
 
@@ -87,7 +87,7 @@ select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":4}]'::jsonb,
      :t3, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  425.50::numeric,
+  200.10::numeric,
   'a three-month term multiplies the whole subtotal'
 );
 
@@ -95,7 +95,7 @@ select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":4}]'::jsonb,
      :t3, :cfn, null) ->> 'flexibility_cost_aed')::numeric,
-  55.50::numeric,
+  26.10::numeric,
   'and states the cost of the shorter term in money'
 );
 
@@ -106,8 +106,8 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":3},
        {"variant_id":"40000000-0000-4000-8000-000000000108","quantity":1}]'::jsonb,
      :t6, :cwk, null) ->> 'monthly_total_aed')::numeric,
-  631.30::numeric,
-  'the six-month multiplier rounds once, to AED 631.30'
+  324.21::numeric,
+  'the six-month multiplier rounds once, to AED 324.21'
 );
 
 -- ── fixture: out of stock but published is unavailable ───────────────
@@ -117,7 +117,7 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":2},
        {"variant_id":"40000000-0000-4000-8000-000000000109","quantity":1}]'::jsonb,
      :t12, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  260.00::numeric,
+  162.00::numeric,
   'an out-of-stock plant is excluded from the total'
 );
 
@@ -147,7 +147,7 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1},
        {"variant_id":"40000000-0000-4000-8000-000000000110","quantity":5}]'::jsonb,
      :t12, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  205.00::numeric,
+  156.00::numeric,
   'an unpublished draft contributes nothing'
 );
 
@@ -201,7 +201,7 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1},
        {"variant_id":"40000000-0000-4000-8000-0000000009ff","quantity":2}]'::jsonb,
      :t12, :cfn, null) ->> 'monthly_total_aed')::numeric,
-  205.00::numeric,
+  156.00::numeric,
   'an unknown variant id prices as unavailable rather than raising'
 );
 
@@ -215,8 +215,8 @@ select is(
        {"variant_id":"40000000-0000-4000-8000-000000000107","quantity":2},
        {"variant_id":"40000000-0000-4000-8000-000000000108","quantity":1}]'::jsonb,
      :t3, :cwk, null) ->> 'monthly_total_aed')::numeric,
-  1702.00::numeric,
-  'a realistic small office at the shortest term comes to AED 1702'
+  497.95::numeric,
+  'a realistic small office at the shortest term comes to AED 497.95'
 );
 
 -- ── invariants (SC-003) ──────────────────────────────────────────────
@@ -258,7 +258,35 @@ select is(
   'anon cannot apply a site minimum'
 );
 
--- Nadia owns Northwind, whose site is in a zone with an AED 400 minimum.
+-- Nadia owns Northwind, whose site is in a zone with an AED 150 minimum.
+set local role authenticated;
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
+
+-- Feature 007, FR-004 / SC-005. At AED 5 a plant the old AED 400 minimum would
+-- have bound on nearly every customer and overridden the advertised price. At
+-- AED 150 a single desk plant plus the fortnightly fee already clears it.
+select is(
+  (public.price_basket(
+     '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]'::jsonb,
+     :t12, :cfn, '50000000-0000-4000-8000-000000000001') ->> 'meets_minimum')::boolean,
+  true,
+  'an ordinary small order is priced from the list, not the minimum'
+);
+
+select is(
+  (public.price_basket(
+     '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]'::jsonb,
+     :t12, :cfn, '50000000-0000-4000-8000-000000000001') ->> 'shortfall_aed')::numeric,
+  0.00::numeric,
+  'with nothing owed to reach it'
+);
+
+-- The rule itself still works; it is the seeded number that stopped biting.
+-- Raise the minimum inside this transaction and the refusal comes back.
+reset role;
+update public.service_zones set minimum_monthly_aed = 400.00
+ where id = (select zone_id from public.sites
+              where id = '50000000-0000-4000-8000-000000000001');
 set local role authenticated;
 set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
 
@@ -267,16 +295,23 @@ select is(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]'::jsonb,
      :t12, :cfn, '50000000-0000-4000-8000-000000000001') ->> 'meets_minimum')::boolean,
   false,
-  'a basket below the zone minimum is refused'
+  'a basket below the zone minimum is still refused when one bites'
 );
 
 select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]'::jsonb,
      :t12, :cfn, '50000000-0000-4000-8000-000000000001') ->> 'shortfall_aed')::numeric,
-  195.00::numeric,
+  244.00::numeric,
   'and the shortfall is stated in money'
 );
+
+reset role;
+update public.service_zones set minimum_monthly_aed = 150.00
+ where id = (select zone_id from public.sites
+              where id = '50000000-0000-4000-8000-000000000001');
+set local role authenticated;
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
 
 select is(
   (public.price_basket(
@@ -303,7 +338,7 @@ set local request.jwt.claims to '{}';
 
 select is(
   (public.bundle_price('62000000-0000-4000-8000-000000000001') ->> 'plants_subtotal_aed')::numeric,
-  310.00::numeric,
+  34.00::numeric,
   'Desk Starter prices from its four snake plants and two pothos'
 );
 

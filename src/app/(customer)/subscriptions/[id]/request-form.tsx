@@ -108,7 +108,7 @@ export function RequestForm({
             onClick={() => setMode("rotation")}
             disabled={rotationsLeft <= 0 || swapTargets.length === 0}
             className="rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-medium disabled:opacity-50"
-            title={rotationsLeft <= 0 ? "No swaps left this quarter" : undefined}
+            title={rotationsLeft <= 0 ? "No swaps left this month" : undefined}
           >
             Swap one for something different
           </button>

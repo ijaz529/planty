@@ -11,15 +11,15 @@ import {
 
 describe("rotationsPhrase", () => {
   it("says how many there are before any are spent", () => {
-    expect(rotationsPhrase(2, 2)).toBe("2 swaps to use this quarter");
+    expect(rotationsPhrase(2, 2)).toBe("2 swaps to use this month");
   });
 
   it("counts down once some are used", () => {
-    expect(rotationsPhrase(1, 2)).toBe("1 of 2 swaps left this quarter");
+    expect(rotationsPhrase(1, 2)).toBe("1 of 2 swaps left this month");
   });
 
   it("is plain when there are none left", () => {
-    expect(rotationsPhrase(0, 2)).toBe("No swaps left this quarter");
+    expect(rotationsPhrase(0, 2)).toBe("No swaps left this month");
   });
 
   it("says so when the plan includes none at all", () => {
@@ -28,7 +28,7 @@ describe("rotationsPhrase", () => {
   });
 
   it("gets the singular right", () => {
-    expect(rotationsPhrase(1, 1)).toBe("1 swap to use this quarter");
+    expect(rotationsPhrase(1, 1)).toBe("1 swap to use this month");
   });
 });
 

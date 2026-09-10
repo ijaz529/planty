@@ -1,10 +1,10 @@
 begin;
-select plan(25);
+select plan(26);
 
 -- The seed leaves one active Northwind subscription with four lines, its
 -- visits generated and the first two assigned to Tariq (...0004).
 -- Nadia (...0002) is the customer, Priya (...0001) an outsider, Omar (...0003)
--- an operator. Default rotation allowance is 2 per 90-day window.
+-- an operator. Default rotation allowance is 2 per 30-day window (007).
 
 select id as sub_id from public.subscriptions where status = 'active' limit 1 \gset
 select id as kentia_line from public.subscription_lines
@@ -27,13 +27,18 @@ select is(
   'a new subscription starts with its full rotation allowance'
 );
 
--- The window ends ninety days after installation. The FIRST one is a little
--- longer than ninety days, because it opens when the subscription is created
+-- The window ends thirty days after installation. The FIRST one is a little
+-- longer than thirty days, because it opens when the subscription is created
 -- so a request made while waiting for installation still counts.
 select is(
+  public.rotation_window_days(), 30,
+  'the swap window is thirty days, not a quarter'
+);
+
+select is(
   public.rotation_period_end(:'sub_id'),
-  (select installation_date + 90 from public.subscriptions where id = :'sub_id'),
-  'the window ends ninety days after installation'
+  (select installation_date + 30 from public.subscriptions where id = :'sub_id'),
+  'the window ends thirty days after installation'
 );
 
 select is(
