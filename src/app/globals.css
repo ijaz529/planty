@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbfaf7;
+  --foreground: #1a2b21;
+  --leaf: #2f6b46;
+  --leaf-soft: #e8f1ea;
+  --muted: #5d6b62;
+  --line: #e2e0d8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Light-only for now: every surface is designed against a light palette.
+   A dark theme is a deliberate later pass, not an accident of the OS setting. */
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

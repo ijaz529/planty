@@ -1,209 +1,563 @@
-# B2B competitors: office plant rental & maintenance (raw research notes)
+# Lens: B2B Competitors — Office Plant Rental & Maintenance
 
-Lens: B2B competitors (office plant rental / interior plantscaping / "Mietpflanzen" / "office plant hire").
-Researched: 2026-09-09. Sources are 2024–2026 unless noted. Every number carries a URL + year of the page.
-Method: 13 WebSearch queries (EN + DE + UAE-specific), ~55 WebFetch calls on competitor pages, Rentokil Initial investor PDFs read with pdftotext. Several competitor sites (ambius.com, ambius.co.uk, inleaf.co.uk, plantshop.me, urbanplanters.co.uk) returned HTTP 403 to the fetcher; for those I only have search-snippet or third-party data and say so.
-
-Legend: **[reported]** = number stated by the source; **[my estimate]** = my own derivation; **[anecdotal]** = blog/job ad/forum.
+Research date: 2026-09-10. All figures carry the year of the source. Currency as published.
+"Reported" = taken from the cited page. "My estimate" = my own derivation, labelled inline.
 
 ---
 
-## 1. Industry-wide pattern (what "everyone" does)
+## 0. Executive orientation
 
-Across all three geographies the incumbent model is nearly identical:
+The B2B office-plant-rental industry is old, profitable, fragmented, and almost entirely
+offline in its go-to-market. Across **four markets I checked (US, UK/AU, Germany, UAE) I could
+not find a single incumbent that lets a business customer configure a plant scheme and check
+out online.** Every one of them gates price behind a site survey, a phone call, or a WhatsApp
+message. That is the clearest white space for Planty.
 
-1. **Consultative sale**: free site survey -> design proposal/3D visual -> written quote. Not one of the ~30 companies profiled offers a self-serve online checkout for an office rental contract. The closest are (a) Plant Drop UK (online cart for buying plants; care plans still via "Talk to Us"), (b) Plantsworld.ae (a "from AED 50" office plant-care service listing that can be added to cart, which is really a paid site-inspection lead form), and (c) plantclub.io (published tiered price list, but sign-up still goes to a "Get a Custom Quote" scheduling link).
-2. **All-inclusive monthly/weekly fee** covering plant, planter, installation, scheduled care visit, and free replacement ("Pflanzengarantie" / "Vollkasko-Pflanzen-Service" / "replacement guarantee").
-3. **Care cadence is NOT weekly by default** for hydroculture-based B2B: DE providers state every 2–4 weeks; UK providers 3–4-weekly; Ambius "13–17 visits/year" (i.e. every 3–4 weeks). UAE providers are the exception: several advertise weekly visits (800petals, Royal Plantscape weekly tier), presumably because soil-grown plants in AC'd, dusty offices need it.
-4. **Minimum term**: 12 months is the modal floor (DE: WELO, Gregg, plantclub; UK: Plant Drop), with 24 months (Hydro Lesser), 12–36 months (Berlin Kölle/Mohr per search snippet) and 2–3 years typical in UK (Plant Plan "usually three years", Vantage Spaces 12/24/36/60-month options with 3-month notice). UAE: "flexible; most clients choose 12-month agreements for the best monthly rate" (800petals).
-5. **Pricing is disclosed only as "from" figures**, and mostly per plant per month (DE, UAE) or per plant per week (UK, AU).
-
----
-
-## 2. Global / anchor player: Ambius (Rentokil Initial)
-
-- Owner: Rentokil Initial plc. Ambius = the interior landscaping + scenting + green walls brand inside the "Hygiene & Wellbeing" (H&W) category; brand created 2008 from "Initial Tropical Plants" in 14 countries; original business bought 1988 (search result summarising https://www.ambius.com/about, 2026).
-- Public financials (Ambius is not broken out; only its parent category):
-  - FY2024: H&W revenue **£931m, +8.4% (3.1% organic)**; H&W = **17% of group revenue and 17% of group adjusted operating profit**; H&W adjusted operating margin **18.1%**; "Q4 organic growth was held back by 190bps ... owing to strong prior year comparatives from large projects in Ambius North America" (Rentokil Initial 2024 Preliminary Results PDF, fetched via SEC/marketscreener link, 2025). URL: https://www.sec.gov/Archives/edgar/data/930157/000110465925027944/rto-20241231x20f.htm (20-F FY2024) and the results statement.
-  - FY2024 Pacific region: "Hygiene & Wellbeing revenue grew by 6.2%, with strong demand for Ambius' services continuing"; customer retention 86.6% (Pacific, all categories) (same 2024 results PDF).
-  - FY2024 Europe: "strength in Specialist Hygiene and Ambius where we continue to see significant opportunity" (same).
-  - H1 2026: H&W revenue **$621m (+8.8%, 2.6% organic)**, "improved jobbing demand for Ambius in North America following the weakness in construction-related work in Q1"; H&W = 17% of group revenue; Rentokil says H&W operates "in around 70 markets" (https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/2026-interim-result-statement.pdf, 2026).
-  - Group revenue FY2024 £5.436bn (https://www.rttnews.com/3519202/rentokil-initial-2024-earnings-slip-but-revenue-rises-on-improved-prices-lifts-dividend.aspx, 2025).
-- Service model (third-party review, 2026): "Long-term rental, Short-term rental, Purchase with maintenance, Purchase without maintenance"; **"Ambius typically services 13–17 visits/year (or as required)"**; "Ambius does not publish fixed prices on its website; it requires customers to request a quote"; con: "Recurring contract commitment required"; "Coverage depends on local branch presence and technician routes" (https://us.fitgap.com/products/026748/ambius, 2026).
-- Own-site wording (search snippet, 2026): rental "for an affordable quarterly or monthly fee", long-term rental "includes regular maintenance by plant care specialists" (https://www.ambius.com/about/service-options).
-- **Germany entry via M&A**: "Die Rentokil Initial Gruppe Deutschland hat zum 28. Juni 2024 die Wiesbadener Baumhaus GmbH übernommen." Baumhaus: Wiesbaden HQ, "über 35 Standorte" nationwide, "seit fast 50 Jahren", offers "Pflanzen mieten: Easy Rent" and "Flexible Optionen durch Kauf oder Miete" (https://www.baumhaus.de/ and https://www.baumhaus.de/magazin/, 2024/2026). No pricing published. -> The global #1 now owns a 35-branch German network.
-- **UAE**: I found no Ambius UAE web presence (www.ambius.ae does not resolve; ambius.com/global returned 403; Ambius Saudi Arabia site exists at ambius.com.sa but returned 403). Rentokil's regional partner in the Gulf is Rentokil Boecker (pest/hygiene); I could not confirm an Ambius plant-rental operation in Dubai. Treat as "no confirmed Ambius plant rental in UAE" (gap, not evidence of absence).
-
-Other US incumbents (all quote-based, no prices published):
-- Planterra (Detroit, founded 1973): "full-service firm specializing in interior plant solutions for commercial buildings", "national program ... for companies with multiple locations"; clients CBRE, Rivian, Anthem, Ford (https://planterra.com/services/, 2026).
-- Phillip's Interior Plants (Chicago, family business since 1923): five service modes: "rent green plants from us and we will offer our guaranteed maintenance service", purchase+maintenance, purchase only, short-term rental, maintenance-only; guarantee "if your plant doesn't love its new home, we'll take care of finding its replacement – at no additional charge" (https://www.phillipsinteriorplants.com/interior-plant-service/, 2026).
-- Plant Solutions (Phoenix, founded 1981): "Plant Leasing", design/installation, "ongoing horticultural service", free consultation (https://plantsolutions.com/interior-landscape-company, 2026).
-- US price benchmarks [anecdotal blogs]: commercial maintenance contracts "often start at over $100 per month for basics and run $200 – $600+ per month for full-service packages"; residential weekly maintenance $200–$400/month (https://redsquareflowers.com/how-much-do-interior-plant-maintenance-services-cost/, 2024). Interior Plantscapes: "$50 to several hundred dollars" per month, visits "weekly to monthly" (https://interiorplantscapes.com/how-much-does-interior-plant-service-cost-per-month/, n.d.).
-- Trade pricing methodology (NewPro Containers, trade blog): replacement allowance = plant retail price x 1.3–1.5 (or more) / 12; labour = "(average time per visit in hours) x (hourly rate) x (number of visits per month)", example "0.75 hours x $30/hour x 5 visits/month = $112.50 per month"; lease price = retail x 1.5+ / 12 + replacement allowance + maintenance; freight "up to 30% ... plus an additional $180 for oversized items" (https://www.newprocontainers.com/blog/quick-guide-pricing-interiorscape-jobs/, n.d.).
-- Standard contract terms (Oakland Green Interiors sample "Interior Plantscape Maintenance Agreement", © 2018, PDF surfaced during research): client pays full replacement cost for damage caused by "Watering or other well meaning care by any Client Employees", "Lack of building heat or air conditioning", "Theft", "Moving of any plants to different locations", "Lowering of lighting levels"; if access is blocked "Client agrees to pay for an additional visit and guarantee ... would become void". Useful template for Planty's T&Cs.
+The second structural finding: **service cadence differs by market.** Weekly visits are the
+advertised norm in Dubai; every-2-to-4-weeks is the norm in Germany and the UK. This is a
+first-order unit-economics fact for Planty's "weekly technician visit" assumption.
 
 ---
 
-## 3. United Kingdom (best public price transparency; useful as a EUR sanity check)
+## 1. The global incumbent: Ambius (Rentokil Initial)
 
-- **Plant Plan** (article 9 Dec 2024): rental per week, maintenance + installation included, free replacement: large plants **£3.70–£5.50/wk**, medium **£3.15–£4.15/wk**, small **£1.60–£2.05/wk**, small desk **£1–£1.30/wk**, cluster of three **£10–£15/wk**; purchase prices large floor plant £300–600, medium £250–400; contract "usually three years" (https://www.plantplan.co.uk/blog/what-do-office-plants-cost, 2024).
-- Plant Plan pricing guide (3 Mar 2026): small office 15–20 plants **£60–£90/week rental**; medium office 20–50 plants **£100–£200/week**; purchase+maintenance from £3,000 (small) and £5,000–£10,000+ (medium); process "initial consultation -> site survey -> design proposal -> quotation" with maintenance "typically charged as a distinct line item" (https://www.plantplan.co.uk/blog/indoor-planting-scheme-costs-explained-uk-pricing-guide-for-offices, 2026).
-- **Plant Drop** (London): quotes "industry standard" hire at **£3.70–£5.50/plant/week (180cm)**, medium £3.15–£4.15, desk £1–£1.30; 3-year commitment for 10 large plants = £5,800–£8,600. Its own "Care Plan": **£4.50/plant/week for large specimens, ten plants minimum: "from £195 per month"**, includes planters, care visits, replacement; **"12-month minimum, then rolling monthly: no auto-renewal, no 3-month notice period"** — explicitly positioned against incumbents' 3-year lock-ins. Online checkout exists only for buying plants (£295–£595 per 180–200cm specimen); care plans go via "Talk to Us" (https://plantdrop.co.uk/pages/office-plant-costs-uk and https://plantdrop.co.uk/, 2026).
-- **Inleaf**: "rental and maintenance starting at just £5 per week" (search snippet; site returned 403) (https://inleaf.co.uk/office-plants/office-plant-prices/, 2026).
-- **Vantage Spaces**: "12, 24, 36 month, or 5 year terms"; after the initial term "cancelled with three months notice"; maintenance "on a 3 to 4 weekly cycle"; "Replacement of dead, dying, or overgrown plants is part of our 10 point maintenance SLA"; design + installation "included at no additional cost" (https://www.vantagespaces.co.uk/blog/office-plant-hire-pricing-in-the-uk-what-it-costs-and-whats-included, n.d.).
-- Urban Planters (franchise network) — site 403; no data captured.
-- [my estimate] UK large-plant hire £3.70–£5.50/wk = **£16–£24/plant/month** ≈ **€19–€28/plant/month** (2024–2026 pages); Plant Drop's flat £4.50/wk ≈ €23/plant/month. This is 2–3x the German hydroculture "from €7–€14/plant/month" figures below, but the UK figures are for 180cm specimens with 3–4-weekly care, whereas German "ab" figures are for small planters.
+### Scale and financials
+- Ambius sits inside Rentokil Initial's **Hygiene & Wellbeing** segment. That segment's
+  **revenue rose 8.4% to £931m in 2024**, with organic growth of 3.1%; **Adjusted Operating
+  Profit £169m, Adjusted Operating Margin 18.1%** (down 30bps).
+  Source: Rentokil Initial 2024 Preliminary Results (2024/2025)
+  https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/2024-preliminary-results.pdf
+- The same results note Q4 organic growth was held back ~190bps by "strong prior year
+  comparatives from **large projects in Ambius North America**", and that Wellbeing grew
+  revenue 5.9% driven by the UK with "continued strong performance in the **Plants
+  businesses**". So: interior plants is a real, growing line inside a FTSE-100 services group,
+  and it is **project-led** (lumpy large installs) as well as recurring.
+- Note the margin: ~18% adjusted operating margin at the segment level. This is a services
+  business with route density economics, not a software business. Any Planty model should
+  assume a similar structural ceiling unless software genuinely removes labour.
+- Ambius North America: **more than 36 service centres**, HQ Wyomissing, PA; "over 60 years"
+  in interior landscaping. https://www.ambius.com/about (2026)
 
----
+### Geographic footprint (matters a lot for market choice)
+- **Germany: Ambius is present and substantial.** Ambius Deutschland runs branches including
+  Hamburg/Bremen/Hannover and Köln/Bonn; Rentokil Initial Germany operates roughly **25 branch
+  locations** alongside the Ambius brand.
+  https://www.ambius.de/ , https://www.ambius.de/uber-ambius/filialen/hamburg ,
+  https://www.ambius.de/uber-ambius/filialen/bonn , https://www.rentokil-initial.de/ (2026)
+- Rentokil Initial has also **acquired German plant business Baumhaus GmbH** — evidence of
+  active consolidation in the German Raumbegrünung market.
+  https://www.rentokil-initial.de/dam/jcr:6e2fb31f-c1f6-4efa-bf76-f6868ea9ce22/rentokil-initial-uebernimmt-baumhaus.pdf
+- **Saudi Arabia: yes** — a dedicated Ambius KSA site, "transforming the indoors of Saudi
+  Arabian business for over 35 years". https://www.ambius.com.sa/ (2026)
+- **UAE: no dedicated Ambius UAE site found.** Rentokil Initial's UAE presence surfaces as
+  **Rentokil Boecker (pest control)**, not Ambius plants.
+  https://www.rentokil-boecker.com/ae/ (2026). Rentokil's corporate history notes acquisitions
+  in "Abu Dhabi and Dubai" but not an Ambius plants operation there.
+  https://www.rentokil-initial.com/about-us/our-story-so-far.aspx
+  **Caveat: absence of a website is not proof of absence of operations.** Flagging as
+  "no public UAE Ambius presence found", not "Ambius is not in the UAE".
 
-## 4. Australia (Tropical Plant Rentals — clearest published package ladder)
+### Service model
+Ambius sells design → install → maintain, quote-only. Its service-options page
+(https://www.ambius.com/about/service-options) returned HTTP 403 to my fetch, but the
+long-term rental option including regular maintenance by plant-care specialists is described
+across their regional sites, e.g. https://www.ambius.co.za/about-ambius/how-we-do-it/ (2026).
+No published price anywhere on the Ambius estate that I could find.
 
-Article 18 Apr 2026 (https://tropicalplantrentals.com.au/blog/plant-pricing-guide-what-it-really-cost/):
-- Individual plants **AUD 2–3/week**; medium **AUD 5–7/week**; premium architectural systems **AUD 16–18/week**; small installs "from $25 per week + GST".
-- Package ladder: small office 10–15 plants **AUD 150–300/month**; medium 20–30 plants **AUD 300–600/month**; large 40+ plants **AUD 600–1,200/month**; events "$600 per event + GST"; green walls "priced on request only".
-- Included: "Expert plant selection ... Professional installation, Scheduled maintenance and care, Ongoing plant health management, Replacement of plants if required".
-- Sold via "get started" form / quote request; no minimum term published.
-- Rentokil confirms "strong demand for Ambius' services" in the Pacific in FY2024 (see §2).
-
----
-
-## 5. Germany (candidate market: Berlin)
-
-### 5.1 Structure
-- Fragmented: dozens of regional "Hydrokultur"/"Raumbegrünung" family firms (typically 1–3 cities each), a handful of multi-city groups (Baumhaus/Rentokil 35+ sites; Mohr Hydrokultur 10+ DE cities + Linz/Vienna; Pflanzen-Kölle Gärtnerservice in Berlin region + Hamburg/Munich/Stuttgart etc.; "Die Raumbegrüner" Hannover-led partner network "deutschlandweit"), and one venture-style newcomer (plantclub.io, 7 cities incl. Berlin).
-- Trade bodies: BuGG (Bundesverband GebäudeGrün) and Fachverband Raumbegrünung und Hydrokultur (FvRH) within ZVG. The BuGG "Marktreport Gebäudegrün 2025" says interior greening "bleiben ebenfalls ein fester Bestandteil des Marktes, getragen durch wachsende Nachfrage aus Hotellerie, öffentlichen Gebäuden und Unternehmen" but publishes **no revenue figure** for the interior segment (https://bau.bi/galabau/nachrichten/gebaeudegruen-2025-wie-entwickeln-sich-dach-fassaden-und-innenraumbegruenungen-g20860, 2025). I could not find a German Mietpflanzen market-size number.
-- Two contract flavours are marketed: **Miete** (all-inclusive rental incl. care, no ownership) vs **Leasing** (finance-style, optional care, buy-out at end, "steuerlich absetzbar") — e.g. AS Hydroplant, akzente, Kinnula.
-
-### 5.2 Published German price points
-| Provider | Region | Price (net) | Care cadence | Guarantee | Min term | Source (year) |
-|---|---|---|---|---|---|---|
-| Gärtner Gregg | Münster/Dortmund | **ab €6,90–6,99/plant/month** small planter; **€10,50–13,50** larger on wheels; **€22,90** room divider; "zzgl. MwSt., Liefer-/Servicepauschale" | "Professioneller Pflegeservice alle 4 Wochen" | free replacement of unsightly/diseased plants | "In der Regel 12 Monate" | https://www.gaertner-gregg.de/pflanzenmiete-oder-leasing/ (2026) |
-| Kinnula Hydrokulturen | Köln/Frankfurt | **"Schon ab 6 Euro pro Monat"**; leasing returns from €15 incl. VAT | "gießt, düngt und reinigt die Pflanzen alle zwei bis vier Wochen" | rotation/replacement available | not stated | https://hydro-kulturen.de/pflanzen-mieten/ (2026) |
-| AS Hydroplant | Düsseldorf/Köln NRW | leasing examples **€13,90/plant/month** excl. 19% VAT, free delivery/installation | regular cleaning/cutting/fertilising/turning | "kostenfreier Austausch der Pflanzen, wenn nötig" | not stated | https://www.as-hydroplant.de/mieten-leasen/ (2026) |
-| WELO Green | Haltern am See, "bundesweit" | **"ab 199,-€ pro Monat"** (plant count for €199 not stated) | "regelmäßige Pflege" (cadence not stated) | "kostenlosem Austausch bei Pflanzenausfall im Abo" | **12 Monate**, "danach ... flexibel monatlich kündigen"; "Alle Anfragen ... innerhalb 24 Stunden" | https://welo-green.de/blogs/journal/pflanzen-mieten-kosten (2026) |
-| plantclub.io | Berlin, Hamburg, Köln, Düsseldorf, Frankfurt, München, Wien | **GREENHOUSE ≤150 m² "from €200/month"; WOODLAND ≤500 m² "from €400"; JUNGLE ≤1,000 m² "from €600"; RAINFOREST custom** — monthly, billed annually, excl. VAT | not itemised; "Circular care system" | "Free plant replacements", "Dedicated account management", free design concept | **"Minimum term 12 months"** | https://plantclub.io/de/preise (2026) |
-| Hydro Lesser | Rhein-Main | not published | "alle zwei bis vier Wochen" | "Pflanzenersatzgarantie" | **"Die Laufzeit für Miete der Büropflanzen beträgt 24 Monate."** | https://www.hydro-lesser.de/mietservice.html (2026) |
-| Rogel Raumbegrünung | Obertshausen (Rhein-Main) | "planbare, transparente Kosten", none published | "Wir gießen, düngen, reinigen und tauschen Pflanzen aus" | included | not stated | https://hydrokultur.de/leistungen/mietpflanzen/ (2026) |
-| akzente raumbegrünung | Dortmund, Düsseldorf, Köln/Bonn, **Berlin**, Heidelberg | not published | staff handle "Giessen und die Pflanzenpflege" | "kostenlose Austauschgarantie ... nach dem Prinzip des Vollkasko-Pflanzen-Services" | "zu bestimmten Laufzeiten" | https://www.akzente-raumbegruenung.de/raumbegruenung-abc/mietpflanzen/ (2026) |
-| Mohr Hydrokultur | Berlin (Adlergestell 343b) + 10 DE cities + AT | "Fester Monatspreis", none published | "regelmäßige Vollpflege" | "Pflanzengarantie ... Austausch inklusive" | not on page (search snippet for Berlin market: "Mindestlaufzeit beträgt 12 bis 36 Monate", 4-weekly care) | https://www.mohr-hydro.de/mietpflanzen-berlin (2026) |
-| Pflanzen-Kölle Gärtnerservice | Berlin region (Borgsdorf, Dallgow, Hoppegarten, Teltow, Wildau) + HH/M/S | not published | care service | – | – | https://www.pflanzen-koelle.de/filialen/gaertnerservice/innenraumbegruenung/pflanzen-mieten/ (2026) |
-| Plantyworks | Berlin (+ "deutschlandweit") | not published | "Pflanzenpflege & Wartung" | – | – | https://plantyworks.de/berlin/ (2026) |
-| Baumhaus (Rentokil) | Wiesbaden HQ, 35+ sites | not published ("Easy Rent") | – | – | – | https://www.baumhaus.de/ (2026) |
-| Peter Lübbert Event Interiors | Berlin | not published (event focus) | optional "Gießen, Standortwechsel" | – | – | https://www.luebbert-eventinteriors.de/mietpflanzen-berlin/ (2026) |
-| Systemgrün | Köln/Düsseldorf | not published | – | – | – | https://www.systemgruen.com/ (2026) |
-| Die Raumbegrüner | Hannover-led network, nationwide | not published | "regelmäßigen Intervallen" | – | – | https://www.dieraumbegruener.de/ (2026) |
-
-Search-snippet-only claim for the Berlin market (Kölle/Mohr search result, 2026): "Die Bürobegrünung wird über eine monatliche Miete mit Pflegeservice im 4-wöchigen Rhythmus und inklusive Anlieferung, Aufbau und Abholung beglichen. Die vertragliche Mindestlaufzeit beträgt 12 bis 36 Monate." Treat as [reported, snippet].
-
-### 5.3 Observations, Germany
-- Entry price for a single office plant is very low (**€6–€14/plant/month net**, 2026) because incumbents use hydroculture (Hydrokultur/Seramis) which needs only 2–4-weekly watering. A weekly-visit model cannot compete on price for small planters; it can only win on plant quality/size, design, flexibility and convenience.
-- plantclub.io is the only player with a subscription-style public price ladder and 12-month minimum, and it is already in Berlin; still no true self-serve checkout.
-- Target customers are named consistently: "Unternehmen, Praxen, Hotels, Pflegeeinrichtungen, Behörden, Gastronomiebetriebe" (Gregg), "Verwaltungseinrichtungen, Hotels, Krankenhäuser und Pflegeeinrichtungen" (AS Hydroplant), "Büros, Showrooms, Hotels, Gastronomie" (Mohr). Nobody targets private homes.
-- Big incumbent now consolidating: Rentokil/Ambius bought Baumhaus (35+ locations) in June 2024.
+**Read-across for Planty:** the category leader in Berlin's market is a FTSE-100 subsidiary
+with 25 German branches. In Dubai, the category leader appears to be absent. That is a
+meaningful asymmetry in favour of Dubai on competitive whitespace.
 
 ---
 
-## 6. UAE (candidate market: Dubai)
+## 2. Germany / Berlin
 
-### 6.1 Structure
-- No confirmed Ambius/Rentokil plant-rental operation (see §2). The market is (a) large landscaping groups with event-rental or maintenance arms (Desert Group -> Plantscapes.ae; Dubai Garden Centre is a Desert Group division; Dubai Nursery "Est. in 1973", "over 40 specialists"), (b) florist/plant e-commerce shops that bolt on rental/maintenance (800petals, Plantsworld.ae, Plantshop.me, Green Souq, MyPlants.ae, Desert Blooms, Royal Plantscape, Green Art Factory, Hope Plants), and (c) Abu Dhabi nursery-based Adplants. Nakheel Landscapes (Doha-based, 3,000+ staff, QAR 5.5bn projects) is a landscape contractor, not an indoor rental player (https://nakheellandscapes.com/, 2026). Proscape.ae unreachable.
-- Sales are almost entirely WhatsApp/phone/site-visit driven. Plantsworld.ae lists "Office Plant Care Service ... From 50.00 AED" as an add-to-cart product whose content is "Free Site Inspection ... No obligation site visit" — i.e. a lead form dressed as a product (https://plantsworld.ae/products/best-office-plant-care-maintenance-dubai-uae, 2026).
+### 2a. Plantclub (plantclub.io) — the single closest competitor to Planty
+Berlin-headquartered, operating **since 2020**, claims **150+ members**. Cities: Berlin,
+Hamburg, Cologne, Düsseldorf, Frankfurt, Munich, Vienna.
+https://plantclub.io/de/pflanzen-mieten-berlin (2026)
 
-### 6.2 Published UAE price points
-| Provider | Offer | Price | Cadence / inclusions | Term | Source (year) |
-|---|---|---|---|---|---|
-| **800petals** (Dubai/AD/Sharjah; "more than 10,000 installations since 1992") | office plant rental | "Most plans are quoted per plant per month, all-inclusive" — **no AED published** | "Weekly maintenance visits by trained plant care staff", "Free replacement of declining plants", "Seasonal rotation options and consolidated billing", pots "commercial-grade"; recommends renting for offices with **10+ plants** | "flexible terms; most clients choose 12-month agreements for the best monthly rate" | https://800petals.com/office-plant-rental-dubai/ (2026) |
-| **Royal Plantscape** (Dubai) | maintenance-only packages (client owns plants) | Basic 1 visit/month **from AED 120/month**; Regular 2 visits/month **from AED 299/month**; **Weekly 1 visit/week from AED 499/month**; Premium 2 visits/week **from AED 799/month**; "Office Plant Maintenance: Starting from AED 499/month"; one-time care from AED 120; watering/fertilising/pest/pruning visits **from AED 199/visit**; repotting from AED 150 | watering, fertilising, pruning, leaf cleaning, pest, "plant replacement when needed" | "customized annual maintenance contracts (AMC)" | https://www.royalplantscape.com/pages/indoor-plant-maintenance-service (2026) |
-| **Green Souq** (Dubai) | indoor maintenance per plant | Regular **from AED 15/plant/month**; Silver **from AED 25/plant/month** (adds organic pest control, repotting); Gold **from AED 45/plant/month** ("replacement of dead plants during maintenance"); outdoor villa garden packages AED 350 / 450 / 850 per month | "daily visit to once a week" | not stated | https://www.greensouq.com/garden-monthly-maintenance/ (2026) |
-| Plantsworld.ae | office plant rental / care | rental AED not published (search snippet claimed "AED 288 to AED 478" but page shows purchase prices 39–869 AED — unverified); care service listing "From 50.00 AED" = free inspection | "UAE-Wide Coverage", "Starts In 1-2 Days", WhatsApp 2-hour response 7 days/week | – | https://plantsworld.ae/collections/office-plant-rental-uae (2026) |
-| Plantshop.me | maintenance packages | search snippet: "packages starting from AED 49/month for both homes and businesses" (site 403; unverified) | weekly/bi-weekly/monthly | – | https://www.plantshop.me/ae-en/tags/plants-maintenance-service (2026) |
-| Search-aggregate (Dubai office AMC) | monthly office visit | "starting from AED 300 per visit for a standard-sized office" incl. "written plant health reports" | monthly | AMC | search result 2026 (provider attribution unclear; treat as [reported, snippet]) |
-| Plantscapes.ae (Desert Group) | rentals "with or without the option of maintenance" | not published | event-oriented ("weddings, events, exhibitions") | – | https://plantscapes.ae/plant-rentals/ (2026) |
-| Dubai Nursery | short-term event rentals | not published | – | – | https://www.dubainursery.ae/plant-rentals/ (2026) |
-| Hope Plants | office + event hire | not published; "Short-term and longer rental options" | delivery + setup, guidance | – | https://hopeplantsdubai.com/indoor-plant-hire (2026) |
-| Adplants (Abu Dhabi, own nursery) | office/hotel rental + care | not published; "free site visit anywhere in Abu Dhabi" | watering, pruning, pest control, fertilising; "Quality Guarantee" | – | https://adplants.com/pages/plant-rentals (2026) |
-| Desert Blooms | rental packages | not published (blog 18 May 2026) | watering, cleaning, trimming, replacement, health monitoring | – | https://www.desertblooms.me/blogs/plant-care-guides/office-plant-rental-dubai-professional-green-solutions-for-modern-workspaces-desertblooms (2026) |
-| Green Art Factory | annual maintenance | not published; sells through "FM companies, interior Designers, fit-out companies" | weekly/bi-weekly/monthly | annual | https://www.greenartfactory.ae/service/ (2026) |
-| MyPlants.ae | maintenance | not published; "book directly through our website, call ... or WhatsApp" | – | – | https://myplants.ae/pages/indoor-plants-maintenance-service (2026) |
+**Published tier pricing** (https://plantclub.io/de/preise , 2026) — all **excl. VAT, billed
+annually, 12-month minimum term**:
 
-### 6.3 Observations, UAE
-- **Weekly care is the norm** in UAE marketing (800petals weekly; Royal Plantscape's headline office package is the weekly AED 499 tier; Green Souq "up to once a week"). This matches Planty's weekly-technician model far better than Germany's 4-weekly hydroculture norm.
-- **Residential (villa) care is openly sold** — Royal Plantscape lists "villas, apartments", Green Souq bundles indoor per-plant care with villa garden packages, Plantshop.me "homes and businesses". In Germany none of the B2B players address homes. This is direct evidence of B2C demand for outsourced plant care in Dubai.
-- Maintenance-only pricing gives a floor for Planty's per-plant rental price: **AED 15–45/plant/month** for care alone (Green Souq, 2026), or AED 499/month for a weekly office visit (Royal Plantscape, 2026). [my estimate] A rented 1.5–1.8 m floor plant with weekly care and replacement would have to sit at roughly AED 80–150/plant/month to cover plant amortisation + weekly labour; no UAE competitor publishes such a figure, so it is unvalidated.
-- Nobody offers online checkout; even the e-commerce shops fall back to WhatsApp for rental. Fast response ("2 hours", "24 hours", "1–2 days start") is the competitive convenience axis, not self-serve.
-- Legacy incumbent 800petals claims 10,000+ installations since 1992 — the market is old, not nascent.
+| Tier | Price/month | Office size |
+|---|---|---|
+| Greenhouse | €200 | up to 150 m² |
+| Woodland | €400 | up to 500 m² |
+| Jungle | €600 | up to 1,000 m² |
+| Rainforest | custom | 1,000 m²+ |
+
+Included: free plant design concept, delivery + install, full ongoing care, dedicated account
+management, **free replacements**, workshop discounts (10% Woodland, 15% Jungle, 20%
+Rainforest), free office moves (Woodland+).
+
+Cadence: "Your dedicated plant expert visits **every two weeks** to water, fertilise, prune,
+and replace." https://plantclub.io/de/pflanzen-mieten-berlin (2026)
+
+Pricing is **per m² of office, not per plant.** Plant counts per tier are not published.
+
+Sales motion: **still quote-gated.** "Schedule a call with one of our plant experts" / free
+15-minute consultation / hello@plantclub.io / +49 1579 2527107. **No self-serve checkout**,
+despite the tiers being published. This is important: even the most modern, startup-shaped
+competitor in Berlin publishes prices but does not let you buy.
+
+**Verbatim positioning:** "Plants are rented, cared for, and rehomed when you're done."
+The "rehomed" framing is the circular-economy angle — worth noting for Planty's messaging.
+
+### 2b. WELO Green
+- Rental **from €199/month** ("Pflanzenvermietung ab 199,-€ pro Monat").
+- **Mindestlaufzeit 12 Monate**, then monthly cancellable.
+- Included: planning with site visit + visualisation, delivery and expert planting, regular
+  care (watering, fertilising, cleaning, pruning), and **Pflanzengarantie — "bei Ausfällen
+  wird kostenlos ersetzt"** (free replacement on failure).
+- Also rents moss walls, artificial plants, acoustic modules.
+- No per-plant rates published; cost drivers stated as plant count/size, planter type
+  (standard / design / custom RAL), system (hydroculture vs moss wall), contract duration.
+https://welo-green.de/blogs/journal/pflanzen-mieten-kosten (2026)
+https://welo-green.de/pages/mietpflanzen (2026)
+
+### 2c. Gärtner Gregg (Münster / Münsterland / Dortmund) — **the only fully published German price list I found**
+All prices **net, excl. VAT and delivery**, per month:
+https://www.gaertner-gregg.de/pflanzenmiete-oder-leasing/ (2026)
+
+| Planter / display | €/month net |
+|---|---|
+| Planter Ø 40 cm, height ~40 cm | **6,90** |
+| Planter with wheels Ø 37 cm, height ~140 cm | **10,50** |
+| Planter with wheels 42×40×100 cm, height ~140 cm | **11,90** |
+| Planter with wheels Ø 50 cm, height ~160 cm | **11,99** |
+| Planter with wheels 30×30×56 cm, height ~150 cm | **12,50** |
+| Sideboard planter 90×35×25 cm, height ~70 cm | **13,50** |
+| Room divider with wheels 90×35×25 cm | **22,90** |
+
+- Care interval: "**regelmäßig (etwa alle vier Wochen)**" — roughly every 4 weeks.
+- Free replacement of unsightly/diseased plants.
+- Planter included; many have concealed wheels. Delivery + professional placement included.
+- Minimum term: "**In der Regel 12 Monate**" (typically 12 months), flexible by agreement.
+- Targets: Unternehmen, Praxen, Hotels, Pflegeeinrichtungen, Behörden, Gastronomiebetriebe.
+- Ordering: phone / email / **WhatsApp** / web enquiry form. No checkout.
+
+**This is the best per-unit anchor for Germany: ~€7–€23 per display per month, net.**
+
+### 2d. Kinnula Hydrokulturen
+- "**Schon ab 6 Euro pro Monat**" (from €6/month).
+- Care "**alle zwei bis vier Wochen**" (every 2–4 weeks): watering, fertilising, cleaning.
+- Free delivery and arrangement. Plant exchange offered "after some time for variety" —
+  i.e. rotation is already a standard incumbent feature, not a Planty differentiator.
+- Also sells **ex-lease returns from €15 incl. VAT** while stocks last — a real hint that
+  used rental stock has meaningful residual value. Relevant to Planty's asset model.
+- Quote-based only; "Express Anfrage" form; consultation before decision.
+https://hydro-kulturen.de/pflanzen-mieten/ (2026)
+
+### 2e. airy.green (cost/tax explainer)
+- Individual hydroculture plants **~€14.50/month**.
+- Complete solutions **up to 150 m² from ~€200/month** including concept and care.
+- **Tax:** "Monthly rental costs count as operating expenses and are tax-deductible"
+  (Betriebsausgabe), noted as common practice. Caveat given for plants supplied to individual
+  employees' home offices, which may be treated differently.
+https://airy.green/en/blogs/air-up-your-life/mietpflanzen-buero-kosten-vorteile-steuer (2026)
+
+### 2f. Other German players (all quote-only, no published prices)
+- **Pflanzen-Kölle Gärtnerservice** — monthly rent includes care **every 4 weeks** plus
+  delivery, setup and removal.
+  https://www.pflanzen-koelle.de/filialen/gaertnerservice/innenraumbegruenung/pflanzen-mieten/
+- **Plantyworks** (Essen) — B2B only, **minimum 3 plants**, "Laufzeiten sind flexibel" with
+  monthly conditions, free replacement, free on-site consultation. Quote only.
+  https://plantyworks.de/essen/ (2026)
+- **Mohr Hydrokultur** — "Fester Monatspreis mit Pflanzengarantie – Austausch inklusive",
+  10+ locations across DE/AT. Quote only. https://www.mohr-hydro.de/mietpflanzen (2026)
+- **Ruof** (Stuttgart) — Pflanzenleasing, all service work by professional gardeners, "each
+  paid installment is immediately tax-deductible". Quote only.
+  https://ruof.eu/raumbegruenung/pflanzenleasing (2026)
+- **AS Hydroplant** — hydroculture, artificial plants, moss pictures for rent or lease;
+  provision, installation, care, replacement of defective plants.
+  https://www.as-hydroplant.de/mieten-leasen/ (2025)
+- **Rogel Raumbegrünung** https://hydrokultur.de/leistungen/mietpflanzen/ ;
+  **akzente raumbegrünung** https://www.akzente-raumbegruenung.de/raumbegruenung-abc/mietpflanzen/ ;
+  **p2objektgruen** (Berlin) https://p2objektgruen.de/pflanzen-kaufen-mieten/ ;
+  **Kremkau** https://kremkau.de/innenraumbegruenung/ ; **Hydroflora**
+  https://www.hydroflora.de/produkte/buerobegruenung/ — all quote-driven, none with checkout.
+- **Miet24 marketplace** lists 150+ plants for event rental **from €10/day**.
+  https://marktplatz.miet24.de/mieten/events-und-messen/pflanzen (2026)
+
+### 2g. German contract norms
+Reported minimum terms range **12 to 36 months**, then cancellable with **4 weeks' notice to
+month end**. Care intervals cluster at **3–4 weeks** (some 2 weeks). Replacement guarantee
+("Austauschgarantie" / "Pflanzengarantie") is universal and therefore **not** a
+differentiator. Sources: welo-green.de, gaertner-gregg.de, pflanzen-koelle.de, ruof.eu (2025–2026).
+
+Industry bodies: **Fachverband Raumbegrünung und Hydrokultur (FvRH)** within the
+Zentralverband Gartenbau (https://zvg-fvrh.de/ueber-uns/) and **Bundesverband GebäudeGrün
+(BuGG)**, which publishes the *BuGG-Marktreport Gebäudegrün* covering Innenraumbegrünung
+(https://www.gebaeudegruen.info/wissen-und-ressourcen/gebaeudegruenung/innenraumbegruenung/).
+I did **not** find a published € market-size figure for German Innenraumbegrünung — the 2020
+Marktreport is the obvious place to look and should be checked directly.
 
 ---
 
-## 7. What none of the incumbents do well online (gap analysis)
+## 3. UAE / Dubai
 
-1. **No self-serve checkout for a rental contract** anywhere (DE, UAE, UK, US, AU). Best-in-class is a public "from" price ladder (plantclub.io, Tropical Plant Rentals, Royal Plantscape) followed by a form.
-2. **No instant quote / configurator** (pick plants + duration -> price). Everything requires a site survey.
-3. **No short terms**: 12-month minimum is the floor for rental; only event hire is short-term. Plant Drop UK explicitly markets "12-month minimum, then rolling monthly, no auto-renewal" as a differentiator (2026), showing incumbents' 2–3-year lock-ins are a pain point.
-4. **No transparent per-plant catalogue with rental price** — DE sites show "ab €6,99" for an unspecified small planter; UAE sites show retail purchase prices only.
-5. **No B2C/home offering in Germany**; in UAE only maintenance-of-your-own-plants is sold to homes, not rental.
-6. **No customer portal** (visit logs, plant health, swap requests) mentioned by any provider except Royal Plantscape's "written plant health reports" and 800petals' "consolidated billing".
-7. **No seasonal rotation as a product feature** except 800petals ("Seasonal rotation options") and Kinnula ("wiederkehrende Pflanzen-Variation").
+### 3a. 800petals — the clearest articulation of the Dubai B2B rental model
+https://800petals.com/office-plant-rental-dubai/ (2026)
+- Covers **Dubai, Abu Dhabi and Sharjah**.
+- One monthly fee includes: plants selected for **"Dubai office conditions (AC, low light,
+  dust)"**, commercial-grade pots/planters in chosen finish, **"Weekly maintenance visits by
+  trained plant care staff"**, **"Free replacement of declining plants"**, single monthly invoice.
+- "Most plans are quoted **per plant per month, all-inclusive**."
+- Terms flexible but "**most clients choose 12-month agreements for the best monthly rate**";
+  short-term event rentals also offered.
+- Target: **"Renting suits most offices with 10+ plants: predictable monthly cost, zero
+  responsibility."**
+- Sales: **quote-only**, free site assessment with exact quote within 24 hours, WhatsApp
+  (+971 50 559 7226). **No prices published, no checkout.**
+
+**Note the cadence: weekly.** Combined with the AC/dust rationale, this looks like a genuine
+climate-driven service requirement in the Gulf, not marketing.
+
+### 3b. Royal Plantscape — **published AED price ladder (maintenance only, no rental)**
+https://www.royalplantscape.com/pages/indoor-plant-maintenance-service (2026)
+
+| Package | Frequency | Price |
+|---|---|---|
+| Basic Indoor Plant Care | 1 visit/month | from **AED 120/month** |
+| Regular Indoor Plant Care | 2 visits/month | from **AED 299/month** |
+| Weekly Plant Maintenance | 1 visit/week | from **AED 499/month** |
+| Premium Indoor Plant Care | 2 visits/week | from **AED 799/month** |
+| One-time service | single visit | from **AED 120** |
+| Individual services (watering/fertilising/pest/pruning) | per visit | from **AED 199/visit** |
+| Repotting | one-off | from **AED 150** |
+| Indoor green wall maintenance | monthly | from **AED 499/month** |
+
+Areas: Downtown Dubai, Dubai Marina, Jumeirah, Business Bay, Palm Jumeirah, Deira, Al Barsha,
+JLT, Dubai Silicon Oasis, Arabian Ranches, Mirdif and others. Segments: corporate offices and
+co-working, hotels/restaurants, retail/showrooms, **residential properties and apartments**,
+healthcare. **No online booking system.** **No rental offering — maintenance only.**
+
+**This is the most useful Dubai number I found: the market-clearing price for a weekly
+technician visit to a site is roughly AED 499/month (~€120/month at ~4.0 AED/EUR — my
+conversion), and a monthly visit is ~AED 120.** That effectively prices Planty's service leg
+in Dubai before any plant rental margin.
+
+### 3c. Greenly.ae — **the only app-based, upfront-priced player I found in either market**
+https://greenly.ae/services-and-pricing/plant-maintenance-services-dubai/ (2026)
+- **Mobile app (iOS + Android), online booking, all payment in-app, no cash.**
+- Recurring services: "you only need to make one booking and are charged on a **monthly basis
+  until you cancel**", customer picks frequency and timing, **same gardeners every time and a
+  discounted rate**.
+- Same-day booking availability, "upfront pricing with no hidden fees".
+- Prices: Plant Care from **AED 179**; Plant Doctor from **AED 109**; Plant Advisor **AED 99**;
+  Plant Sitting from **AED 99**; Repotting from **AED 99**; Pest Control **AED 199**;
+  Watering from **AED 99**; Fertilising from **AED 79**; Trimming & Pruning from **AED 79**.
+- Targets **apartment and villa residents throughout Dubai**, business properties, and
+  travellers needing plant sitting.
+
+**Strategic read: Greenly proves Dubai consumers will book and pay for recurring plant care
+through an app with published prices. It does NOT rent plants.** That is precisely the gap
+Planty targets — and it also means the "will people book plant services in an app" risk is
+already substantially retired in Dubai, but not in Berlin.
+
+### 3d. Other UAE players
+- **Plantsworld.ae** — has an "Office Plant Rental UAE" collection but the page publishes
+  **purchase** prices (~AED 269–789) and routes rental enquiries to a "Talk to us" **WhatsApp**
+  button. A search snippet suggested rental of AED 288–478/month for specific plants
+  (Dracaena Massangeana → Monstera Pertusum) but **I could not verify those figures on the
+  page itself — treat as unverified.**
+  https://plantsworld.ae/collections/office-plant-rental-uae (2026)
+- **Plants Xpert** — "offices, **villas**, hotels, and commercial spaces" plus events;
+  "Monthly, weekly, or event-based rental options"; regular maintenance and replacements
+  included; **free consultation, no prices, no checkout**.
+  https://plantsxpert.com/pages/plants-rental-in-dubai-plants-xpert (2026)
+- **Adplants** (Abu Dhabi) — delivery, installation and plant care across Abu Dhabi;
+  watering, pruning, pest control, fertilising; tailored pots and planters; five-step process
+  starting with a **free site visit**. Quote only (phone/email/WhatsApp).
+  https://adplants.com/pages/plant-rentals (2026)
+- **Dubai Nursery** — short-term/event plant rentals for corporate events, weddings,
+  exhibitions across the UAE. **Enquiry form only**, +971 4 320 2004.
+  https://www.dubainursery.ae/plant-rentals/ (2026)
+- **Desert Blooms** — publishes SEO content on corporate plant rental Dubai but **no prices,
+  no contract terms, no cadence**. https://www.desertblooms.me/ (2026)
+- **Desert Group** — the enterprise incumbent. Founded **1988**, Dubai HQ, **1,000–5,000
+  employees**, 8 trading companies including **Interior Landscape**; supplies indoor plants,
+  pots, green walls and maintenance to palaces, government organisations, offices,
+  universities, restaurants, banks and hotels; portfolio includes Burj Al Arab, Burj Khalifa,
+  Atlantis The Palm, Museum of the Future.
+  https://desertgroup.ae/plantscapes/ , https://desertgroup.ae/ ,
+  https://www.zoominfo.com/c/desert-group/372399540 (employee band: ZoomInfo, 2026 — third-party
+  estimate, treat as approximate)
+
+**UAE market structure summary:** one very large project-led landscaping group (Desert Group),
+a long tail of small quote-only rental/maintenance SMEs, one app-native maintenance-only
+player (Greenly), and **no visible Ambius**. Nobody rents plants with online checkout.
 
 ---
 
-## 8. Unit-economics hints [anecdotal / trade]
-- Labour formula and example: 45-minute visit x $30/h x 5 visits/month = $112.50/month labour per account (NewPro Containers, n.d.).
-- Replacement allowance: retail plant price x 1.3–1.5 / 12 per month (NewPro, n.d.).
-- Freight on plants can be 30% + $180 oversize surcharge (NewPro, n.d.) — relevant for Dubai imports (most indoor plants are imported from NL/Asia; Adplants stresses "our local specialty nursery" as a differentiator, 2026).
-- Ambius cadence 13–17 visits/year (FitGap, 2026) => [my estimate] a route technician on 4-weekly cycles services ~4x more accounts than on weekly cycles; weekly service is therefore ~3–4x the labour cost per account, which is why DE incumbents avoid it and why weekly-visit UAE packages start at AED 499/month for a single office.
-- Rentokil H&W adjusted operating margin 18.1% (FY2024) is the only public profitability benchmark for a mature plant-services business (inside a hygiene mix).
-- Standard exclusions in contracts (Oakland Green sample, 2018): client-caused damage, HVAC failure, theft, moved plants, reduced light; missed-access visits billable.
+## 4. UK — most price-transparent market, useful for benchmarking
+
+- **Plant Drop** (https://plantdrop.co.uk/pages/office-plant-costs-uk , 2026)
+  - States typical **UK trade hire pricing**: large 180cm **£3.70–£5.50/plant/week**;
+    medium **£3.15–£4.15/week**; desk plants **£1–£1.30/week**.
+  - Own Care Plan: large specimens **£4.50/plant/week**, **minimum scheme 10 plants**,
+    **from £195/month for 10 plants**, includes decorative planters, care visits and free
+    replacements.
+  - **Contract:** "Twelve-month minimum, then rolling monthly: **no auto-renewal, no 3-month
+    notice period**" — explicitly positioned against the industry norm they describe as
+    "**3–5 year terms with auto-renewal and 3-month notice**".
+  - Outright purchase collections sold online: 5-piece **£1,495**, 10-piece **£2,995**;
+    individual statement plants £295 (Kentia palm 180–200cm) to £595 (fiddle-leaf fig).
+  - Optional Plant Protection plan ≈ **20% of plant value annually**.
+
+  **This is the most actionable competitive-terms finding in the whole lens: long,
+  auto-renewing contracts with 3-month notice are the incumbent norm, and a challenger is
+  already winning on "12 months then rolling monthly".**
+
+- **Plant Plan** (https://www.plantplan.co.uk/blog/indoor-planting-scheme-costs-explained-uk-pricing-guide-for-offices , 2026)
+  - Small office (15–20 plants): rental **£60–£90/week**; purchase + maintenance from ~**£3,000**.
+  - Medium office (20–50 plants): rental **£100–£200/week**; purchase + maintenance
+    **£5,000–£10,000+**.
+  - Large corporate (5,000+ sq ft): fully bespoke.
+  - My derivation: £60–90/week for 15–20 plants ≈ **£3–6 per plant per week** — consistent
+    with Plant Drop's trade ranges.
+
+- **Inleaf** (https://inleaf.co.uk/office-plants/office-plant-prices/ — page returned 403 to my
+  fetch; figures below from search result summaries, 2026)
+  - Packages **from £5/week** per display; includes delivery, expert installation, regular
+    visits for watering/feeding/maintenance, **free replacement of plants that suffer natural
+    failure**.
+  - **"Most clients select a two or three year contract to get their best prices and free
+    installation."**
+  - Has an **online quote tool: enter postcode + number of plant displays to see pricing** —
+    the closest thing to self-serve I found anywhere. Still stops short of checkout.
+  - **Flag: 403 on direct fetch, so treat the £5/week and 2–3 year figures as
+    second-hand until re-verified.**
+
+- **Plant Designs** (London) — plant rental **from £250/month** including design,
+  installation, plants, planters and ongoing maintenance.
+  https://plantdesigns.co.uk/services/office-plant-rental-london/ (2026)
+- **Planteria Group** — quote-only, on-site visit → bespoke design → quote; dedicated
+  technician per account; "If any plant shows signs of damage or decline, we replace it
+  promptly at no extra cost." Sells to direct clients **and to facilities-management firms,
+  cleaning companies, architects and fit-out firms** — i.e. a B2B2B channel worth noting.
+  https://www.planteriagroup.com/office-plants-for-hire/ (2026)
+- **phs Greenleaf** — large UK office plant hire operator.
+  https://www.phsgreenleaf.co.uk/indoor/office-plants/ (2026)
+
+---
+
+## 5. US and Australia benchmarks
+
+**US** (https://officeplants.com/2026/08/03/office-plant-rental-pricing/ , published 2026-08):
+- Small low-light plants (Sansevieria, ZZ): **$20–$35/month**.
+- Medium (Mass Cane, Janet Craig Dracaena): **$40–$75/month**.
+- Large (mature Ficus lyrata, Bird of Paradise): **$90–$150/month**.
+- Complete programme: **$200–$1,200/month**. Small office (5–10 plants) **$100–$350/month**;
+  large corporate floor (20–40 plants) **$500–$1,500/month**; annual **$4,000–$14,400**.
+- **12-month minimum term with rolling renewals**; **minimum monthly fee $100–$200**
+  depending on service distance (route density is explicitly priced in).
+- Service biweekly or monthly. **Guaranteed plant replacement at no additional charge.**
+- Buy-instead comparison: **$4,500–$7,500 initial capital** for plants and containers.
+
+**Australia — Tropical Plant Rentals**
+(https://tropicalplantrentals.com.au/blog/plant-pricing-guide-what-it-really-cost/ , 2026):
+- Individual plants **AUD $2–$3/week**; medium installations **$5–$7/week**; premium
+  architectural systems **$16–$18/week**.
+- Hire starts **from $25/week + GST**. Events from **$600/event + GST**.
+- Small office (10–15 plants) **$150–$300/month**; medium (20–30) **$300–$600/month**;
+  large (40+) **$600–$1,200/month**.
+- Includes: plant selection, professional installation, scheduled maintenance, ongoing health
+  management, replacements, dedicated account manager, **"no installation or removal fees"**
+  and **"no automatic annual price increases"** — both framed as differentiators, which
+  implies competitors *do* charge those and *do* escalate prices annually.
+- Buy comparison: 20–30 plants exceeds **$8,000** initial, plus **$3,000–$5,000/year**
+  maintenance.
+- National coverage: Sydney, Melbourne, Brisbane, Gold Coast, Sunshine Coast, Canberra, with
+  affiliates in Adelaide and Perth.
+
+**US others:** Planterra (founded 1973, Detroit; Fortune 500 corporate campuses, medical,
+hospitality, retail — https://planterra.com/), Phillips Interior Plants (division of Phillip's
+Flowers, family-owned since 1923, Chicago — https://www.phillipsinteriorplants.com/), Plant
+Solutions (Phoenix — https://plantsolutions.com/), Plantman (month-to-month leasing, orchid
+arrangements "as little as $75 per month", ceramics included, **no online pricing or
+ordering** — https://www.plantman.com/). None publish rate cards; none sell online.
+
+---
+
+## 6. Cross-market synthesis
+
+### 6a. Price convergence (all 2026 sources)
+| Market | Per plant/display per month | Entry programme per month |
+|---|---|---|
+| Germany | **€6.90–€22.90** net (Gärtner Gregg); ~€14.50 (airy.green); "ab €6" (Kinnula) | **€199–€200** (WELO, plantclub Greenhouse, airy.green) |
+| UK | £13–£24 (£3–£5.50/wk, my conversion ×4.33) | £195–£250 (Plant Drop 10 plants; Plant Designs) |
+| US | $20–$150 by size | $100–$350 (5–10 plants) |
+| Australia | AUD $8.7–$78 (my conversion from $2–$18/wk) | AUD $150–$300 (10–15 plants) |
+| UAE | **not published by anyone** | maintenance-only ladder AED 120 → 799 (Royal Plantscape) |
+
+The **€199/€200 entry point in Germany appears three times independently** and is effectively
+the market's anchor price for "greening a small office, all-in".
+
+### 6b. What every incumbent includes (so none of it is a differentiator)
+Delivery, installation, decorative planter, scheduled maintenance visits, free replacement of
+declining plants, seasonal/periodic swap-outs, dedicated technician or account manager.
+**Planty's stated value prop is table stakes in this category.** Plant rotation for variety is
+already offered by Kinnula and plantclub.
+
+### 6c. What NONE of them do
+1. **Self-serve online checkout.** Zero of ~30 companies checked. Inleaf's postcode + display
+   count quote tool is the high-water mark and still hands off to sales.
+2. **Genuinely short terms.** 12 months is the floor almost everywhere; UK norm is 2–5 years
+   with auto-renewal and 3-month notice. Planty's 2-week / 1-month options are unprecedented
+   in B2B.
+3. **B2C.** No rental player of any size serves private homes as a primary segment.
+   Plants Xpert and Royal Plantscape mention villas/apartments only for maintenance.
+4. **Transparent per-plant pricing in the UAE.** Not one UAE provider publishes a rental rate.
+5. **Live account visibility** (which plants you have, when the next visit is, visit history,
+   swap requests). Not offered by anyone I saw.
+
+### 6d. Cadence and cost structure
+- **Dubai: weekly is the advertised standard** (800petals) with the explicit rationale of AC,
+  low light and dust. Royal Plantscape prices weekly at ~**AED 499/month**.
+- **Germany: 2–4 weeks is standard** (plantclub 2 weeks; Gärtner Gregg, Pflanzen-Kölle 4
+  weeks; Kinnula 2–4 weeks).
+- **US: biweekly or monthly.**
+- **Implication:** Planty's "weekly visit" plan is 2–4× the European service frequency.
+  In Berlin that is a cost disadvantage against plantclub's identical €200 tier unless Planty
+  matches at bi-weekly. In Dubai weekly is simply the price of entry.
+
+### 6e. Minimum viable scheme size
+800petals: renting "suits most offices with **10+ plants**". Plant Drop: **minimum 10 plants**,
+£195/month. US: **minimum monthly fee $100–$200**. Plantyworks: from **3 plants**.
+Convergent floor: roughly **10 displays / €150–200 per site per month** for a B2B route stop
+to be worth making. Anything smaller must be solved by **route density**, not by pricing.
+
+---
+
+## 7. Implications for Planty (my analysis, clearly labelled)
+
+1. **Self-serve checkout is the wedge, and it is unoccupied.** A solo technical founder's
+   comparative advantage lines up exactly with the category's one universal weakness. The MVP
+   should be: browse a fixed catalogue → pick a package or plant count → enter address → pay →
+   scheduled install. No site survey in the funnel.
+2. **But interrogate why the site survey exists.** Every incumbent does one. It sets light
+   levels, access, planter finish and expectations. Planty's counter should be a
+   constrained catalogue of light-tolerant plants (the same handful everyone uses:
+   Sansevieria, ZZ, Dracaena, Kentia, Ficus) plus a photo-upload step, not the removal of
+   assessment entirely.
+3. **Price the German B2B entry tier at €199–€249/month excl. VAT.** Undercutting plantclub's
+   €200 is pointless; matching it with instant checkout and no annual prepay is the play
+   (plantclub bills **annually** — offering true monthly billing is a concrete differentiator).
+4. **Per-plant pricing for Germany should sit in €7–€15/display/month net**, with large
+   specimens up to €23. That is grounded in a published German rate card.
+5. **Cadence must be a market variable, not a product constant.** Bi-weekly in Berlin, weekly
+   in Dubai. Build the schedule as configurable from day one, but do not ship weekly-everywhere.
+6. **Berlin is contested; Dubai is open.** Berlin has plantclub (same model, 7 cities, since
+   2020, published tiers) *plus* Ambius/Rentokil with ~25 German branches and an
+   acquisition strategy. Dubai has no visible Ambius, a project-led incumbent (Desert Group)
+   that does not chase small offices, and a fragmented long tail with zero published rental
+   pricing. On competitive whitespace, Dubai wins.
+7. **Dubai also has better B2C evidence.** Greenly already sells app-booked, upfront-priced,
+   recurring plant care to villa and apartment residents. That retires the "will consumers book
+   plant services in an app" risk in Dubai specifically. Berlin has no equivalent proof point.
+8. **Counterweight: Berlin has better pricing intelligence and a tax tailwind.** German B2B
+   buyers are sold on rental partly because it is an immediately deductible operating expense
+   (airy.green, ruof.eu). Berlin also has published competitor price lists, which de-risks
+   pricing. Dubai's opacity cuts both ways — harder to price, easier to be the transparent one.
+9. **Short terms are the second wedge, and the most dangerous.** Nobody offers 2 weeks. The
+   reason is almost certainly plant capex payback: at €10/month rent and a €40–60 plant+planter
+   cost, a 2-week rental recovers ~€5 against an asset that has just absorbed two van
+   movements. Planty should treat sub-3-month rentals as an **events/short-term SKU with
+   separate pricing** (cf. Tropical Plant Rentals at AUD $600/event, Miet24 at €10/day), not as
+   the default subscription option.
+10. **Residual value is real.** Kinnula sells ex-lease plants from €15 incl. VAT. Build a
+    resale/rehome flow into the asset model rather than assuming write-off.
+11. **Do not build "replacement guarantee" as a headline feature.** It is universal. Build
+    *visibility* — a customer-facing account showing plants, visit history, next visit,
+    one-tap swap request. No incumbent has this.
+12. **Consider the FM channel.** Planteria sells through facilities-management firms, cleaning
+    companies, architects and fit-out firms. In both candidate markets this is a faster B2B
+    route than direct SME sales, and it is compatible with a self-serve product used by the
+    partner.
+
+---
+
+## 8. Confidence and gaps
+
+**High confidence:** no incumbent has self-serve checkout; 12-month minimum is the norm;
+replacement guarantees are universal; German entry price is ~€199–200/month; German per-display
+rates are €6.90–€22.90 net; UK trade rates are £3–£5.50/plant/week; Dubai advertises weekly
+visits; Royal Plantscape's AED ladder; Greenly is app-native in Dubai.
+
+**Medium confidence:** Inleaf's £5/week and 2–3 year contract norm (page 403'd, second-hand);
+Desert Group employee band (ZoomInfo third-party estimate); "3–5 year auto-renewing contracts"
+as UK norm (asserted by a competitor, Plant Drop, who benefits from the claim).
+
+**Low confidence / unresolved:** Ambius's actual UAE presence; Plantsworld.ae's AED 288–478
+rental figures; any UAE per-plant-per-month rental rate at all; plant counts per plantclub
+tier; German Innenraumbegrünung market size in €.
+
+**Open items I could not close** (WebSearch budget for the session was exhausted at 200 calls
+before I could run these): Ambius UAE branch check via ambius.com locations; BuGG Marktreport
+PDF for German market size; plantclub funding/headcount via Crunchbase or LinkedIn;
+mystery-shop quotes from 800petals / Plantsworld for real AED rental rates; Reddit/LinkedIn
+anecdotes on churn and technician productivity.
 
 ---
 
 ## 9. Sources
-- https://plantsworld.ae/collections/office-plant-rental-uae (2026)
-- https://plantsworld.ae/products/best-office-plant-care-maintenance-dubai-uae (2026)
-- https://800petals.com/office-plant-rental-dubai/ (2026)
-- https://www.royalplantscape.com/pages/indoor-plant-maintenance-service (2026)
-- https://www.royalplantscape.com/blogs/news/indoor-plants-maintenance-services-in-dubai (2026)
-- https://www.greensouq.com/garden-monthly-maintenance/ (2026)
-- https://www.plantshop.me/ae-en/tags/plants-maintenance-service (2026, 403; snippet only)
-- https://plantscapes.ae/plant-rentals/ (2026)
-- https://www.dubainursery.ae/plant-rentals/ (2026)
-- https://hopeplantsdubai.com/indoor-plant-hire (2026)
-- https://adplants.com/pages/plant-rentals (2026)
-- https://www.desertblooms.me/blogs/plant-care-guides/office-plant-rental-dubai-professional-green-solutions-for-modern-workspaces-desertblooms (2026)
-- https://www.greenartfactory.ae/service/ (2026)
-- https://myplants.ae/pages/indoor-plants-maintenance-service (2026)
-- https://www.desertgroup.ae/ (2026)
-- https://nakheellandscapes.com/ (2026)
-- https://welo-green.de/blogs/journal/pflanzen-mieten-kosten (2026)
-- https://www.welo-green.de/blogs/journal/bueropflanzen-mieten-flexible-raumbegruenung-mit-service-und-garantie (2026)
-- https://plantclub.io/de/preise (2026); https://plantclub.io/de ; https://plantclub.io/en (2026)
-- https://www.gaertner-gregg.de/pflanzenmiete-oder-leasing/ (2026)
-- https://hydro-kulturen.de/pflanzen-mieten/ (2026)
-- https://www.as-hydroplant.de/mieten-leasen/ (2026)
-- https://hydrokultur.de/leistungen/mietpflanzen/ (2026)
-- https://www.hydro-lesser.de/mietservice.html (2026)
-- https://www.akzente-raumbegruenung.de/raumbegruenung-abc/mietpflanzen/ (2026)
-- https://www.mohr-hydro.de/mietpflanzen-berlin (2026)
-- https://www.pflanzen-koelle.de/filialen/gaertnerservice/innenraumbegruenung/pflanzen-mieten/ (2026)
-- https://plantyworks.de/berlin/ (2026)
-- https://www.luebbert-eventinteriors.de/mietpflanzen-berlin/ (2026)
-- https://www.systemgruen.com/ (2026); https://www.dieraumbegruener.de/ (2026)
-- https://www.baumhaus.de/ ; https://www.baumhaus.de/magazin/ (2024 acquisition notice)
-- https://bau.bi/galabau/nachrichten/gebaeudegruen-2025-wie-entwickeln-sich-dach-fassaden-und-innenraumbegruenungen-g20860 (2025)
-- https://www.plantplan.co.uk/blog/what-do-office-plants-cost (Dec 2024)
-- https://www.plantplan.co.uk/blog/indoor-planting-scheme-costs-explained-uk-pricing-guide-for-offices (Mar 2026)
-- https://plantdrop.co.uk/pages/office-plant-costs-uk ; https://plantdrop.co.uk/ (2026)
-- https://inleaf.co.uk/office-plants/office-plant-prices/ (2026, snippet only)
-- https://www.vantagespaces.co.uk/blog/office-plant-hire-pricing-in-the-uk-what-it-costs-and-whats-included (n.d.)
-- https://tropicalplantrentals.com.au/blog/plant-pricing-guide-what-it-really-cost/ (Apr 2026)
-- https://us.fitgap.com/products/026748/ambius (2026)
-- https://www.ambius.com/about/service-options (2026, snippet only)
-- https://www.sec.gov/Archives/edgar/data/930157/000110465925027944/rto-20241231x20f.htm (FY2024 20-F) and Rentokil Initial 2024 Preliminary Results statement (PDF, 2025)
-- https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/2026-interim-result-statement.pdf (2026)
-- https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/2024-interim-results.pdf (2024)
-- https://www.rttnews.com/3519202/rentokil-initial-2024-earnings-slip-but-revenue-rises-on-improved-prices-lifts-dividend.aspx (2025)
-- https://planterra.com/services/ ; https://www.phillipsinteriorplants.com/interior-plant-service/ ; https://plantsolutions.com/interior-landscape-company (2026)
-- https://redsquareflowers.com/how-much-do-interior-plant-maintenance-services-cost/ (May 2024)
-- https://interiorplantscapes.com/how-much-does-interior-plant-service-cost-per-month/ (n.d.)
-- https://www.newprocontainers.com/blog/quick-guide-pricing-interiorscape-jobs/ (n.d.)
-- Oakland Green Interiors "Interior Plantscape Maintenance Agreement" sample PDF (© 2018; surfaced via oaklandnursery.com)
+
+1. Rentokil Initial 2024 Preliminary Results — https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/2024-preliminary-results.pdf (2024/2025)
+2. Rentokil Initial Annual Report 2024 — https://www.rentokil-initial.com/~/media/Files/R/Rentokil/documents/annual-reports/250317_RIAR24_FINAL.pdf (2025)
+3. Ambius About — https://www.ambius.com/about (2026)
+4. Ambius service options — https://www.ambius.com/about/service-options (2026, HTTP 403)
+5. Ambius South Africa "How we do it" — https://www.ambius.co.za/about-ambius/how-we-do-it/ (2026)
+6. Ambius Deutschland — https://www.ambius.de/ (2026)
+7. Ambius Deutschland branches (Hamburg) — https://www.ambius.de/uber-ambius/filialen/hamburg (2026)
+8. Ambius Deutschland branches (Bonn) — https://www.ambius.de/uber-ambius/filialen/bonn (2026)
+9. Rentokil Initial Deutschland — https://www.rentokil-initial.de/ (2026)
+10. Rentokil Initial acquires Baumhaus GmbH — https://www.rentokil-initial.de/dam/jcr:6e2fb31f-c1f6-4efa-bf76-f6868ea9ce22/rentokil-initial-uebernimmt-baumhaus.pdf
+11. Ambius Saudi Arabia — https://www.ambius.com.sa/ (2026)
+12. Rentokil Boecker UAE — https://www.rentokil-boecker.com/ae/ (2026)
+13. Rentokil Initial "Our story so far" — https://www.rentokil-initial.com/about-us/our-story-so-far.aspx
+14. Plantclub Berlin — https://plantclub.io/de/pflanzen-mieten-berlin (2026)
+15. Plantclub prices — https://plantclub.io/de/preise (2026)
+16. Plantclub FAQ — https://plantclub.io/de/faq (2026)
+17. WELO Green costs — https://welo-green.de/blogs/journal/pflanzen-mieten-kosten (2026)
+18. WELO Green Mietpflanzen — https://welo-green.de/pages/mietpflanzen (2026)
+19. Gärtner Gregg price list — https://www.gaertner-gregg.de/pflanzenmiete-oder-leasing/ (2026)
+20. Kinnula Hydrokulturen — https://hydro-kulturen.de/pflanzen-mieten/ (2026)
+21. airy.green Mietpflanzen costs & tax — https://airy.green/en/blogs/air-up-your-life/mietpflanzen-buero-kosten-vorteile-steuer (2026)
+22. Pflanzen-Kölle — https://www.pflanzen-koelle.de/filialen/gaertnerservice/innenraumbegruenung/pflanzen-mieten/ (2026)
+23. Plantyworks Essen — https://plantyworks.de/essen/ (2026)
+24. Mohr Hydrokultur — https://www.mohr-hydro.de/mietpflanzen (2026)
+25. Ruof Pflanzenleasing — https://ruof.eu/raumbegruenung/pflanzenleasing (2026)
+26. AS Hydroplant — https://www.as-hydroplant.de/mieten-leasen/ (2025)
+27. Rogel Raumbegrünung — https://hydrokultur.de/leistungen/mietpflanzen/ (2026)
+28. akzente raumbegrünung — https://www.akzente-raumbegruenung.de/raumbegruenung-abc/mietpflanzen/ (2026)
+29. p2objektgruen Berlin — https://p2objektgruen.de/pflanzen-kaufen-mieten/ (2026)
+30. Miet24 plant rental marketplace — https://marktplatz.miet24.de/mieten/events-und-messen/pflanzen (2026)
+31. ZVG Fachverband Raumbegrünung und Hydrokultur — https://zvg-fvrh.de/ueber-uns/ (2026)
+32. BuGG Innenraumbegrünung — https://www.gebaeudegruen.info/wissen-und-ressourcen/gebaeudegruenung/innenraumbegruenung/ (2026)
+33. 800petals office plant rental Dubai — https://800petals.com/office-plant-rental-dubai/ (2026)
+34. 800petals indoor plant maintenance — https://800petals.com/indoor-plants-maintenance/ (2026)
+35. Royal Plantscape indoor plant maintenance — https://www.royalplantscape.com/pages/indoor-plant-maintenance-service (2026)
+36. Greenly.ae services and pricing — https://greenly.ae/services-and-pricing/plant-maintenance-services-dubai/ (2026)
+37. Plantsworld.ae office plant rental UAE — https://plantsworld.ae/collections/office-plant-rental-uae (2026)
+38. Plants Xpert Dubai — https://plantsxpert.com/pages/plants-rental-in-dubai-plants-xpert (2026)
+39. Adplants plant rentals — https://adplants.com/pages/plant-rentals (2026)
+40. Dubai Nursery plant rentals — https://www.dubainursery.ae/plant-rentals/ (2026)
+41. Desert Blooms corporate plant rental Dubai — https://www.desertblooms.me/blogs/plant-care-guides/corporate-plant-rental-dubai-premium-green-solutions-for-modern-workspaces (2026)
+42. Desert Group Plantscapes — https://desertgroup.ae/plantscapes/ (2026)
+43. Desert Group ZoomInfo profile — https://www.zoominfo.com/c/desert-group/372399540 (2026)
+44. Plant Drop office plant costs UK — https://plantdrop.co.uk/pages/office-plant-costs-uk (2026)
+45. Plant Plan indoor planting scheme costs — https://www.plantplan.co.uk/blog/indoor-planting-scheme-costs-explained-uk-pricing-guide-for-offices (2026)
+46. Inleaf office plant prices — https://inleaf.co.uk/office-plants/office-plant-prices/ (2026, HTTP 403)
+47. Plant Designs office plant rental London — https://plantdesigns.co.uk/services/office-plant-rental-london/ (2026)
+48. Planteria office plants for hire — https://www.planteriagroup.com/office-plants-for-hire/ (2026)
+49. phs Greenleaf office plants — https://www.phsgreenleaf.co.uk/indoor/office-plants/ (2026)
+50. officeplants.com office plant rental pricing guide — https://officeplants.com/2026/08/03/office-plant-rental-pricing/ (2026-08)
+51. Tropical Plant Rentals pricing guide — https://tropicalplantrentals.com.au/blog/plant-pricing-guide-what-it-really-cost/ (2026)
+52. Tropical Plant Rentals indoor plant hire — https://tropicalplantrentals.com.au/indoor-plant-hire/ (2026)
+53. Planterra — https://planterra.com/ (2026)
+54. Phillips Interior Plants — https://www.phillipsinteriorplants.com/ (2026)
+55. Plant Solutions Phoenix — https://plantsolutions.com/ (2026)
+56. Plantman — https://www.plantman.com/ (2026)
+57. Urban Planters plant displays — https://www.urbanplanters.co.uk/services/plant-displays/ (2026)
