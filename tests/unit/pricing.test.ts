@@ -21,14 +21,14 @@ const V = (n: string) => `40000000-0000-4000-8000-0000000001${n}`;
 // Mirrors the seeded catalog. Kept beside the fixtures deliberately: if the
 // seed changes, both this and the pgTAP suite must be updated together.
 const CATALOG: PriceableVariant[] = [
-  { id: V("01"), species_name: "Snake plant", size_tier: "desk", price_aed: 55, stock_available: 24, published: true },
-  { id: V("02"), species_name: "Snake plant", size_tier: "floor", price_aed: 95, stock_available: 10, published: true },
-  { id: V("03"), species_name: "ZZ plant", size_tier: "desk", price_aed: 60, stock_available: 18, published: true },
-  { id: V("05"), species_name: "Golden pothos", size_tier: "desk", price_aed: 45, stock_available: 30, published: true },
-  { id: V("07"), species_name: "Chinese evergreen", size_tier: "floor", price_aed: 100, stock_available: 6, published: true },
-  { id: V("08"), species_name: "Kentia palm", size_tier: "statement", price_aed: 175, stock_available: 5, published: true },
+  { id: V("01"), species_name: "Snake plant", size_tier: "desk", price_aed: 6, stock_available: 24, published: true },
+  { id: V("02"), species_name: "Snake plant", size_tier: "floor", price_aed: 16, stock_available: 10, published: true },
+  { id: V("03"), species_name: "ZZ plant", size_tier: "desk", price_aed: 7, stock_available: 18, published: true },
+  { id: V("05"), species_name: "Golden pothos", size_tier: "desk", price_aed: 5, stock_available: 30, published: true },
+  { id: V("07"), species_name: "Chinese evergreen", size_tier: "floor", price_aed: 18, stock_available: 6, published: true },
+  { id: V("08"), species_name: "Kentia palm", size_tier: "statement", price_aed: 35, stock_available: 5, published: true },
   // Published but out of stock: must price as unavailable, never disappear.
-  { id: V("09"), species_name: "Areca palm", size_tier: "statement", price_aed: 165, stock_available: 0, published: true },
+  { id: V("09"), species_name: "Areca palm", size_tier: "statement", price_aed: 32, stock_available: 0, published: true },
   // Unpublished draft: exists, must never be sellable.
   { id: V("10"), species_name: "Areca palm", size_tier: "floor", price_aed: null, stock_available: 4, published: false },
 ];
@@ -201,8 +201,9 @@ describe("priceBasket edge handling", () => {
       siteApplied: true,
     });
     expect(enforced.meets_minimum).toBe(false);
-    // 55 + 150 = 205, so 195 short of 400.
-    expect(enforced.shortfall_aed).toBe(195);
+    // 6 + 150 = 156, so 244 short of 400. The 400 here is an argument, not the
+    // seeded minimum — this test is about when the rule applies, not its value.
+    expect(enforced.shortfall_aed).toBe(244);
   });
 
   it("clears the minimum once the basket is big enough", () => {
@@ -211,15 +212,40 @@ describe("priceBasket edge handling", () => {
       CATALOG,
       term,
       cadence,
-      { minimumMonthlyAed: 400, siteApplied: true }
+      { minimumMonthlyAed: 200, siteApplied: true }
     );
-    expect(q.monthly_total_aed).toBe(500);
+    // 35 x 2 + 150 = 220.
+    expect(q.monthly_total_aed).toBe(220);
+    expect(q.meets_minimum).toBe(true);
+    expect(q.shortfall_aed).toBe(0);
+  });
+
+  // Feature 007, FR-004 and SC-005. The old AED 400 minimum was set when a desk
+  // plant cost AED 45 and a small order came to about AED 450, so it almost
+  // never bound. At AED 5 a plant it would have bound on nearly every customer
+  // and quietly overridden the price the catalogue advertises.
+  it("prices an ordinary small order from the list, not the minimum", () => {
+    const SEEDED_MINIMUM = 150;
+    const q = priceBasket(
+      [
+        { variant_id: V("05"), quantity: 3 },
+        { variant_id: V("01"), quantity: 2 },
+      ],
+      CATALOG,
+      term,
+      cadence,
+      { minimumMonthlyAed: SEEDED_MINIMUM, siteApplied: true }
+    );
+    // 5 x 3 + 6 x 2 = 27 of plants, plus the AED 150 fortnightly fee.
+    expect(q.plants_subtotal_aed).toBe(27);
+    expect(q.monthly_total_aed).toBe(177);
     expect(q.meets_minimum).toBe(true);
     expect(q.shortfall_aed).toBe(0);
   });
 
   it("keeps money exact where floating point would not", () => {
-    // 590 * 1.07 is 631.2999999999999 in binary floating point.
+    // 6 x 3 + 35 + 250 = 303, and 303 * 1.07 is 324.21000000000004 in binary
+    // floating point. Integer fils land it on 324.21.
     const q = priceBasket(
       [
         { variant_id: V("01"), quantity: 3 },
@@ -229,6 +255,7 @@ describe("priceBasket edge handling", () => {
       TERMS["6"],
       CADENCES.weekly
     );
-    expect(q.monthly_total_aed).toBe(631.3);
+    expect(303 * 1.07).not.toBe(324.21);
+    expect(q.monthly_total_aed).toBe(324.21);
   });
 });

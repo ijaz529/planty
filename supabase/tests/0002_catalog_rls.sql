@@ -32,7 +32,7 @@ select is(
 select is(
   (select price_aed from public.plant_variants
    where id = '40000000-0000-4000-8000-000000000101'),
-  55.00::numeric,
+  6.00::numeric,
   'anon can read a published price'
 );
 
@@ -77,7 +77,7 @@ update public.plant_variants set price_aed = 1
 select is(
   (select price_aed from public.plant_variants
    where id = '40000000-0000-4000-8000-000000000101'),
-  55.00::numeric,
+  6.00::numeric,
   'a customer cannot change a price'
 );
 

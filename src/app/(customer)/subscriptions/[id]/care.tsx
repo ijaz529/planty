@@ -15,7 +15,7 @@ import { RequestForm, type CarePlant, type SwapTarget } from "./request-form";
 /**
  * The care section. Two promises live here and are deliberately kept apart:
  * a replacement is free and unlimited because that is what Planty sells, and a
- * swap spends a counted quarterly entitlement.
+ * swap spends a counted monthly entitlement.
  */
 export async function CareSection({
   subscriptionId,
@@ -132,9 +132,9 @@ export async function CareSection({
         </p>
       </div>
 
-      {/* Rotations: a counted entitlement, shown and consumed. */}
+      {/* Swaps: a counted entitlement, shown and consumed. */}
       <div className="rounded-xl border border-line bg-leaf-soft/50 p-5">
-        <h3 className="font-semibold">Seasonal swaps</h3>
+        <h3 className="font-semibold">Swapping a plant</h3>
         <p className="mt-1 text-sm">
           {rotationsPhrase(left, allowance)}
           {allowance > 0 && periodEnd ? `, ${renewalPhrase(periodEnd as string)}.` : "."}

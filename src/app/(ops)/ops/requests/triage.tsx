@@ -41,7 +41,7 @@ export function RequestTriage({ rows }: { rows: TriageRow[] }) {
         <h1 className="text-2xl font-semibold">Requests</h1>
         <p className="mt-1 max-w-2xl text-muted">
           A replacement is our guarantee and is free. A swap spends one of the
-          customer&apos;s quarterly allowance — declining one gives it back.
+          customer&apos;s monthly allowance — declining one gives it back.
         </p>
       </header>
 

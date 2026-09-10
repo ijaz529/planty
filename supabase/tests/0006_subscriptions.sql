@@ -2,7 +2,7 @@ begin;
 select plan(28);
 
 -- Seeded: Nadia (...0002) owns Northwind, whose office site (5000...0001) is in
--- Business Bay (Mon+Wed, minimum AED 400). Priya (...0001) owns a Marina home.
+-- Business Bay (Mon+Wed, minimum AED 150). Priya (...0001) owns a Marina home.
 -- Omar (...0003) is an operator. Kentia (...108) has stock 5.
 
 -- A valid installation day for Business Bay (first Mon/Wed on or after the
@@ -30,6 +30,16 @@ set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","
 
 -- ── refusals come first, and leave nothing behind ────────────────────
 
+-- Feature 007 dropped the seeded minimum to AED 150, which a single desk plant
+-- plus the fortnightly fee already clears. The refusal itself still has to
+-- work, so raise the minimum for this one assertion and put it back after.
+reset role;
+update public.service_zones set minimum_monthly_aed = 400.00
+ where id = (select zone_id from public.sites
+              where id = '50000000-0000-4000-8000-000000000001');
+set local role authenticated;
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
+
 select throws_like(
   'select public.create_subscription(
       ''[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":1}]''::jsonb,
@@ -37,6 +47,13 @@ select throws_like(
   '%below minimum%',
   'a basket below the zone minimum is refused'
 );
+
+reset role;
+update public.service_zones set minimum_monthly_aed = 150.00
+ where id = (select zone_id from public.sites
+              where id = '50000000-0000-4000-8000-000000000001');
+set local role authenticated;
+set local request.jwt.claims to '{"sub":"10000000-0000-4000-8000-000000000002","role":"authenticated"}';
 
 select throws_like(
   'select public.create_subscription(
@@ -67,7 +84,7 @@ select throws_like(
   'select public.create_subscription(
       ''[{"variant_id":"40000000-0000-4000-8000-000000000108","quantity":2}]''::jsonb,
       ''60000000-0000-4000-8000-000000000012'', ''61000000-0000-4000-8000-000000000001'', ''50000000-0000-4000-8000-000000000001'', ' || quote_literal(:'good') || ', null, 123.45)',
-  '%price changed: now AED 500%',
+  '%price changed: now AED 220%',
   'a stale expected total is refused with the new price'
 );
 
@@ -81,7 +98,7 @@ select is(
 create temp table t_sub as
   select public.create_subscription(
     '[{"variant_id":"40000000-0000-4000-8000-000000000108","quantity":2}]'::jsonb,
-    '60000000-0000-4000-8000-000000000012', '61000000-0000-4000-8000-000000000001', '50000000-0000-4000-8000-000000000001', :'good', null, 500.00) as id;
+    '60000000-0000-4000-8000-000000000012', '61000000-0000-4000-8000-000000000001', '50000000-0000-4000-8000-000000000001', :'good', null, 220.00) as id;
 
 select is(
   (select status from public.subscriptions where id = (select id from t_sub)),

@@ -34,13 +34,13 @@ export function isOpen(s: ChangeStatus): boolean {
   return s === "requested" || s === "approved";
 }
 
-/** "2 of 2 left this quarter" — or the honest version when there are none. */
+/** "2 of 2 left this month" — or the honest version when there are none. */
 export function rotationsPhrase(remaining: number, allowance: number): string {
   if (allowance === 0) return "Swaps are not included on this plan";
-  if (remaining === 0) return "No swaps left this quarter";
+  if (remaining === 0) return "No swaps left this month";
   if (remaining === allowance)
-    return `${allowance} swap${allowance === 1 ? "" : "s"} to use this quarter`;
-  return `${remaining} of ${allowance} swaps left this quarter`;
+    return `${allowance} swap${allowance === 1 ? "" : "s"} to use this month`;
+  return `${remaining} of ${allowance} swaps left this month`;
 }
 
 /** "renews on 13 December" */
