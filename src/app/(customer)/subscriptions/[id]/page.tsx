@@ -6,6 +6,7 @@ import { formatPrecise } from "@/lib/pricing";
 import { requireUser } from "@/lib/supabase/server";
 import { StatusBadge } from "../status-badge";
 import { CancelButton } from "./actions";
+import { VisitFeed } from "./visits";
 
 const longDate = (d: string) =>
   new Date(d).toLocaleDateString("en-AE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -83,6 +84,8 @@ export default async function SubscriptionPage({ params }: { params: Promise<{ i
           <p><span className="text-muted">Installation</span> · {longDate(sub.installation_date)}</p>
           <p><span className="text-muted">Term ends</span> · {longDate(sub.ends_on)}</p>
         </section>
+
+        {sub.status !== "pending" && <VisitFeed subscriptionId={sub.id} />}
 
         {sub.status === "pending" && <CancelButton id={sub.id} />}
         {sub.status === "active" && (

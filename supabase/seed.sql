@@ -175,3 +175,74 @@ insert into public.bundle_items (bundle_id, variant_id, quantity) values
 -- ── operator settings (feature 003) ──────────────────────────────────
 insert into public.operator_settings (key, value) values
   ('bank_details', E'Planty Plants LLC\nEmirates NBD\nIBAN AE00 0000 0000 0000 0000 000\nQuote your payment reference on the transfer.');
+
+-- ── an active subscription and its visits (feature 004) ──────────────
+-- So there is a real route to work on day one. Placed via the same function a
+-- customer uses, then activated, then visits generated.
+
+do $$
+declare
+  v_install date;
+  v_id uuid;
+begin
+  -- The next day Business Bay (Mon+Wed) is served, at least two working days out.
+  select min(d)::date into v_install
+    from generate_series(public.min_installation_date(),
+                         public.min_installation_date() + 14, '1 day') d
+   where extract(dow from d) in (1, 3);
+
+  insert into public.subscriptions (
+    id, organization_id, site_id, status, payment_method, payment_reference,
+    billing_email, term_months, term_label, term_multiplier,
+    cadence_code, cadence_label, cadence_fee_aed,
+    plants_subtotal_aed, service_fee_aed, monthly_total_aed, quote,
+    installation_date, ends_on, reserved_until, created_by
+  )
+  select
+    gen_random_uuid(), '20000000-0000-4000-8000-000000000001',
+    '50000000-0000-4000-8000-000000000001', 'active', 'invoice',
+    'PL-000001', 'accounts@northwind.example',
+    12, '12 months', 1.0000,
+    'fortnightly', 'Every 2 weeks', 150.00,
+    1030.00, 150.00, 1180.00,
+    public.price_basket(
+      '[{"variant_id":"40000000-0000-4000-8000-000000000101","quantity":6},
+        {"variant_id":"40000000-0000-4000-8000-000000000103","quantity":4},
+        {"variant_id":"40000000-0000-4000-8000-000000000102","quantity":3},
+        {"variant_id":"40000000-0000-4000-8000-000000000108","quantity":1}]'::jsonb,
+      '60000000-0000-4000-8000-000000000012',
+      '61000000-0000-4000-8000-000000000001', null),
+    v_install, v_install + interval '12 months', now() + interval '7 days',
+    '10000000-0000-4000-8000-000000000002'
+  returning id into v_id;
+
+  insert into public.subscription_lines
+    (subscription_id, variant_id, species_name, size_tier, unit_price_aed, quantity, line_total_aed)
+  values
+    (v_id, '40000000-0000-4000-8000-000000000101', 'Snake plant', 'desk', 55.00, 6, 330.00),
+    (v_id, '40000000-0000-4000-8000-000000000103', 'ZZ plant', 'desk', 60.00, 4, 240.00),
+    (v_id, '40000000-0000-4000-8000-000000000102', 'Snake plant', 'floor', 95.00, 3, 285.00),
+    (v_id, '40000000-0000-4000-8000-000000000108', 'Kentia palm', 'statement', 175.00, 1, 175.00);
+
+  insert into public.subscription_status_events (subscription_id, from_status, to_status, note)
+  values (v_id, null, 'pending', 'seeded'), (v_id, 'pending', 'active', 'seeded as paid');
+
+  update public.plant_variants set stock_allocated = stock_allocated + 6
+   where id = '40000000-0000-4000-8000-000000000101';
+  update public.plant_variants set stock_allocated = stock_allocated + 4
+   where id = '40000000-0000-4000-8000-000000000103';
+  update public.plant_variants set stock_allocated = stock_allocated + 3
+   where id = '40000000-0000-4000-8000-000000000102';
+  update public.plant_variants set stock_allocated = stock_allocated + 1
+   where id = '40000000-0000-4000-8000-000000000108';
+end $$;
+
+select public.generate_visits(28);
+
+-- Assign the first two stops to Tariq so a technician has a day to work.
+update public.visits v
+   set technician_id = '10000000-0000-4000-8000-000000000004',
+       sequence_no = sub.rn
+  from (select id, row_number() over (order by scheduled_date) as rn
+          from public.visits where status = 'planned') sub
+ where v.id = sub.id and sub.rn <= 2;

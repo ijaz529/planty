@@ -18,6 +18,11 @@ select min(d)::date as bad
 select (public.min_installation_date() - 1)::text as early \gset
 
 \set kentia '40000000-0000-4000-8000-000000000108'
+-- Baselines: the seed has its own active subscription holding stock, so every
+-- stock assertion below is a delta from where this test started.
+select stock_allocated as base_alloc, stock_available as base_avail
+  from public.plant_variants where id = '40000000-0000-4000-8000-000000000108' \gset
+select count(*)::int as base_subs from public.subscriptions \gset
 \set snake  '40000000-0000-4000-8000-000000000101'
 
 set local role authenticated;
@@ -67,7 +72,7 @@ select throws_like(
 );
 
 select is(
-  (select count(*) from public.subscriptions), 0::bigint,
+  (select count(*)::int from public.subscriptions), :base_subs,
   'no refusal left a subscription behind'
 );
 
@@ -119,9 +124,9 @@ select is(
 );
 
 select is(
-  (select stock_allocated from public.plant_variants where id = :'kentia'),
+  (select stock_allocated from public.plant_variants where id = :'kentia') - :base_alloc,
   2,
-  'ordering two kentias reserves two'
+  'ordering two kentias reserves two more than before'
 );
 
 select is(
@@ -143,14 +148,14 @@ create temp table t_sub3 as
 
 select is(
   (select quantity from public.subscription_lines where subscription_id = (select id from t_sub3)),
-  3,
-  'asking for more than remains orders what remains, as the basket disclosed'
+  :base_avail - 2,
+  'asking for more than remains orders exactly what remains, as the basket disclosed'
 );
 
 select is(
-  (select stock_allocated from public.plant_variants where id = :'kentia'),
-  5,
-  'and every kentia is now reserved'
+  (select stock_available from public.plant_variants where id = :'kentia'),
+  0,
+  'and every remaining kentia is now reserved'
 );
 
 select throws_like(
@@ -162,7 +167,7 @@ select throws_like(
 );
 
 select is(
-  (select count(*) from public.subscriptions), 2::bigint,
+  (select count(*)::int from public.subscriptions), :base_subs + 2,
   'and the refusal created no subscription'
 );
 
@@ -172,9 +177,9 @@ select lives_ok(
 );
 
 select is(
-  (select stock_allocated from public.plant_variants where id = :'kentia'),
+  (select stock_allocated from public.plant_variants where id = :'kentia') - :base_alloc,
   2,
-  'which returns exactly the three it reserved'
+  'which returns exactly what that order reserved'
 );
 
 -- ── customer lifecycle ───────────────────────────────────────────────
@@ -191,7 +196,7 @@ select lives_ok(
 );
 
 select is(
-  (select stock_allocated from public.plant_variants where id = :'kentia'),
+  (select stock_allocated from public.plant_variants where id = :'kentia') - :base_alloc,
   0,
   'cancelling released the reservation'
 );
@@ -202,7 +207,7 @@ select lives_ok(
 );
 
 select is(
-  (select stock_allocated from public.plant_variants where id = :'kentia'),
+  (select stock_allocated from public.plant_variants where id = :'kentia') - :base_alloc,
   0,
   'and does not release stock twice'
 );
