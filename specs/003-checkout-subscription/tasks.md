@@ -11,11 +11,11 @@ description: "Task list for feature 003 — Checkout & Subscription"
 
 ## Phase 1: Foundational
 
-- [ ] T001 Migration `supabase/migrations/0006_subscriptions.sql`: enums, `subscriptions`, `subscription_lines`, `subscription_status_events`, `operator_settings`, payment-reference sequence, RLS per data-model.md
-- [ ] T002 Same migration: `min_installation_date()`, `create_subscription(...)`, `mark_subscription_paid()`, `cancel_subscription()` per contracts/subscription-lifecycle.md, with named errors and row-locked reservation
-- [ ] T003 Extend `supabase/seed.sql` with the `bank_details` setting
-- [ ] T004 [P] `src/lib/installation.ts`: `minInstallationDate(from)` (two Mon–Fri days ahead) and `installationCandidates(serviceWeekdays, from, count)`; `tests/unit/installation.test.ts`
-- [ ] T005 pgTAP `supabase/tests/0006_subscriptions.sql`: snapshot equals `price_basket`; stock reserved and released once; over-allocation rolls back cleanly; below-minimum, off-day, too-early and price-changed refusals; customer cannot cancel active; operator transitions; cross-organization isolation
+- [X] T001 Migration `supabase/migrations/0006_subscriptions.sql`: enums, `subscriptions`, `subscription_lines`, `subscription_status_events`, `operator_settings`, payment-reference sequence, RLS per data-model.md
+- [X] T002 Same migration: `min_installation_date()`, `create_subscription(...)`, `mark_subscription_paid()`, `cancel_subscription()` per contracts/subscription-lifecycle.md, with named errors and row-locked reservation
+- [X] T003 Extend `supabase/seed.sql` with the `bank_details` setting
+- [X] T004 [P] `src/lib/installation.ts`: `minInstallationDate(from)` (two Mon–Fri days ahead) and `installationCandidates(serviceWeekdays, from, count)`; `tests/unit/installation.test.ts`
+- [X] T005 pgTAP `supabase/tests/0006_subscriptions.sql`: snapshot equals `price_basket`; stock reserved and released once; over-allocation rolls back cleanly; below-minimum, off-day, too-early and price-changed refusals; customer cannot cancel active; operator transitions; cross-organization isolation
 
 ## Phase 2: US1 — Place an order
 

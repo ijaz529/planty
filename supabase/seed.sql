@@ -171,3 +171,7 @@ insert into public.bundle_items (bundle_id, variant_id, quantity) values
   ('62000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000108', 2),
   -- Reception Pair: the out-of-stock Areca
   ('62000000-0000-4000-8000-000000000004', '40000000-0000-4000-8000-000000000109', 2);
+
+-- ── operator settings (feature 003) ──────────────────────────────────
+insert into public.operator_settings (key, value) values
+  ('bank_details', E'Planty Plants LLC\nEmirates NBD\nIBAN AE00 0000 0000 0000 0000 000\nQuote your payment reference on the transfer.');
