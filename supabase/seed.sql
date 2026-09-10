@@ -246,3 +246,18 @@ update public.visits v
   from (select id, row_number() over (order by scheduled_date) as rn
           from public.visits where status = 'planned') sub
  where v.id = sub.id and sub.rn <= 2;
+
+-- ── ledger opening balances (feature 006) ────────────────────────────
+-- Migrations run before this file, so migration 0009's opening entries found an
+-- empty catalogue. Everything above set stock directly; record it now so the
+-- ledger reconciles against the counts from the first day (FR-003).
+
+insert into public.stock_movements (variant_id, reason, delta_total, note)
+select id, 'adjusted', stock_total, 'opening balance (seed)'
+  from public.plant_variants
+ where stock_total <> 0;
+
+insert into public.stock_movements (variant_id, reason, delta_allocated, note)
+select id, 'adjusted', stock_allocated, 'opening allocation (seed)'
+  from public.plant_variants
+ where stock_allocated <> 0;
