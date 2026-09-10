@@ -159,3 +159,67 @@ export function normalizeQuantity(quantity: number): number {
 }
 
 export { KEY as BASKET_STORAGE_KEY, MAX_QUANTITY };
+
+/* ── external store ───────────────────────────────────────────────────
+ * The basket is external state (localStorage), so React should subscribe to
+ * it rather than copy it into component state inside an effect. This is what
+ * `useSyncExternalStore` is for, and it gives cross-tab sync for free.
+ *
+ * `getSnapshot` must return a referentially stable value while the underlying
+ * data is unchanged, or React re-renders forever — hence the raw-string cache.
+ */
+
+let cachedRaw: string | null = null;
+let cachedBasket: Basket = EMPTY_BASKET;
+const listeners = new Set<() => void>();
+
+function readRaw(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return window.localStorage.getItem(KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function getBasketSnapshot(): Basket {
+  const raw = readRaw();
+  if (raw !== cachedRaw) {
+    cachedRaw = raw;
+    cachedBasket = readBasket();
+  }
+  return cachedBasket;
+}
+
+/** The server has no basket, and this value must be stable across renders. */
+export function getBasketServerSnapshot(): Basket {
+  return EMPTY_BASKET;
+}
+
+export function subscribeToBasket(onChange: () => void): () => void {
+  listeners.add(onChange);
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", onChange);
+  }
+  return () => {
+    listeners.delete(onChange);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", onChange);
+    }
+  };
+}
+
+/** Persists and notifies subscribers in this tab. */
+export function commitBasket(basket: Basket): void {
+  writeBasket(basket);
+  cachedRaw = readRaw();
+  cachedBasket = basket;
+  listeners.forEach((l) => l());
+}
+
+export function commitClear(): void {
+  clearBasket();
+  cachedRaw = null;
+  cachedBasket = EMPTY_BASKET;
+  listeners.forEach((l) => l());
+}

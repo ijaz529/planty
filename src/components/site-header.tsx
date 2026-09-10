@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getUserContext } from "@/lib/roles";
+import { BasketBadge } from "@/components/basket/basket-badge";
 
 export async function SiteHeader() {
   const supabase = await createClient();
@@ -16,7 +17,11 @@ export async function SiteHeader() {
         <Link href="/" className="font-semibold tracking-tight">
           Planty
         </Link>
+        <Link href="/bundles" className="text-sm text-muted hover:text-foreground">
+          Bundles
+        </Link>
         <div className="ml-auto flex items-center gap-4 text-sm">
+          <BasketBadge />
           {user ? (
             <>
               <Link href="/sites" className="text-muted hover:text-foreground">

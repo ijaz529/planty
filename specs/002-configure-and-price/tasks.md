@@ -47,13 +47,13 @@ and this feature implements one rule twice. The shared fixtures in
 
 **Independent Test**: Signed out, add three plants, change a quantity, switch term and cadence, reload — total correct at every step and the basket survives (spec US1 scenarios 1–6).
 
-- [ ] T011 [US1] Basket state in `src/components/basket/basket-provider.tsx`: a client provider over `src/lib/basket.ts` exposing lines, term, cadence and site, hydrating after mount so server and client markup agree
-- [ ] T012 [US1] Add-to-basket control in `src/components/basket/add-to-basket.tsx`: adds a variant, shows the quantity once present, disabled with a reason when the variant is unavailable
-- [ ] T013 [US1] Basket badge in `src/components/basket/basket-badge.tsx` and wire it into `src/components/site-header.tsx`
-- [ ] T014 [US1] Add the control to the catalog card in `src/app/(customer)/page.tsx` and to each size row in `src/app/(customer)/plants/[id]/page.tsx`
-- [ ] T015 [US1] Basket screen in `src/app/(customer)/basket/page.tsx`: lines with quantity controls and removal, term selector, cadence selector, the full breakdown, and unavailable lines explained rather than dropped
-- [ ] T016 [US1] Authoritative pricing in the basket screen: show the mirror's total immediately, then reconcile against `price_basket` and render the database's numbers once they arrive, so what is displayed is always what would be charged
-- [ ] T017 [US1] Term and cadence copy: state the cost of the chosen term against the cheapest in dirhams, and label a cadence change as changing the service fee, not the plant prices
+- [X] T011 [US1] Basket state in `src/components/basket/basket-provider.tsx`: a client provider over `src/lib/basket.ts` exposing lines, term, cadence and site, hydrating after mount so server and client markup agree
+- [X] T012 [US1] Add-to-basket control in `src/components/basket/add-to-basket.tsx`: adds a variant, shows the quantity once present, disabled with a reason when the variant is unavailable
+- [X] T013 [US1] Basket badge in `src/components/basket/basket-badge.tsx` and wire it into `src/components/site-header.tsx`
+- [X] T014 [US1] Add the control to the catalog card in `src/app/(customer)/page.tsx` and to each size row in `src/app/(customer)/plants/[id]/page.tsx`
+- [X] T015 [US1] Basket screen in `src/app/(customer)/basket/page.tsx`: lines with quantity controls and removal, term selector, cadence selector, the full breakdown, and unavailable lines explained rather than dropped
+- [X] T016 [US1] Authoritative pricing in the basket screen: show the mirror's total immediately, then reconcile against `price_basket` and render the database's numbers once they arrive, so what is displayed is always what would be charged
+- [X] T017 [US1] Term and cadence copy: state the cost of the chosen term against the cheapest in dirhams, and label a cadence change as changing the service fee, not the plant prices
 
 **Checkpoint**: A stranger can price an office without an account.
 
@@ -65,9 +65,9 @@ and this feature implements one rule twice. The shared fixtures in
 
 **Independent Test**: Signed out, open bundles, choose one, land on a basket whose total matches what the bundle advertised (spec US2 scenarios 1–4).
 
-- [ ] T018 [US2] Bundles screen in `src/app/(customer)/bundles/page.tsx`: each bundle with its name, who it suits, its contents and its computed monthly price at the default term and cadence; a bundle containing an unavailable plant is marked temporarily unavailable
-- [ ] T019 [US2] "Use this bundle" action replacing the basket with the bundle's contents and navigating to the basket, with a confirmation when it would discard an existing basket
-- [ ] T020 [US2] Link bundles from the catalog for visitors who do not know how many plants they need
+- [X] T018 [US2] Bundles screen in `src/app/(customer)/bundles/page.tsx`: each bundle with its name, who it suits, its contents and its computed monthly price at the default term and cadence; a bundle containing an unavailable plant is marked temporarily unavailable
+- [X] T019 [US2] "Use this bundle" action replacing the basket with the bundle's contents and navigating to the basket, with a confirmation when it would discard an existing basket
+- [X] T020 [US2] Link bundles from the catalog for visitors who do not know how many plants they need
 
 **Checkpoint**: Someone who has never bought office plants reaches a credible number in one click.
 
@@ -79,10 +79,10 @@ and this feature implements one rule twice. The shared fixtures in
 
 **Independent Test**: Sign in, attach a below-minimum basket to a site, see the shortfall in money; add plants until it clears (spec US3 scenarios 1–5).
 
-- [ ] T021 [US3] Site selector on the basket screen listing the signed-in customer's own and their organizations' sites, absent when signed out
-- [ ] T022 [US3] Pass the chosen site to `price_basket` and render `meets_minimum`, the minimum and the shortfall; block proceeding while short, and say what would clear it rather than only refusing
-- [ ] T023 [US3] Show the chosen site's zone and visit days on the basket, so the cadence choice connects to real days Planty already drives
-- [ ] T024 [US3] Show the minimum as guidance when no site is chosen, per FR-018
+- [X] T021 [US3] Site selector on the basket screen listing the signed-in customer's own and their organizations' sites, absent when signed out
+- [X] T022 [US3] Pass the chosen site to `price_basket` and render `meets_minimum`, the minimum and the shortfall; block proceeding while short, and say what would clear it rather than only refusing
+- [X] T023 [US3] Show the chosen site's zone and visit days on the basket, so the cadence choice connects to real days Planty already drives
+- [X] T024 [US3] Show the minimum as guidance when no site is chosen, per FR-018
 
 **Checkpoint**: All three stories independently functional.
 
@@ -90,10 +90,10 @@ and this feature implements one rule twice. The shared fixtures in
 
 ## Phase 5: Operator control & polish
 
-- [ ] T025 Operator pricing screen `src/app/(ops)/ops/pricing/page.tsx`: edit term multipliers, cadence fees and per-zone minimums, with the active default enforced by the database surfaced as a readable error
-- [ ] T026 Bundle management on the same screen: create a bundle, set its contents and quantities, publish and unpublish
-- [ ] T027 [P] Extend `src/lib/validation.ts` with term, cadence, minimum and bundle schemas
-- [ ] T028 Run the full gate — `npm run build`, `npm run test`, `supabase test db`, `npm run lint` — and walk the nine manual checks in quickstart.md, fixing anything red
+- [X] T025 Operator pricing screen `src/app/(ops)/ops/pricing/page.tsx`: edit term multipliers, cadence fees and per-zone minimums, with the active default enforced by the database surfaced as a readable error
+- [X] T026 Bundle management on the same screen: create a bundle, set its contents and quantities, publish and unpublish
+- [X] T027 [P] Extend `src/lib/validation.ts` with term, cadence, minimum and bundle schemas
+- [X] T028 Run the full gate — `npm run build`, `npm run test`, `supabase test db`, `npm run lint` — and walk the nine manual checks in quickstart.md, fixing anything red
 
 ---
 
