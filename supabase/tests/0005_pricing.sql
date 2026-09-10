@@ -153,11 +153,14 @@ select is(
 
 -- ── fixture: a quantity beyond stock is capped ───────────────────────
 
+-- Derived from live stock rather than a hardcoded number: other seeded
+-- subscriptions legitimately reserve kentias.
 select is(
   (public.price_basket(
      '[{"variant_id":"40000000-0000-4000-8000-000000000108","quantity":9}]'::jsonb,
      :t12, :cfn, null) ->> 'plants_subtotal_aed')::numeric,
-  875.00::numeric,
+  (select stock_available * price_aed from public.plant_variants
+    where id = '40000000-0000-4000-8000-000000000108'),
   'a quantity beyond stock is capped at what exists'
 );
 
