@@ -76,3 +76,16 @@ export const variantSchema = z.object({
   path: ["height_max_cm"],
 });
 export type VariantInput = z.infer<typeof variantSchema>;
+
+export const organizationSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "Enter the company name")
+    .max(120, "That name is too long"),
+  billing_email: z
+    .string()
+    .trim()
+    .email("Enter the email invoices should go to"),
+});
+export type OrganizationInput = z.infer<typeof organizationSchema>;

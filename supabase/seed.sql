@@ -84,3 +84,11 @@ insert into public.plant_variants (id, species_id, size_tier, height_min_cm, hei
   ('40000000-0000-4000-8000-000000000109', '40000000-0000-4000-8000-000000000006', 'statement', 160, 190, 'seed/areca-statement.svg', 165.00, 0, true),
   -- Deliberately incomplete draft: publishing it must fail and name the gaps (FR-022).
   ('40000000-0000-4000-8000-000000000110', '40000000-0000-4000-8000-000000000006', 'floor', null, null, null, null, 4, false);
+
+-- ── business account (feature 001 US3) ───────────────────────────────
+
+insert into public.organizations (id, name, billing_email) values
+  ('20000000-0000-4000-8000-000000000001', 'Northwind Labs', 'accounts@northwind.example');
+
+insert into public.organization_members (organization_id, account_id, role) values
+  ('20000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000002', 'owner');

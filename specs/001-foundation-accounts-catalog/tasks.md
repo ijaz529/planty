@@ -101,11 +101,11 @@ user story depends on.
 
 **Independent Test**: As `050 000 0002`, invite a never-seen number; sign in as that number and the organization is there; remove them and it is gone; try to remove the last owner and it is refused (spec US3 scenarios 1–6).
 
-- [ ] T031 [US3] Migration `supabase/migrations/0003_organizations.sql`: `organizations`, `organization_members`, `organization_invites`; `org_role()` helper; the last-owner guard trigger; `create_organization()` that authorises then writes the organization and the owner membership atomically; a replacement `handle_new_user()` that also converts pending invites; all RLS policies per contracts/data-access.md
-- [ ] T032 [US3] pgTAP tests `supabase/tests/0003_organizations_rls.sql`: members see their own organization and nothing of another; only owners change billing details or manage members; removing or demoting the last owner raises; a member leaving is allowed; an invite converts to a membership on that number's first sign-in; a removed member loses access
-- [ ] T033 [US3] Organizations list and creation in `src/app/(customer)/organizations/page.tsx` calling `create_organization`
-- [ ] T034 [US3] Member management in `src/app/(customer)/organizations/[id]/members.tsx`: invite by phone number normalised through `normalizeUaePhone`, change role, remove member, with the last-owner refusal surfaced as a readable message
-- [ ] T035 [US3] Extend `supabase/seed.sql` with the Northwind Labs organization owned by the second test account
+- [X] T031 [US3] Migration `supabase/migrations/0003_organizations.sql`: `organizations`, `organization_members`, `organization_invites`; `org_role()` helper; the last-owner guard trigger; `create_organization()` that authorises then writes the organization and the owner membership atomically; a replacement `handle_new_user()` that also converts pending invites; all RLS policies per contracts/data-access.md
+- [X] T032 [US3] pgTAP tests `supabase/tests/0003_organizations_rls.sql`: members see their own organization and nothing of another; only owners change billing details or manage members; removing or demoting the last owner raises; a member leaving is allowed; an invite converts to a membership on that number's first sign-in; a removed member loses access
+- [X] T033 [US3] Organizations list and creation in `src/app/(customer)/organizations/page.tsx` calling `create_organization`
+- [X] T034 [US3] Member management in `src/app/(customer)/organizations/[id]/members.tsx`: invite by phone number normalised through `normalizeUaePhone`, change role, remove member, with the last-owner refusal surfaced as a readable message
+- [X] T035 [US3] Extend `supabase/seed.sql` with the Northwind Labs organization owned by the second test account
 
 **Checkpoint**: Business tenancy works and is provably isolated.
 
