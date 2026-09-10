@@ -1,8 +1,8 @@
 # Planty — Product Requirements Document
 
 **Version**: 1.1 · **Date**: 2026-09-10 · **Status**: Draft for MVP
-**Market**: OPEN — built for Dubai, research recommends Berlin. See
-[the market decision](DECISION-market.md) and §3.
+**Market**: Dubai, UAE — chosen by the founder on 2026-09-10 over the
+research's Berlin recommendation. See [the decision](DECISION-market.md) and §3.
 **Evidence base**: `docs/research/` (14 research lenses, Sept 2026)
 
 ---
@@ -293,12 +293,13 @@ configure a real basket at a real price and subscribe.
 
 ## 11. Open Questions
 
-1. **Which market (the decision everything else waits on).** The research
-   recommends Berlin B2B; feature 001 is built for Dubai. Only the founder
-   knows whether relocation or a trusted Dubai operating partner is on the
-   table, and that single fact decides it. If neither is, take Berlin. See §3
-   for the reopening criteria and `docs/DECISION-market.md` for exactly what
-   changes in the code either way.
+1. **Who runs the Dubai route?** The market is settled; the operator is not.
+   This is a business where a technician stands in a room on a schedule, and
+   the founder is in Germany. Relocation, a hire, or a subcontract to an
+   existing Dubai maintenance operator — one of these has to be real before
+   the first paying customer. Several Dubai operators already sell per-visit
+   maintenance at published rates, which makes subcontracting the cheapest
+   thing to price.
 2. **Real incumbent rental prices.** Nobody publishes them. Three
    mystery-shopped quotes would replace the entire pricing hypothesis with
    evidence.

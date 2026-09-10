@@ -1,6 +1,11 @@
 <!--
 SYNC IMPACT REPORT
-Version change: (template) → 1.0.0 → 1.1.0
+Version change: (template) → 1.0.0 → 1.1.0 → 1.2.0
+Rationale for 1.2.0 (MINOR): the founder settled the launch market as Dubai.
+The constraint section now states it as decided rather than provisional, and
+carries forward the two obligations that survive the decision — prices are
+unvalidated data, and market constants stay confined.
+
 Rationale for 1.1.0 (MINOR, same day): the completed research programme
 reversed the launch-market recommendation after feature 001 was built. The
 "Market & Operating Constraints" section now records the market as
@@ -159,22 +164,23 @@ UI and glue code are tested pragmatically, not dogmatically.
 
 ## Market & Operating Constraints
 
-- **Launch market**: PROVISIONAL, and currently contested by our own
-  evidence. Feature 001 was built against **Dubai, UAE** — currency AED,
-  timezone Asia/Dubai — on an interim reading of the research. The completed
-  research programme (`docs/research/RESEARCH.md` §5) instead recommends
-  **Berlin, B2B only**, on two grounds: no UAE operator publishes a rental
-  price, so the same modelled office swings from roughly 61% to 7%
-  contribution margin depending on an unobservable number; and this is a
-  physical route business whose founder is resident in Germany.
+- **Launch market**: **Dubai, UAE**. Currency **AED**. Timezone
+  **Asia/Dubai** (GST, no DST). Settled by the founder on 2026-09-10, after
+  the research programme argued for Berlin (`docs/research/RESEARCH.md` §5)
+  and the founder chose to keep Dubai for now.
 
-  Until the founder resolves this, treat the market constants as the only
-  provisional part of the codebase. They are confined to phone
-  normalisation, currency formatting, the seed, the local auth test numbers,
-  and page copy. **No feature may spread market assumptions beyond those
-  places**, and no feature may introduce multi-market configurability to
-  hedge the question — the research is explicit that a multi-city product is
-  the wrong response. Settling the market is an amendment to this section.
+  Two consequences follow, and both are binding. First, the research's
+  strongest objection stands unanswered: **no UAE operator publishes a rental
+  price**, so Planty's own prices are the first observable ones in this
+  market and are currently a hypothesis. Prices are therefore operator-edited
+  data, never constants, and no feature may assume a particular price level.
+  Second, because "for now" is not "forever", market constants stay confined
+  to phone normalisation, currency formatting, the seed, the local auth test
+  numbers and page copy. **No feature may spread market assumptions beyond
+  those places**, and none may introduce multi-market configurability to
+  hedge — the research is explicit that a multi-city product is the wrong
+  response. The reopening criteria live in `docs/DECISION-market.md`.
+
 - **Language**: English-first UI. Arabic/RTL is a future spec — avoid
   hardcoding that makes RTL painful (use logical CSS properties). UAE
   consumer-facing contract documents may require Arabic before commercial
@@ -217,4 +223,4 @@ Amendments require a version bump and a note in the spec that prompted them.
 Versioning is semantic: MAJOR for removing or redefining a principle, MINOR
 for adding one or materially expanding guidance, PATCH for clarifications.
 
-**Version**: 1.1.0 | **Ratified**: 2026-09-10 | **Last Amended**: 2026-09-10
+**Version**: 1.2.0 | **Ratified**: 2026-09-10 | **Last Amended**: 2026-09-10

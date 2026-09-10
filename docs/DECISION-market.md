@@ -1,20 +1,29 @@
 # Open decision: which city does Planty launch in?
 
-**Status**: open, blocking feature 002 · **Raised**: 2026-09-10
+**Status**: DECIDED — Dubai, by the founder, 2026-09-10 ("ok for now").
+Kept because the reasoning and the reopening criteria still matter.
 
 Feature 001 is built and merged against **Dubai**. The completed research
 programme recommends **Berlin, B2B only**. This note exists so the decision is
 made on facts rather than on which document someone read last.
 
-## The one thing only the founder knows
+## The decision
 
-> Is relocating to Dubai, or securing a named local operating partner to run
-> the route, actually on the table?
+**Dubai, for now.** The founder chose to keep it after reading the Berlin
+case. The code was already built against Dubai, so nothing changes in the
+repository.
 
-If yes, Dubai is the better market and the current code is already pointed at
-it. If no, take Berlin — because this business is a technician standing in a
-room on a schedule, and nobody found a costed way to run that remotely on day
-one.
+Two obligations survive the decision, and both are now in the constitution:
+
+1. **Planty's prices are the first observable rental prices in this market.**
+   No UAE operator publishes one. That means our price list is a hypothesis
+   being tested live, not a position within a known band — so prices stay
+   operator-edited data and no feature may assume a price level.
+2. **The route still needs an operator.** The market question is closed; the
+   "who physically does the visits" question is not, and it is now the top
+   open question in the PRD. Subcontracting to an existing Dubai maintenance
+   firm is the cheapest version to price, because several already publish
+   per-visit rates.
 
 ## Why the research came out for Berlin
 
@@ -89,10 +98,13 @@ two to four week visits on sub-irrigated planters because labour is expensive,
 and the research favours that on cost grounds. Weekly becomes a paid tier
 rather than the default.
 
-## Recommendation
+## What still holds
 
-Take Berlin unless relocation or a local partner is real. Then, before writing
-feature 002, spend the fortnight on the five Tier 1 questions in
+The Berlin case below is not wrong, it was outvoted. If the route operator
+cannot be found, or if three mystery-shopped Dubai quotes come back far below
+the modelled rates, this reopens on the criteria above.
+
+Either way, spend a fortnight on the five Tier 1 questions in
 `docs/research/RESEARCH.md` §12 — a demand test, real search volume, three
 subcontractor quotes, one trade plant price list, and ten timed visits. Every
 one of them replaces an estimate in the model with a fact, and four of them
