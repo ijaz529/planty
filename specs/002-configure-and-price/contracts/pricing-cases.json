@@ -1,0 +1,204 @@
+{
+  "$comment": [
+    "Shared pricing fixtures. Executed by BOTH tests/unit/pricing.test.ts and",
+    "supabase/tests/0005_pricing.sql. If one suite passes and the other fails,",
+    "the two implementations of the pricing rule have drifted — which is exactly",
+    "what this file exists to catch. Adding a pricing rule means adding a case",
+    "here first.",
+    "",
+    "Fixture ids match supabase/seed.sql. Prices are the seeded ones:",
+    "  snake-desk        40000000-0000-4000-8000-000000000101  AED  55  stock 24",
+    "  snake-floor       40000000-0000-4000-8000-000000000102  AED  95  stock 10",
+    "  zz-desk           40000000-0000-4000-8000-000000000103  AED  60  stock 18",
+    "  aglaonema-floor   40000000-0000-4000-8000-000000000107  AED 100  stock  6",
+    "  kentia-statement  40000000-0000-4000-8000-000000000108  AED 175  stock  5",
+    "  areca-statement   40000000-0000-4000-8000-000000000109  AED 165  stock  0  (published, out of stock)",
+    "  areca-floor-draft 40000000-0000-4000-8000-000000000110  unpublished draft",
+    "Terms:    3mo x1.15, 6mo x1.07, 12mo x1.00 (default)",
+    "Cadences: weekly AED 250, fortnightly AED 150 (default)"
+  ],
+
+  "terms": {
+    "3": { "months": 3, "multiplier": 1.15 },
+    "6": { "months": 6, "multiplier": 1.07 },
+    "12": { "months": 12, "multiplier": 1.0 }
+  },
+  "cadences": {
+    "weekly": { "monthly_fee_aed": 250.0 },
+    "fortnightly": { "monthly_fee_aed": 150.0 }
+  },
+
+  "cases": [
+    {
+      "name": "empty basket costs nothing, not a bare service fee",
+      "items": [],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 0.0,
+        "service_fee_aed": 0.0,
+        "monthly_total_aed": 0.0,
+        "has_unavailable_lines": false
+      }
+    },
+    {
+      "name": "single desk plant at the default term and cadence",
+      "items": [{ "variant": "40000000-0000-4000-8000-000000000101", "quantity": 1 }],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 55.0,
+        "service_fee_aed": 150.0,
+        "subtotal_aed": 205.0,
+        "monthly_total_aed": 205.0,
+        "has_unavailable_lines": false
+      }
+    },
+    {
+      "name": "quantities multiply and lines sum",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 4 },
+        { "variant": "40000000-0000-4000-8000-000000000103", "quantity": 3 }
+      ],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 400.0,
+        "service_fee_aed": 150.0,
+        "subtotal_aed": 550.0,
+        "monthly_total_aed": 550.0
+      }
+    },
+    {
+      "name": "weekly cadence raises the fee and leaves plant prices alone",
+      "items": [{ "variant": "40000000-0000-4000-8000-000000000101", "quantity": 4 }],
+      "term_months": 12,
+      "cadence_code": "weekly",
+      "expect": {
+        "plants_subtotal_aed": 220.0,
+        "service_fee_aed": 250.0,
+        "monthly_total_aed": 470.0
+      }
+    },
+    {
+      "name": "three-month term applies a 1.15 multiplier to the whole subtotal",
+      "items": [{ "variant": "40000000-0000-4000-8000-000000000101", "quantity": 4 }],
+      "term_months": 3,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 220.0,
+        "service_fee_aed": 150.0,
+        "subtotal_aed": 370.0,
+        "monthly_total_aed": 425.5,
+        "cheapest_monthly_total_aed": 370.0,
+        "flexibility_cost_aed": 55.5
+      }
+    },
+    {
+      "name": "six-month multiplier rounds to the fil once, not per line",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 3 },
+        { "variant": "40000000-0000-4000-8000-000000000108", "quantity": 1 }
+      ],
+      "term_months": 6,
+      "cadence_code": "weekly",
+      "expect": {
+        "plants_subtotal_aed": 340.0,
+        "service_fee_aed": 250.0,
+        "subtotal_aed": 590.0,
+        "monthly_total_aed": 631.3,
+        "flexibility_cost_aed": 41.3
+      }
+    },
+    {
+      "name": "an out-of-stock but published plant is unavailable and excluded",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 2 },
+        { "variant": "40000000-0000-4000-8000-000000000109", "quantity": 1 }
+      ],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 110.0,
+        "service_fee_aed": 150.0,
+        "monthly_total_aed": 260.0,
+        "has_unavailable_lines": true,
+        "line_statuses": { "40000000-0000-4000-8000-000000000109": "unavailable" }
+      }
+    },
+    {
+      "name": "an unpublished draft is unavailable even though it exists",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 1 },
+        { "variant": "40000000-0000-4000-8000-000000000110", "quantity": 5 }
+      ],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 55.0,
+        "monthly_total_aed": 205.0,
+        "has_unavailable_lines": true,
+        "line_statuses": { "40000000-0000-4000-8000-000000000110": "unavailable" }
+      }
+    },
+    {
+      "name": "a quantity beyond stock is capped and the request is reported",
+      "items": [{ "variant": "40000000-0000-4000-8000-000000000108", "quantity": 9 }],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 875.0,
+        "monthly_total_aed": 1025.0,
+        "line_statuses": { "40000000-0000-4000-8000-000000000108": "capped" },
+        "line_quantities": { "40000000-0000-4000-8000-000000000108": 5 },
+        "line_requested": { "40000000-0000-4000-8000-000000000108": 9 }
+      }
+    },
+    {
+      "name": "a basket of only unavailable lines totals zero, with no bare fee",
+      "items": [{ "variant": "40000000-0000-4000-8000-000000000109", "quantity": 3 }],
+      "term_months": 3,
+      "cadence_code": "weekly",
+      "expect": {
+        "plants_subtotal_aed": 0.0,
+        "service_fee_aed": 0.0,
+        "monthly_total_aed": 0.0,
+        "has_unavailable_lines": true
+      }
+    },
+    {
+      "name": "an unknown variant id is unavailable rather than an error",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 1 },
+        { "variant": "40000000-0000-4000-8000-0000000009ff", "quantity": 2 }
+      ],
+      "term_months": 12,
+      "cadence_code": "fortnightly",
+      "expect": {
+        "plants_subtotal_aed": 55.0,
+        "monthly_total_aed": 205.0,
+        "has_unavailable_lines": true
+      }
+    },
+    {
+      "name": "a realistic small office at the shortest term",
+      "items": [
+        { "variant": "40000000-0000-4000-8000-000000000101", "quantity": 6 },
+        { "variant": "40000000-0000-4000-8000-000000000103", "quantity": 4 },
+        { "variant": "40000000-0000-4000-8000-000000000102", "quantity": 3 },
+        { "variant": "40000000-0000-4000-8000-000000000107", "quantity": 2 },
+        { "variant": "40000000-0000-4000-8000-000000000108", "quantity": 1 }
+      ],
+      "term_months": 3,
+      "cadence_code": "weekly",
+      "expect": {
+        "plants_subtotal_aed": 1230.0,
+        "service_fee_aed": 250.0,
+        "subtotal_aed": 1480.0,
+        "monthly_total_aed": 1702.0,
+        "cheapest_monthly_total_aed": 1480.0,
+        "flexibility_cost_aed": 222.0
+      }
+    }
+  ]
+}

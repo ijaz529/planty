@@ -119,3 +119,55 @@ insert into public.sites (id, owner_account_id, label, location, building, unit,
    extensions.st_geogfromtext('POINT(55.142 25.079)'),
    'Marina Gate 2', 'Apartment 1204',
    'Building access code 4417. One cat, keep the door shut.');
+
+-- ── pricing configuration (feature 002) ──────────────────────────────
+-- These numbers are the PRD's hypothesis, not observed market rates: no UAE
+-- operator publishes a rental price. They are data precisely so they can be
+-- replaced with evidence without a deploy.
+
+insert into public.rental_terms (id, months, label, price_multiplier, is_default, active, sort_order) values
+  ('60000000-0000-4000-8000-000000000003',  3, '3 months',  1.1500, false, true, 1),
+  ('60000000-0000-4000-8000-000000000006',  6, '6 months',  1.0700, false, true, 2),
+  ('60000000-0000-4000-8000-000000000012', 12, '12 months', 1.0000, true,  true, 3);
+
+insert into public.service_cadences (id, code, label, visits_per_month, monthly_fee_aed, is_default, active, sort_order) values
+  ('61000000-0000-4000-8000-000000000001', 'fortnightly', 'Every 2 weeks', 2.17, 150.00, true,  true, 1),
+  ('61000000-0000-4000-8000-000000000002', 'weekly',      'Every week',    4.33, 250.00, false, true, 2);
+
+update public.service_zones set minimum_monthly_aed = 400.00;
+
+-- ── starter bundles (feature 002) ────────────────────────────────────
+-- No stored price: each bundle is priced from its contents at the default
+-- term and cadence, so it cannot advertise a number it does not produce.
+
+insert into public.bundles (id, name, suits, description, published, sort_order) values
+  ('62000000-0000-4000-8000-000000000001', 'Desk Starter',
+   'A small team of 6 to 10 people',
+   'Enough green to change how a room feels, without crowding a desk.', true, 1),
+  ('62000000-0000-4000-8000-000000000002', 'Small Office',
+   'A team of 20 to 40 in one open floor',
+   'Desk plants for the working area, floor plants to soften the corners, and one plant people notice on the way in.', true, 2),
+  ('62000000-0000-4000-8000-000000000003', 'Studio Floor',
+   'A full floor, a showroom, or a reception people wait in',
+   'Statement planting where visitors arrive, backed by low-maintenance greenery through the working space.', true, 3),
+  -- Contains the zero-stock Areca: must render as temporarily unavailable.
+  ('62000000-0000-4000-8000-000000000004', 'Reception Pair',
+   'A lobby that needs two matching statement plants',
+   'Two full-height palms either side of an entrance.', true, 4);
+
+insert into public.bundle_items (bundle_id, variant_id, quantity) values
+  -- Desk Starter: 4 snake desk + 2 pothos desk
+  ('62000000-0000-4000-8000-000000000001', '40000000-0000-4000-8000-000000000101', 4),
+  ('62000000-0000-4000-8000-000000000001', '40000000-0000-4000-8000-000000000105', 2),
+  -- Small Office
+  ('62000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000101', 6),
+  ('62000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000103', 4),
+  ('62000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000102', 3),
+  ('62000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000108', 1),
+  -- Studio Floor
+  ('62000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000101', 8),
+  ('62000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000103', 6),
+  ('62000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000107', 4),
+  ('62000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000108', 2),
+  -- Reception Pair: the out-of-stock Areca
+  ('62000000-0000-4000-8000-000000000004', '40000000-0000-4000-8000-000000000109', 2);

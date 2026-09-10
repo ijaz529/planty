@@ -66,11 +66,13 @@ docker exec supabase_db_planty psql -U postgres -d postgres -c 'select * from pu
 |---|---|---|
 | `/` | Plant catalog with every monthly price | Everyone, no account needed |
 | `/plants/[id]` | One plant, its care profile and size options | Everyone |
+| `/bundles` | Starter bundles, priced from their contents | Everyone |
+| `/basket` | Build a basket, pick a term and cadence, see the exact monthly total | Everyone |
 | `/auth` | Phone sign-in | Everyone |
 | `/profile` | Name, email, verified phone | Signed in |
 | `/sites` | Where the plants live, with map pin and zone check | Signed in |
 | `/organizations` | Business accounts and their people | Signed in |
-| `/ops` | Catalog, zones and waitlist | Operator |
+| `/ops` | Catalog, pricing, zones and waitlist | Operator |
 
 ## How it is built
 
@@ -86,13 +88,19 @@ contract.
 
 ## Status
 
-Feature 001 (foundation: accounts, organizations, service zones, plant catalog)
-is complete. Next up is 002, which turns the published catalog into a priced
-basket. The roadmap is in [the PRD](docs/PRD.md).
+Features 001 (foundation) and 002 (configure and price) are complete. Anyone can
+now price a real office in AED with no account and no sales call, which is the
+thing no competitor in this market offers. Next is 003, checkout. The roadmap is
+in [the PRD](docs/PRD.md).
 
-**One decision is open and blocks feature 002.** The app is built for Dubai;
-the completed research recommends Berlin, B2B only, mainly because no UAE
-operator publishes a rental price and because the founder lives in Germany
-while this is a physical route business. The structure of feature 001 works
-unchanged in either city — only constants and copy differ. See
-[the market decision](docs/DECISION-market.md).
+The pricing rule is deliberately implemented twice — `price_basket()` in
+Postgres is the authority, `src/lib/pricing.ts` keeps the basket responsive —
+and one shared fixture file is run against both suites, so the price displayed
+and the price charged cannot drift without a test failing.
+
+**The market is settled: Dubai**, chosen by the founder over the research's
+Berlin recommendation. Two obligations follow. No UAE operator publishes a
+rental price, so Planty's are the first observable ones and remain a hypothesis
+to be tested — which is why every price, fee and multiplier is operator-edited
+data rather than a constant. And the open question is now who physically runs
+the Dubai route. See [the market decision](docs/DECISION-market.md).

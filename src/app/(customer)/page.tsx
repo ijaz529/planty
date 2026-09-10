@@ -6,11 +6,13 @@ import {
   formatAed,
   isAvailable,
   lightLabel,
+  tierLabel,
   type LightRequirement,
   type SizeTier,
 } from "@/lib/catalog";
 import { createClient } from "@/lib/supabase/server";
 import { SiteHeader } from "@/components/site-header";
+import { AddToBasket } from "@/components/basket/add-to-basket";
 
 type Variant = {
   id: string;
@@ -130,6 +132,19 @@ export default async function CatalogPage() {
                       )}
                     </div>
                   </Link>
+                  <div className="flex flex-wrap items-center gap-2 border-t border-line p-4 pt-3">
+                    {variants.map((v) => (
+                      <div key={v.id} className="flex items-center gap-2">
+                        <span className="text-xs text-muted">
+                          {v.size_tier ? tierLabel(v.size_tier) : "Size"}
+                        </span>
+                        <AddToBasket
+                          variantId={v.id}
+                          available={isAvailable(v.stock_available)}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </li>
               );
             })}

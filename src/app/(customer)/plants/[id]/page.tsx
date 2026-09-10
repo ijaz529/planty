@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlantPhoto } from "@/components/plant-photo";
 import { SiteHeader } from "@/components/site-header";
+import { AddToBasket } from "@/components/basket/add-to-basket";
 import {
   availabilityLabel,
   byTier,
@@ -125,11 +126,14 @@ export default async function SpeciesPage({
                       {availabilityLabel(v.stock_available)}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-lg font-semibold">
-                      {v.price_aed !== null ? formatAed(v.price_aed) : "—"}
-                    </p>
-                    <p className="text-xs text-muted">per month</p>
+                  <div className="flex flex-col items-end gap-2 text-right">
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {v.price_aed !== null ? formatAed(v.price_aed) : "—"}
+                      </p>
+                      <p className="text-xs text-muted">per month</p>
+                    </div>
+                    <AddToBasket variantId={v.id} available={available} />
                   </div>
                 </li>
               );
