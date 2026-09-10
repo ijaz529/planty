@@ -9,11 +9,11 @@ description: "Task list for feature 005 — Replacements & Rotations"
 
 ## Phase 1: Foundational
 
-- [ ] T001 Migration `supabase/migrations/0008_change_requests.sql`: enums, `subscriptions.rotation_allowance`, `plant_change_requests` with the one-open-request-per-line partial unique index and the kind/target CHECK, RLS per data-model.md
-- [ ] T002 Same migration: `rotation_period_start`, `rotations_remaining` (derived, never stored), `request_plant_change`, `decide_plant_change`, `withdraw_plant_change`, `fulfil_plant_change` per the contract, with named errors
-- [ ] T003 Same migration: seed the `replacement_exclusions` operator setting
-- [ ] T004 [P] `src/lib/rotations.ts`: window arithmetic and labels; `tests/unit/rotations.test.ts`
-- [ ] T005 pgTAP `supabase/tests/0008_change_requests.sql`: remaining equals allowance minus open and fulfilled rotations in the window; declining and withdrawing restore it exactly; exhausting rotations never blocks a replacement; one open request per line; approval attaches to the next planned visit; fulfilment moves stock both ways; cross-customer isolation
+- [X] T001 Migration `supabase/migrations/0008_change_requests.sql`: enums, `subscriptions.rotation_allowance`, `plant_change_requests` with the one-open-request-per-line partial unique index and the kind/target CHECK, RLS per data-model.md
+- [X] T002 Same migration: `rotation_period_start`, `rotations_remaining` (derived, never stored), `request_plant_change`, `decide_plant_change`, `withdraw_plant_change`, `fulfil_plant_change` per the contract, with named errors
+- [X] T003 Same migration: seed the `replacement_exclusions` operator setting
+- [X] T004 [P] `src/lib/rotations.ts`: window arithmetic and labels; `tests/unit/rotations.test.ts`
+- [X] T005 pgTAP `supabase/tests/0008_change_requests.sql`: remaining equals allowance minus open and fulfilled rotations in the window; declining and withdrawing restore it exactly; exhausting rotations never blocks a replacement; one open request per line; approval attaches to the next planned visit; fulfilment moves stock both ways; cross-customer isolation
 
 ## Phase 2: US1 — Ask for a replacement
 
