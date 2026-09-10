@@ -7,6 +7,7 @@ Auto-generated from all feature plans. Last updated: 2026-09-10
 - TypeScript 5.x, Node 20+ + unchanged — Next.js 16, React 19, Supabase, Tailwind v4, Zod (003-checkout-subscription)
 - one migration `0006_subscriptions.sql` (003-checkout-subscription)
 - migration `0007_visits.sql`; a private `visits` storage bucket; `pg_cron` for nightly generation (004-visit-engine)
+- migration `0008_change_requests.sql` (005-replacements-rotations)
 
 - TypeScript 5.x, Node 20+ + Next.js 16 (App Router), React 19, `@supabase/supabase-js` v2, `@supabase/ssr`, Tailwind CSS v4, Zod v4, Leaflet + react-leafle (001-foundation-accounts-catalog)
 
@@ -26,9 +27,9 @@ npm test && npm run lint
 TypeScript 5.x, Node 20+: Follow standard conventions
 
 ## Recent Changes
+- 005-replacements-rotations: Added TypeScript 5.x, Node 20+ + unchanged
 - 004-visit-engine: Added TypeScript 5.x, Node 20+ + unchanged
 - 003-checkout-subscription: Added TypeScript 5.x, Node 20+ + unchanged — Next.js 16, React 19, Supabase, Tailwind v4, Zod
-- 002-configure-and-price: Added TypeScript 5.x, Node 20+ + Next.js 16 (App Router), React 19, `@supabase/supabase-js` v2, `@supabase/ssr`, Tailwind CSS v4, Zod v4
 
 
 <!-- MANUAL ADDITIONS START -->

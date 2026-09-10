@@ -69,13 +69,13 @@ docker exec supabase_db_planty psql -U postgres -d postgres -c 'select * from pu
 | `/bundles` | Starter bundles, priced from their contents | Everyone |
 | `/basket` | Build a basket, pick a term and cadence, see the exact monthly total | Everyone |
 | `/checkout` | Confirm the site, pick an installation day, place the order | Signed in |
-| `/subscriptions` | Your orders, their status, invoice details, and the record of every visit | Signed in |
+| `/subscriptions` | Your orders, the record of every visit, the guarantee, and swaps | Signed in |
 | `/today` | The day's round: stops in order, access notes, plant conditions, photo | Technician |
 | `/auth` | Phone sign-in | Everyone |
 | `/profile` | Name, email, verified phone | Signed in |
 | `/sites` | Where the plants live, with map pin and zone check | Signed in |
 | `/organizations` | Business accounts and their people | Signed in |
-| `/ops` | Catalog, pricing, subscriptions, visits, zones and waitlist | Operator |
+| `/ops` | Catalog, pricing, subscriptions, requests, visits, zones and waitlist | Operator |
 
 ## How it is built
 
@@ -92,12 +92,15 @@ contract.
 ## Status
 
 Features 001 (foundation), 002 (configure and price) and 003 (checkout) are
-complete, and so is 004 (the visit engine). A customer can price an office with
+complete, and so are 004 (the visit engine) and 005 (replacements and swaps).
+A customer can price an office with
 no account, place an order that reserves stock at the price they saw, and pay by
 bank transfer. Visits are then generated automatically on the days their zone is
 served, a technician works the round from a phone, and the customer sees a photo
-and a verdict on every plant after each visit. Card payment is deliberately
-deferred until the trade licence exists. The roadmap is in
+and a verdict on every plant after each visit. A plant that is struggling gets
+replaced free, and each subscription carries a counted quarterly allowance of
+seasonal swaps — two promises the product keeps deliberately apart. Card payment
+is deferred until the trade licence exists. The roadmap is in
 [the PRD](docs/PRD.md).
 
 The pricing rule is deliberately implemented twice — `price_basket()` in

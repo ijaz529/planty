@@ -24,6 +24,9 @@ export default async function OpsLayout({
           <Link href="/ops/catalog" className="opacity-80 hover:opacity-100">
             Catalog
           </Link>
+          <Link href="/ops/requests" className="opacity-80 hover:opacity-100">
+            Requests
+          </Link>
           <Link href="/ops/visits" className="opacity-80 hover:opacity-100">
             Visits
           </Link>
