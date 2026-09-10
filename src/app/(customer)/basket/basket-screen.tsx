@@ -362,17 +362,21 @@ export function BasketScreen({ config }: { config: PricingConfig }) {
           )}
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <button
-              disabled={quote.site_applied && !quote.meets_minimum}
-              className="rounded-lg bg-leaf px-5 py-3 font-medium text-white disabled:opacity-50"
-              title={
-                quote.site_applied && !quote.meets_minimum
-                  ? "Add a little more first"
-                  : undefined
-              }
-            >
-              Continue
-            </button>
+            {config.signedIn ? (
+              <Link
+                href={quote.site_applied && quote.meets_minimum ? "/checkout" : "#"}
+                aria-disabled={!(quote.site_applied && quote.meets_minimum)}
+                className={`rounded-lg bg-leaf px-5 py-3 font-medium text-white ${
+                  quote.site_applied && quote.meets_minimum ? "" : "pointer-events-none opacity-50"
+                }`}
+              >
+                Continue
+              </Link>
+            ) : (
+              <Link href="/auth" className="rounded-lg bg-leaf px-5 py-3 font-medium text-white">
+                Sign in to order
+              </Link>
+            )}
             <button
               onClick={clear}
               className="rounded-lg border border-line px-5 py-3 font-medium"
@@ -380,9 +384,9 @@ export function BasketScreen({ config }: { config: PricingConfig }) {
               Empty basket
             </button>
           </div>
-          <p className="text-xs text-muted">
-            Checkout arrives with the next release. Nothing is charged yet.
-          </p>
+          {config.signedIn && !quote.site_applied && (
+            <p className="text-xs text-muted">Choose a site above to continue.</p>
+          )}
         </section>
       )}
     </main>
