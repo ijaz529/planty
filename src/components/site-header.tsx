@@ -24,6 +24,9 @@ export async function SiteHeader() {
           <BasketBadge />
           {user ? (
             <>
+              <Link href="/subscriptions" className="text-muted hover:text-foreground">
+                Subscriptions
+              </Link>
               <Link href="/sites" className="text-muted hover:text-foreground">
                 Sites
               </Link>

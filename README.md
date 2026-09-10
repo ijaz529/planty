@@ -68,11 +68,13 @@ docker exec supabase_db_planty psql -U postgres -d postgres -c 'select * from pu
 | `/plants/[id]` | One plant, its care profile and size options | Everyone |
 | `/bundles` | Starter bundles, priced from their contents | Everyone |
 | `/basket` | Build a basket, pick a term and cadence, see the exact monthly total | Everyone |
+| `/checkout` | Confirm the site, pick an installation day, place the order | Signed in |
+| `/subscriptions` | Your orders, their status, invoice details, cancel while pending | Signed in |
 | `/auth` | Phone sign-in | Everyone |
 | `/profile` | Name, email, verified phone | Signed in |
 | `/sites` | Where the plants live, with map pin and zone check | Signed in |
 | `/organizations` | Business accounts and their people | Signed in |
-| `/ops` | Catalog, pricing, zones and waitlist | Operator |
+| `/ops` | Catalog, pricing, subscriptions, zones and waitlist | Operator |
 
 ## How it is built
 
@@ -88,10 +90,12 @@ contract.
 
 ## Status
 
-Features 001 (foundation) and 002 (configure and price) are complete. Anyone can
-now price a real office in AED with no account and no sales call, which is the
-thing no competitor in this market offers. Next is 003, checkout. The roadmap is
-in [the PRD](docs/PRD.md).
+Features 001 (foundation), 002 (configure and price) and 003 (checkout) are
+complete. A customer can price an office with no account, place an order that
+reserves stock at the price they saw, and pay by bank transfer; an operator
+records the payment. Card payment is deliberately deferred until the trade
+licence exists. Next is 004, the visit engine. The roadmap is in
+[the PRD](docs/PRD.md).
 
 The pricing rule is deliberately implemented twice — `price_basket()` in
 Postgres is the authority, `src/lib/pricing.ts` keeps the basket responsive —
