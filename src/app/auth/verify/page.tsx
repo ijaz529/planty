@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { formatUaePhone } from "@/lib/phone";
 import { getUserContext, postSignInPath } from "@/lib/roles";
@@ -9,7 +9,6 @@ import { createClient } from "@/lib/supabase/client";
 const RESEND_SECONDS = 30;
 
 function VerifyForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const phone = params.get("phone") ?? "";
 
@@ -37,7 +36,7 @@ function VerifyForm() {
 
     setBusy(true);
     const supabase = createClient();
-    const { error: authError } = await supabase.auth.verifyOtp({
+    const { data: verified, error: authError } = await supabase.auth.verifyOtp({
       phone,
       token: code,
       type: "sms",
@@ -54,19 +53,23 @@ function VerifyForm() {
       return;
     }
 
-    // New accounts have no name yet, so send them to fill it in first.
+    // Filter by the signed-in account: an operator can read every profile, so
+    // an unfiltered lookup would return many rows and resolve to none.
     const { data: profile } = await supabase
       .from("profiles")
       .select("display_name")
-      .single();
+      .eq("id", verified.user!.id)
+      .maybeSingle();
 
-    if (!profile?.display_name) {
-      router.push("/profile?welcome=1");
-      return;
-    }
+    const destination = profile?.display_name
+      ? postSignInPath(await getUserContext(supabase))
+      : "/profile?welcome=1";
 
-    const ctx = await getUserContext(supabase);
-    router.push(postSignInPath(ctx));
+    // A full navigation, not router.push: the session cookie was written a
+    // moment ago in this tab, and a client-side transition can reach the
+    // middleware before the browser attaches it — which bounces the user
+    // straight back to sign-in.
+    window.location.assign(destination);
   }
 
   async function onResend() {

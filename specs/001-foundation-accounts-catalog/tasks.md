@@ -79,17 +79,17 @@ user story depends on.
 
 **Independent Test**: As `050 000 0003`, create a species with two variants, publish one and leave one incomplete; signed out, the public catalog shows exactly the published one with its AED price (spec US2 scenarios 1–6).
 
-- [ ] T020 [US2] Migration `supabase/migrations/0002_catalog.sql`: `plant_species`, `plant_variants` with the stock `CHECK` and the `stock_available` generated column, `plant_variant_price_history`; `variant_publish_gaps()`; the publish guard trigger; the price-history trigger; the `catalog` storage bucket with public read and operator write; all RLS policies per contracts/data-access.md
-- [ ] T021 [US2] pgTAP tests `supabase/tests/0002_catalog_rls.sql`: anon and authenticated see only published variants and only species with a published variant; operator sees all; publishing an incomplete variant raises and names the gaps; publishing a complete one succeeds; stock below allocated is rejected; price history is append-only and gains a row on price change
-- [ ] T022 [P] [US2] Catalog helpers in `src/lib/catalog.ts`: publish-gap messages mirroring the database function, availability label from `stock_available`, and size-tier and light-requirement display names
-- [ ] T023 [P] [US2] Unit tests in `tests/unit/catalog.test.ts` for gap messages, availability labels and tier ordering
-- [ ] T024 [US2] Operator gate in `src/app/(ops)/ops/layout.tsx`: `requireUser()` then the `is_operator` check, rendering `notFound()` rather than a permission error
-- [ ] T025 [US2] Species list and editor in `src/app/(ops)/ops/catalog/page.tsx` and `src/app/(ops)/ops/catalog/[id]/page.tsx`: create and edit common name, botanical name, light requirement, watering interval, pet-safe flag and description
-- [ ] T026 [US2] Variant editor in `src/app/(ops)/ops/catalog/[id]/variants.tsx`: size tier, height range, AED price, stock, photo upload to the `catalog` bucket, and publish and unpublish controls that render the gap list returned by `variant_publish_gaps` on a blocked publish
-- [ ] T027 [US2] Extend `src/lib/validation.ts` with species and variant schemas, coercing numeric inputs and bounding price and stock
-- [ ] T028 [US2] Public catalog in `src/app/(customer)/page.tsx`: published variants grouped by species with AED prices, pet-safe and light badges, and zero-stock variants shown as unavailable rather than hidden — readable with no account
-- [ ] T029 [US2] Species detail in `src/app/(customer)/plants/[id]/page.tsx`: care profile and every published size variant with its price
-- [ ] T030 [US2] Extend `supabase/seed.sql` with six species, published variants across all three size tiers, one incomplete draft variant and one published zero-stock variant
+- [X] T020 [US2] Migration `supabase/migrations/0002_catalog.sql`: `plant_species`, `plant_variants` with the stock `CHECK` and the `stock_available` generated column, `plant_variant_price_history`; `variant_publish_gaps()`; the publish guard trigger; the price-history trigger; the `catalog` storage bucket with public read and operator write; all RLS policies per contracts/data-access.md
+- [X] T021 [US2] pgTAP tests `supabase/tests/0002_catalog_rls.sql`: anon and authenticated see only published variants and only species with a published variant; operator sees all; publishing an incomplete variant raises and names the gaps; publishing a complete one succeeds; stock below allocated is rejected; price history is append-only and gains a row on price change
+- [X] T022 [P] [US2] Catalog helpers in `src/lib/catalog.ts`: publish-gap messages mirroring the database function, availability label from `stock_available`, and size-tier and light-requirement display names
+- [X] T023 [P] [US2] Unit tests in `tests/unit/catalog.test.ts` for gap messages, availability labels and tier ordering
+- [X] T024 [US2] Operator gate in `src/app/(ops)/ops/layout.tsx`: `requireUser()` then the `is_operator` check, rendering `notFound()` rather than a permission error
+- [X] T025 [US2] Species list and editor in `src/app/(ops)/ops/catalog/page.tsx` and `src/app/(ops)/ops/catalog/[id]/page.tsx`: create and edit common name, botanical name, light requirement, watering interval, pet-safe flag and description
+- [X] T026 [US2] Variant editor in `src/app/(ops)/ops/catalog/[id]/variants.tsx`: size tier, height range, AED price, stock, photo upload to the `catalog` bucket, and publish and unpublish controls that render the gap list returned by `variant_publish_gaps` on a blocked publish
+- [X] T027 [US2] Extend `src/lib/validation.ts` with species and variant schemas, coercing numeric inputs and bounding price and stock
+- [X] T028 [US2] Public catalog in `src/app/(customer)/page.tsx`: published variants grouped by species with AED prices, pet-safe and light badges, and zero-stock variants shown as unavailable rather than hidden — readable with no account
+- [X] T029 [US2] Species detail in `src/app/(customer)/plants/[id]/page.tsx`: care profile and every published size variant with its price
+- [X] T030 [US2] Extend `supabase/seed.sql` with six species, published variants across all three size tiers, one incomplete draft variant and one published zero-stock variant
 
 **Checkpoint**: The public price list is live and operator-maintained. Independently demonstrable alongside US1.
 

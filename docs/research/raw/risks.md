@@ -1,241 +1,428 @@
-# Planty — Research lens: Failure cases & risk analysis (raw notes)
+# Planty — Failure Cases & Risk Analysis (research lens: risks)
 
-Date of research: 2026-09-09. Every number carries its source URL and the year it refers to. "Reported" = taken from the source; "estimate" = my own inference. Anecdotal sources (reviews, forum posts, Glassdoor) are labelled as such.
+Research date: 2026-09-10. Every number below carries a source URL and a year.
+Where a number is my own calculation it is explicitly labelled **[my estimate]**.
 
-Method: ~40 WebSearch queries (EN + DE + UAE-specific) and ~35 WebFetch page reads. Several pages were paywalled or 403 (Bike Europe, Glassdoor, CBRE, HortWeek, DFPI, atouchofbusiness); where only a search snippet was available I say so.
-
----
-
-## 1. Direct comparables: plant delivery / plant subscription companies that failed, pivoted or struggled
-
-### 1.1 Horti (US, NYC) — plant subscription box, CLOSED May 2025
-- Site banner (fetched 2026-09-09): "WE have closed Horti as of May 31, 2025 and not accepting new orders" ... "a planting journey completed with love". No reason given publicly. https://heyhorti.com/
-- Search snippet: wound down all operations by May 30 2025; May 15 2025 was the last day subscriptions processed. https://heyhorti.com/pages/help-center-faqs
-- Takeaway: a B2C recurring "plant box" with a real brand and press coverage (Vogue, NYT) still could not sustain itself. Ship-a-plant subscriptions have the retention curve of any subscription box (see 4.4) plus live-goods breakage.
-
-### 1.2 Leaf Envy (UK, London) — DTC plants + pots, DISSOLVED April 2026
-- Companies House: LEAF ENVY LTD (11734922), incorporated 19 Dec 2018, status "Dissolved", dissolution date 13 April 2026, last accounts made up to 31 Dec 2023. https://find-and-update.company-information.service.gov.uk/company/11734922
-- No liquidation narrative published; the pattern (last accounts 2023 → dissolved 2026) suggests a quiet wind-down rather than a sale.
-
-### 1.3 The Sill (US) — plant DTC + 12 stores, retreated to online-only 2024
-- Reported (Retail Dive, 2024): net loss $6.9M (2021) and $6.7M (2022); closed the last of 12 stores in 7 US markets on 30 Sept 2024; store closures began late 2022; raised $1.7M+ via WeFunder crowdfunding in 2023. Reasons cited: competition from independent plant retailers since 2020 and "the complexity of managing physical retail alongside e-commerce growth". CEO Eliza Blank: "retail has its advantages, but scaling online better aligned with our growth and customer needs". https://www.retaildive.com/news/the-sill-closes-stores-shifts-to-online-only/729051/
-- Takeaway: even the category leader in the US ran ~$7M/yr losses on plants; physical footprint was the first thing cut.
-
-### 1.4 Bloom & Wild / Bloomon / Bergamotte (UK/NL/FR) — flower & plant subscription, losses ballooned
-- Reported (City AM, 2023): Bloom & Wild group revenue £117.9m in FY to 31 March 2023 (down from £145.4m in FY2022); pre-tax loss £100.5m (FY2023) vs £20.4m (FY2022). Company cited "greater exposure to the more macro-economically impacted subscriptions business" and "took the decision early on in the financial year to pivot the strategy from growth to profitability", cutting new-customer acquisition marketing. Headcount rose 375 → 440. https://www.cityam.com/bloom-and-wild-losses-balloon-to-over-100m-at-flower-seller/
-- Bloom & Wild acquired Bloomon (NL) and Bergamotte (FR) in 2021 (search snippets; https://www.hortweek.com/bloom-wild-losses-reach-100m/retail/article/1868934). The group explicitly flags subscription revenue as the most macro-sensitive part of the business (2023).
-- Takeaway: the "subscription" component was the first to churn when disposable income fell (2022–23). A plant *rental* subscription at €30–100/month sits in the same discretionary bucket.
-
-### 1.5 Bloomscape (US, Detroit) — DTC plant delivery, still operating but signals of stress
-- Raised $24M total incl. $15M Series B (Sept 2020). https://www.businesswire.com/news/home/20200930005620/en/Bloomscape-Raises-$15M-in-Series-B-Funding-After-Major-Year-of-Growth
-- Founder Justin Mast handed CEO role to Mike Klepfer (ex-Amazon/AMS Fulfillment) on 23 July 2021 and moved to the board. https://bloomscape.com/press-release-welcoming-mike-klepfer/
-- Site is live and selling as of 2026-09-09 (no wind-down banner). https://bloomscape.com/
-- ANECDOTAL (search-snippet of Glassdoor review; page itself 403): a review states "95% of the company was laid off". Not verifiable from a primary source; treat as unconfirmed. https://www.glassdoor.com/Reviews/Bloomscape-Detroit-Reviews-EI_IE3129837.0,10_IL.11,18_IM236.htm
-- ANECDOTAL (Trustpilot / review aggregators): recurring complaints of plants "arriving dead", "ripped" leaves, pests/mites on arrival; Bloomscape's 30-day guarantee is voided if the customer repots. https://www.trustpilot.com/review/bloomscape.com ; https://www.honestbrandreviews.com/reviews/bloomscape-plants-review/
-- No funding announced since 2020 per Tracxn/CB Insights (2026 profiles). https://tracxn.com/d/companies/bloomscape/__9tRbOWPziVFbT1qQ47IQBF2jv-UL_XZ7tyxemQRl2yM
-- Takeaway: shipping live plants by parcel is a quality/returns problem; Planty's own-van delivery avoids this but at a higher cost per stop.
-
-### 1.6 Patch Plants (UK) — sold to Arena Flowers (Jan 2023); 16 employees as of 30 Apr 2024
-- Reported: "first online plant brand in the UK", 2M+ plants delivered to 500k customers; acquired by Arena Flowers January 2023; 16 employees at 30 April 2024. https://tracxn.com/d/companies/patch/__dkSkDVCm-sZEN68ngj9Pr-S6KLqjTfMZXhlAMboYNvw ; https://www.patchplants.com/pages/about/
-- Takeaway: the UK's best-known plant DTC ended as a small tuck-in acquisition, not a standalone scale-up.
-
-### 1.7 Bloombox Club (UK) — acquired by Bloomique 8 Oct 2024 (search snippet; https://pitchbook.com/profiles/company/338559-04). Geo-Fleur (UK) stopped its subscription by 2018 (https://30daysofwildparenting.wordpress.com/2018/08/28/geo-fleur-plant-subscription/). Consolidation, not growth.
-
-### 1.8 Plantsome (NL/CA) — still operating; no failure found (https://www.plantsome.nl/blogs/blog/de-lessen-en-successen-van-2022). Included for completeness: not a failure case.
-
-### 1.9 Germany / UAE "rent a plant" ventures that closed
-- I found NO documented insolvency of a German Mietpflanzen/Pflanzenmiete startup in deutsche-startups.de's 2023–2026 shutdown lists (https://www.deutsche-startups.de/2024/01/08/offline-insolvenzen-2023/ ; https://www.deutsche-startups.de/2024/07/08/offline-halbjahr_2024/ ; https://www.deutsche-startups.de/2026/06/10/ueber-10-millionenschwere-startup-pleiten-die-alle-mitbekommen-haben-sollten/). The German market is dominated by long-established regional Hydrokultur/Raumbegrünung firms (Rogel, Mohr, as-hydroplant, Pflanzen-Kölle, Systemgrün) rather than VC startups — i.e. incumbents survive by being local, dense and boring.
-- Plantclub.io (Berlin, founded 2020) is the closest German startup comparable and is still alive: B2B only, "150+ Berlin members", packages from €200/month (≤150 m²), €400 (≤500 m²), €600 (≤1,000 m²) ex VAT with yearly billing, visits every 2 weeks; cities Berlin, Hamburg, Köln, Düsseldorf, Frankfurt, München, Wien. No B2C offer. https://plantclub.io/de/pflanzen-mieten-berlin (fetched 2026)
-- UAE: no closure of a plant-rental company surfaced; the market is served by long-lived incumbents (e.g. 800petals "10,000+ installations since 1992"). https://800petals.com/office-plant-rental-dubai/
-- Absence of evidence is not evidence of absence: small closures in DE/UAE rarely get press.
+Note on method: this session's WebSearch quota was exhausted before this lens ran, so all
+searching was done by driving Bing/Companies House through the browser tool and then
+WebFetch-ing the underlying pages. Sources are listed at the end.
 
 ---
 
-## 2. Adjacent rental / subscription categories: what killed or wounded them
+## 1. Direct evidence: plant-sector startups that died or were absorbed
 
-### 2.1 Feather & Fernish (US furniture subscription) — Feather paused late 2022; both sold to Vesta Nov 2023
-- Feather raised $76M by Aug 2020; Fernish raised $30M seed (2019) + $15M Series A (May 2020). https://www.modernretail.co/operations/luxury-design-studio-vesta-acquires-furniture-rental-companies-fernish-feather/
-- Feather "quietly paused operations toward the end of 2022"; both acquired by Vesta (staging company) in November 2023 and merged under "Showroom"/Fernish. Vesta CEO Julian Buckner: "Subscription furniture companies all have really high fixed costs—to set up a warehouse, acquire inventory and run a logistics operation. It's what I call a black hole of money." To survive you need "a big margin or a lot of volume". https://businessofhome.com/articles/vesta-fernish-feather-subscription-furniture (2023)
-- Fernish also had a regulatory problem: California DFPI found it "overcharged consumers late payment fees and failed to provide consumer disclosures required under California's rent-to-own law" (search snippet; page 403). https://dfpi.ca.gov/press_release/los-angeles-based-rent-to-own-furniture-startup-agrees-to-refund-overcharges-and-comply-with-consumer-protection-laws/
-- Failed-delivery economics for bulky goods: "big-and-bulky deliveries costing a multiple of the general last-mile benchmark of $17.78 per failed attempt, requiring a two-person crew's round trip" (search snippet, Locus). https://locus.sh/blogs/last-mile-delivery-efficiency-furniture-big-box-retail/
-- Takeaway for Planty: plant rental = furniture rental's cost structure (capex inventory + warehouse + two-way logistics) PLUS a living asset that dies. Feather's "pause" is exactly what happens when CAC-funded growth stops.
+### 1.1 Leaf Envy (UK) — liquidated. The closest analogue to Planty that we can document.
+Leaf Envy was a London DTC houseplant business that also sold plant subscriptions and an
+office-plants/"plants for business" service — essentially the Planty concept with a retail front end.
 
-### 2.2 Grover (Berlin, electronics rental) — StaRUG restructuring 2024–25, equity wiped/diluted
-- Reported (WiWo, 2024): 2022 revenue €48M, loss €70M; total capital invested €1.4bn of which only ~€260M equity, the rest debt used to buy devices; €50M bridge financing summer 2024; founder/CEO Michael Cassau left late 2023; US exit early 2025; complaints about customer service and high end-user prices. https://www.wiwo.de/unternehmen/it/elektrogeraete-zur-miete-berliner-tech-star-grover-wird-zum-sanierungsfall/30141782.html
-- Layoffs: ~40 (10% of ~460) Dec 2022 with the goal of break-even in 2023 (https://www.startbase.com/news/grover-entlaesst-mitarbeiter-um-gewinnschwelle-zu-erreichen/); a further ~20% in July 2024 (search snippet, https://www.trueup.io/co/grover/layoffs).
-- Restructuring: negotiations from mid-Sept 2024; plan confirmed by AG Charlottenburg 25 April 2025 under StaRUG with cross-class cram-down against shareholders; investors inject €30M fresh capital for 50% of Grover Group GmbH, financial creditors get the other 50%. https://hengeler-news.com/en/articles/hengeler-mueller-advises-grover-on-financial-restructuring-via-starug-proceedings
-- Takeaway: asset-heavy rental funded by debt is fragile when interest rates rise and asset residual values fall. Plants have ~zero residual value, which is worse than iPhones.
+Companies House record (primary source, 2026):
+- LEAF ENVY LTD, company number 11734922, incorporated **19 December 2018**.
+- SIC codes: retail sale of flowers/plants in specialised stores; retail via mail order/internet.
+- **Extraordinary resolution to wind up dated 22 August 2024**; appointment of a voluntary
+  liquidator and statement of affairs filed **2 September 2024** — i.e. a *creditors'* voluntary
+  liquidation (CVL), not a solvent members' winding-up.
+- Registered office moved to an insolvency practitioner's address in Cheltenham on the same date.
+- Liquidators' statement of receipts and payments to 21 August 2025 filed 2 Sep 2025.
+- Return of final meeting 13 January 2026; **Final Gazette / dissolved 13 April 2026**.
+- Last accounts filed were for the period ending **31 December 2023** — the company never filed
+  a further set, consistent with a fast decline through 2024.
+Source: https://find-and-update.company-information.service.gov.uk/company/11734922 and
+/filing-history (accessed 2026).
 
-### 2.3 Swapfiets (NL/DE, bike subscription) — 8 years of losses, 2024 still −€14.3M
-- Reported: 2022 revenue €71.1M, loss €30.9M, write-offs from theft/damage €18.2M (bikes "thrown into the water, stolen or wilfully damaged"), plus non-payment by customers; Ponooc/Pon injected €109M since acquisition incl. €34.5M in 2022; withdrew from Italy and dropped e-scooters. https://www.bike-magazin.de/en/about-us/magazine/backgrounds/swapfiets-is-in-the-red-is-the-subscription-model-for-bicycles-on-the-brink-of-collapse/ (2023)
-- Reported: 2024 revenue €91.1M (+7% vs €85.3M in 2023); net loss €14.3M (2024) vs €22.6M (2023); 266,831 members (Dec 2024); 727 employees; 45 cities in 8 countries; "No new cities were added in 2024"; Italy discontinued; parent Pon paid in a further €19.6M capital in 2024; ARPM €341/yr. https://micromobility.substack.com/p/swapfiets-posts-911m-revenue-in-2024
-- Takeaway: the closest European "asset + field service" subscription took ~€100M+ of parent money and is still loss-making at 267k members; profitability came only by stopping expansion and densifying existing cities. ARPM of ~€28/month is a useful anchor: B2C willingness to pay for a rented physical thing with service is low.
+Why this matters most: Leaf Envy was VC-adjacent, London-based (a dense, wealthy, high-rise
+rental city — the closest European proxy to both Berlin and Dubai for this model), had brand and
+press, and still ended in a creditors' liquidation inside ~6 years. A CVL specifically means
+creditors were left short.
 
-### 2.4 Rent the Runway (US, apparel rental) — fulfillment is ~30% of revenue
-- Reported: fulfillment costs 29.3% of revenue in Q1 FY2025 vs 27.5% in Q1 FY2024, "primarily reflect[ing] higher transportation costs as a result of carrier rate increases"; H1 FY2025 net loss $(52.5)M; FY2025 (to 31 Jan 2026) revenue $329.8M, operating loss $(57.5)M, rental-product capex $(49.5)M so FCF ≈ $(46)M; inventory-related churn down ~30% YoY in Q3 2025. https://renttherunway.gcs-web.com/news-releases/news-release-details/rent-runway-inc-announces-second-quarter-2025-results ; https://eightx.co/blog/us-teardown-rent-the-runway
-- Takeaway: even at $330M scale, moving physical rented goods eats ~30% of revenue, and the rental asset itself needs continuous capex.
+### 1.2 Horti (Brooklyn, NY) — plant subscription, closed 2025
+Founded 2017 by Puneet Sabharwal; monthly houseplant subscription with care education.
+Company LinkedIn post: **"As of May 31, Horti has come to a gentle and intentional close.
+What began in 2017 as a tiny idea to help people in small apartments…"** (post surfaced 2025;
+heyhorti.com FAQ page last dated 31 May 2025).
+Sources: https://www.linkedin.com/posts (Horti company page); https://heyhorti.com/pages/help-center-faqs
+Read as: the *pure consumer plant subscription* — the lightest-weight version of Planty's B2C
+idea, with no field technicians at all — did not sustain itself over 8 years.
 
-### 2.5 On-demand home services (Homejoy etc.) — route density and quality
-- Homejoy shut down 31 July 2015 after raising $40M; could not raise further, worker-classification lawsuits; ~20 staff went to Google. https://fortune.com/2015/07/17/homejoy-closing-cleaning-google
-- Search snippets (2016–2026 commentary): Homejoy "offering cleanings worth ~$85 for $19" and lacking a retention strategy; and the field-service maxim "ten lawns on three streets is a business, while ten lawns across the county is a driving hobby". https://techcrunch.com/2016/11/06/not-every-service-needs-to-be-an-on-demand-service/ ; https://homebusinessmag.com/businesses/business-opportunities/15-service-business-ideas-run-from-home-2026-with-real-startup-costs/
-- Takeaway: discount-led CAC + a field workforce is the classic way to lose money twice.
+### 1.3 Patch Plants (UK) — absorbed by a flower company, founder gone
+Patch Gardens Ltd (09897155, incorporated 1 December 2015), the best-known UK plant DTC brand.
+- Arena Online Ltd agreed to acquire **100% of Patch Gardens Ltd**, announced 13–16 January 2023.
+  Companies House shows the PSC notification for Arena Online Limited dated **12 January 2023**,
+  with a same-day share allotment, variation of share rights and share-class redesignation —
+  the fingerprint of a rescue/recap rather than a premium exit.
+- Founder **Freddie Blackett's directorship terminated 3 May 2024**.
+- Acquirer context: Arena Flowers reported revenue of **£47.3 million** in the year before the deal (2022/23).
+Sources: https://find-and-update.company-information.service.gov.uk/company/09897155/filing-history ;
+https://homeofdirectcommerce.com/news/arena-flowers-snaps-up-patch (16 Jan 2023) ;
+https://www.arenaflowers.com/blogs/news (2023)
 
----
+### 1.4 Colvin (Spain) — flowers/plants DTC, formal insolvency
+- **26 September 2024**: reported to be negotiating a restructuring plan with shareholders and
+  creditors to avoid *concurso de acreedores*. Source: https://www.20minutos.es/lainformacion/ (26 Sep 2024).
+- It then laid off roughly **half its workforce** (marketing4ecommerce.net, "Colvin despide a media plantilla").
+- **May 2025**: exited insolvency only because **Claret Capital, its principal creditor and an
+  existing investor, acquired the business**. Same brand, new owner.
+Sources: https://emprendedores.es/startups/colvin-concurso (2025) ;
+https://www.elconfidencial.com/empresas/ (5 May 2025) ; https://ecosistemastartup.com (7 May 2025)
+Colvin had previously been publicly tipped as a future Spanish unicorn. Perishable-goods
+e-commerce with heavy paid acquisition is a repeat killer.
 
-## 3. Root-cause taxonomy (what actually kills these businesses)
+### 1.5 Bloomscape (Detroit) — the US DTC plant poster child, now "an acquired company"
+- Raised **$7.5M Series A (2019)** then **$15M Series B (30 September 2020)** led by General Catalyst;
+  total venture funding reported at **~$24M**.
+- With the Series B it **acquired the Vera plant-care app** (Oct 2020). The Vera app subsequently
+  **disappeared from the App Store**, stranding users.
+- Tracxn's 2026 company profile classifies Bloomscape as **"an acquired company"**.
+Sources: https://techcrunch.com (30 Sep 2020) ; https://news.crunchbase.com (30 Sep 2020) ;
+https://tracxn.com/companies/bloomscape (2026) ; https://insightweeds.com/vera-plant-care-app-disappears-appstore
+Caveat: I could not find a filing-grade source naming the acquirer or price. Treat
+"Bloomscape was absorbed" as *reported*, not verified.
 
-1. **Capex-heavy inventory with weak residual value** (Grover, Feather, Swapfiets). Plants are the extreme case: residual ≈ 0, and the asset decays without care.
-2. **Two-way logistics + field labour cost per stop** (Feather, RTR ~30% fulfillment, pool-route data below). Planty has delivery, weekly/bi-weekly visits, swaps, and pickup at end of term.
-3. **Low route density** (Swapfiets stopped adding cities; Homejoy). Cost per stop is dominated by drive time until density exists.
-4. **Asset loss / mortality / abuse** (Swapfiets €18.2M write-offs in 2022 ≈ 26% of revenue). Plants die from AC air, overwatering by the customer, low light, pests, moves.
-5. **CAC-funded growth with subscription churn** (Bloom & Wild, Horti, subscription-box benchmarks). B2C churn 10–15%/month is normal for boxes.
-6. **Macro sensitivity of discretionary subscriptions** (Bloom & Wild explicitly, 2023).
-7. **Regulatory/consumer-law exposure of rent-to-own style contracts** (Fernish/DFPI). In Germany, B2C long minimum terms and auto-renewals are constrained by the 2022 "Faire-Verbraucherverträge" rules (own knowledge, not sourced here — verify).
-8. **Debt-financed assets + rising rates** (Grover). Not immediately relevant to a bootstrapped MVP, but relevant to any "finance the plant fleet" plan.
-9. **Physical footprint creep** (The Sill's 12 stores). Keep fixed costs near zero.
-10. **Founder/ops mismatch**: every one of these needed an ops-heavy leadership team (Bloomscape hired an ex-Amazon-fulfillment CEO in 2021). A solo technical founder is under-resourced for field ops by design.
-
----
-
-## 4. Quantitative anchors for Planty's unit economics
-
-### 4.1 Field-service route economics (pool/lawn analogues, US 2026)
-- Weekly residential pool service: revenue per stop $25–44 (=$100–175/month); 8–14 stops per route-day (12–16 dense suburban; 6–10 rural); vehicle cost $0.55–0.85/mile; loaded tech labour $22–26/h on $18/h base (+25–45%); healthy gross margin 40–55% per route, <30% = underpriced or too much dead drive time; net margin for multi-tech companies 15–25%. Example: 8 stops over 45 miles costs $25–38 in vehicle cost vs $8–13 over 15 miles. https://www.poolfounder.com/pool-route-profitability-tracking
-- Search snippets: one pool tech handles 70–100 pools; target 6–8 productive hours/day, utilisation 78–82%. https://poolservicemasterclass.com/pool-service-route-management/ ; https://www.serviceautopilot.com/lawn-care/lawn-care-labor-benchmarks/
-- MY ESTIMATE (not sourced): at German GaLaBau tariff wage €20.24/h (from 1 July 2025; https://bau.bi/galabau/nachrichten/tarifvertrag-so-hoch-sind-die-loehne-und-gehaelter-im-galabau-g19996) plus ~30% on-costs ≈ €26/h loaded, a 10-stop day of 8 h costs ≈ €210 labour + ~€40–60 vehicle ⇒ ~€25–27 per stop before plants, overhead and the founder's time. A weekly B2C visit therefore costs ≈ €110/month per household in labour+vehicle alone — more than most B2C customers will pay for a handful of plants. Bi-weekly halves it (~€55). Berlin average gross for GaLaBau workers ≈ €2,919/month (≈€17.17/h) per StepStone (https://www.stepstone.de/gehalt/Gartenbauer-in-Garten-und-Landschaftsbau/city/Berlin.html), so the tariff figure is the conservative one.
-- Dubai: gardener average AED 2,352/month per Indeed (https://ae.indeed.com/career/gardener/salaries/Dubai, 2025) — i.e. roughly a fifth of the Berlin loaded wage — but employer must pay 100% of visa/labour-card/medical/EID, budget AED 3,000–7,000 (https://terratern.com/blog/dubai-employment-visa-cost/) or AED 6,000–12,500 per hire (https://www.awconnect-me.com/blog/2025/09/salary-benchmarks-hiring-costs-uae-2025), plus accommodation/transport typically. Field labour is structurally cheaper in Dubai; that is the single biggest ops-cost difference between the two candidate markets.
-
-### 4.2 What incumbents charge (price ceilings Planty must live under)
-- Germany B2B: Gärtner Gregg (NRW) rents planters from €6.90/month (Ø40 cm bowl), €10.50 (140 cm planter on wheels), €11.90–12.50 large planters, €13.50–22.90 divider units, net; typically 12-month term (shorter negotiable); care visit "etwa alle vier Wochen"; free replacement of sick plants; explicitly also serves private individuals. https://www.gaertner-gregg.de/mietpflanzen-muenster-dortmund/ (2025)
-- Germany B2B: WELO Green packages "ab 199,-€ pro Monat", 12-month minimum then monthly cancellation, Pflanzengarantie included. https://welo-green.de/blogs/journal/pflanzen-mieten-kosten
-- Germany B2B: Plantclub Berlin from €200/€400/€600 per month by office size, 2-weekly visits, yearly billing. https://plantclub.io/de/pflanzen-mieten-berlin
-- Search snippet (2025): German Mietpflanzen minimum terms are "gewöhnlich 12 bis 36 Monate". https://welo-green.de/pages/mietpflanzen
-- US (N. California, 2026): $20–35/plant/month low-light, $40–75 medium, $90–150 large floor plants; programs $200–1,200/month; "12-month minimum term with rolling renewals"; watering every 2 weeks; free replacement for the term. https://officeplants.com/2026/08/03/office-plant-rental-pricing/
-- Dubai maintenance-only (Royal Plantscape, 2026): AED 120/month for 1 visit/month, AED 299 for 2 visits, AED 499 weekly, AED 799 twice-weekly; one-off visit from AED 120–199. https://www.royalplantscape.com/pages/indoor-plant-maintenance-service
-- Dubai villa gardens (2026 guide): AED 300–500/month small, 500–900 medium, 900+ large for 3 visits/week; weekly care recommended May–Sept. https://floweryduae.com/garden-maintenance-cost-dubai/
-- Dubai office rental (800petals): quoted per plant per month all-inclusive, weekly visits, free replacement, "suits most offices with 10+ plants", 12-month agreements for best rate. https://800petals.com/office-plant-rental-dubai/
-- Implication: incumbents price a *plant* at €7–13/month in Germany (B2B, monthly visits, 12–36-month terms) and a *visit* at ~AED 120 in Dubai. A "weekly technician visit" B2C offer at 2-week or 1-month terms, as in the Planty idea text, has no precedent in either market — that is the red flag.
-
-### 4.3 Plant mortality / replacement
-- No published interior-landscaping mortality rate was found (searched EN/DE). What is documented: every incumbent contract includes free replacement (officeplants.com 2026; WELO; Gregg), so replacement is a cost line the customer expects Planty to absorb.
-- Dubai specifics (2026 guides): AC apartments sit at 30–40% humidity vs 60–80% preferred by tropicals; "Three things kill most indoor plants in Dubai: dry AC air, hard chlorinated water, and overwatering by owners"; dust from AC circulation reduces photosynthesis. https://upscaleandposh.com/blogs/news/indoor-plants-in-dubai-the-2026-guide-to-greenery-that-thrives ; https://kamegardens.ae/indoor-plant-care-in-dubai-overcoming-climate-ac-challenges/
-- Shipping damage is the dominant complaint in plant-DTC reviews (Bloomscape, anecdotal, see 1.5). Own-van delivery avoids it.
-- Swapfiets analogue: asset write-offs €18.2M on €71.1M revenue (2022) = ~26% (my calculation).
-
-### 4.4 Churn / retention benchmarks
-- Subscription boxes: monthly churn 10–15%, 44% of cancellations in the first 90 days, top performers <3%. https://www.subjolt.com/guides/churn-rate-benchmarks/ ; https://pmtoolkit.ai/calculators/churn-rate/subscription-box (2026)
-- Bloom & Wild (2023): subscriptions were the most macro-sensitive revenue line (see 1.4).
-- B2B interior landscaping: 12-month minimums with rolling renewals are the norm (officeplants.com 2026; WELO), i.e. incumbents engineer churn out via contract, not product.
-
-### 4.5 Tenant / occupier turnover (drives forced churn and pickups)
-- Berlin: inner-city moving rate fell to 4.6% in 2024 (IBB Wohnungsmarktbericht 2024, via t-online). https://berlin.t-online.de/region/berlin/id_101404280/wohnen-in-berlin-hauptstadt-steckt-in-der-wohnungskrise.html — very low residential churn (people don't move because of the rent gap).
-- Berlin offices 2025: take-up 484,200 m² (−11% YoY, 40% below 10-yr average); vacancy 10.4% (~2.24M m²); average deal ~700 m²; average rent €25.90/m² (−11%); 112,000 m² of offices converted to residential/hotel in 2025. https://www.cushmanwakefield.com/en/germany/news/2026/01/office-leasing-berlin — weak office demand, but lots of *new* smaller leases (730 deals) which are natural install moments.
-- Dubai residents: average tenure 7.5 yrs (2024) → 10.5 yrs (2025); tenants 7 → 9.9 yrs; 59% intend to stay >10 yrs (Betterhomes Future Living Report 2025). https://propertynews.ae/uae/the-average-tenure-of-dubai-residents-has-soared-to-over-a-decade/ — historic transience is fading, but a large share still leaves each year, and travel agents report summer departures rising (search snippet, The National). https://www.thenationalnews.com/uae/more-people-opting-to-leave-uae-on-summer-breaks-1.646714
-- Dubai commercial leases: standard 1 year renewable; SMEs 1–3 years; Ejari mandatory. https://www.engelvoelkers.com/ae/en/resources/negotiate-office-lease-dubai ; https://www.henryclub.ae/office-leasing-dubai-2026/
-- Seasonality: Dubai's May–Sept heat empties villas (summer travel) precisely when plants need most care (weekly recommended, floweryduae 2026). Berlin's risk is the opposite: winter low light + heating.
-
-### 4.6 Labour supply
-- Germany GaLaBau: 8,000–10,000 positions unfilled; ~240,200 employees in Gartenbau at 31 Dec 2023 (search snippets). https://neuelandschaft.de/artikel/bgl-legt-erstmals-einen-branchenreport-vor-galabau-umsatz-buegelt-umsatzdelle-2024-aus-11717 ; https://de.statista.com/statistik/daten/studie/242885/umfrage/anzahl-der-beschaeftigten-gaertner-in-deutschland/
-- Dubai: labour available but visa sponsorship makes the first hire a fixed commitment (AED 6,000–12,500 + 2-yr permit), i.e. the founder cannot "try" a technician for a month.
+**Pattern across 1.1–1.5:** every well-funded consumer plant company of the 2017–2021 cohort is
+now dead, liquidated, or owned by its creditor / a larger flower-logistics business. None reached
+independent scale. That is the single most important fact in this lens.
 
 ---
 
-## 5. Risk register for Planty (likelihood × impact, 1–5 each; score = L×I)
+## 2. Adjacent evidence: physical-goods rental/subscription, where the real lesson lives
 
-| # | Risk | L | I | Score | Evidence | Mitigation | Kill/watch metric (first 90 days) |
-|---|------|---|---|-------|----------|------------|-----------------------------------|
-| R1 | Cost per service stop exceeds what B2C will pay (weekly visits) | 5 | 5 | 25 | Pool-route math $25–44/stop; my estimate ~€25–27/stop Berlin; Swapfiets ARPM €28/mo | Drop weekly B2C visits; default to 4-weekly (DE incumbents) or 2-weekly; self-watering pots; B2B/villa minimum order (≥8–10 plants or ≥€150/month) | Fully-loaded cost per stop ÷ revenue per stop; kill if gross margin per route-day <30% after 60 days at ≥8 stops/day |
-| R2 | Low route density → drive time dominates | 5 | 4 | 20 | "ten lawns across the county is a driving hobby"; Swapfiets stopped adding cities to get to cash-positive (2024) | Launch in ONE district cluster (e.g. Berlin Mitte/Kreuzberg-Friedrichshain or Dubai Marina/JLT/Business Bay); reject orders outside polygon; fixed visit days per zone | Stops per tech-day (target ≥8 by day 90); avg km between stops (<3 km) |
-| R3 | Plant mortality/replacement cost + customer overwatering | 4 | 4 | 16 | Dubai AC 30–40% humidity; free-replacement is table stakes; Swapfiets write-offs 26% of revenue | Hardy species only (ZZ, sansevieria, pothos, dracaena); hydroculture/self-watering; "do not water" contract clause; replacement budget 10–15% of plant cost/quarter (my assumption) | Replacement rate per 100 plants per month; kill if >8% monthly after month 2 |
-| R4 | Subscription churn / short terms make CAC unrecoverable | 4 | 5 | 20 | Box churn 10–15%/mo, 44% in first 90 days; Bloom & Wild subs most macro-sensitive; Horti closed | No 2-week/1-month rentals except events; 6–12-month minimum for B2B, 3-month for B2C; installation fee covers delivery; retention > acquisition | Month-3 logo retention (≥85% B2B, ≥70% B2C) ; CAC payback <6 months |
-| R5 | Capex tied up in plants/pots with zero residual | 4 | 4 | 16 | Grover, Feather ("black hole of money"), RTR capex | Buy plants per signed order (no speculative stock); pots are the reusable asset; source wholesale (Dutch/Dubai nurseries); customer prepays first month + install | Inventory idle days; cash conversion cycle; kill if >20% of pots idle >30 days |
-| R6 | Founder bandwidth: solo technical founder running field ops | 5 | 4 | 20 | Bloomscape hired ex-Amazon-fulfillment CEO 2021; Homejoy quality failures | Partner with an existing gardener/Raumbegrüner as subcontractor for the first 90 days; Planty = software + sales + routing; hire tech only after ≥40 stops/week | Founder hours/week on field work (<15h); subcontractor availability |
-| R7 | Seasonality: Dubai summer (customers away, heat) / Berlin winter (light) | 3 | 3 | 9 | Weekly care needed May–Sept in Dubai; summer departures rising | Dubai: "holiday mode" fee not pause; species that tolerate AC; Berlin: winter light-tolerant sets; seasonal rotation as a paid upsell not a cost | Pause/cancel requests per month; June–Aug churn vs baseline |
-| R8 | Tenant/occupier turnover forces pickups and re-installs | 3 | 3 | 9 | Berlin move rate 4.6% (low); Dubai tenure rising to 9.9–10.5 yrs but still transient; Dubai office leases 1 yr | Move-with-you offer inside polygon; pickup fee in contract; target owners/long leases | Pickups per 100 customers per quarter |
-| R9 | Consumer-contract/regulatory exposure (auto-renew, late fees, deposits) | 2 | 4 | 8 | Fernish/DFPI; German consumer-contract rules on terms/auto-renewal (verify) | B2B first; B2C with plain monthly-after-minimum terms; lawyer-reviewed AGB; no rent-to-own | Complaint/chargeback rate |
-| R10 | Incumbent price anchoring (€7–13/plant/month DE; AED 120/visit Dubai) | 4 | 3 | 12 | Gregg, WELO, Plantclub, Royal Plantscape | Compete on design/app/transparency, not price; bundle visits into plant price; position vs "office greenery outsourced" not vs Baumarkt | Win rate vs incumbent quotes; price realised per plant |
-| R11 | Macro downturn hits discretionary subscriptions | 3 | 4 | 12 | Bloom & Wild FY2023; Feather 2022 | B2B wellbeing/ESG budget line; annual invoices | Pipeline conversion by segment |
-| R12 | Labour: cannot hire/retain technicians (DE shortage; UAE visa lock-in) | 3 | 4 | 12 | 8–10k GaLaBau vacancies; Dubai visa AED 6–12.5k | Subcontract first; part-time horticulture students (Berlin); Dubai: use a licensed landscaping partner's staff | Time-to-fill; no-show rate |
+Planty is not really a plant company — it is a **rental + recurring field-service** company. The
+adjacent category's failures are more instructive than the plant ones.
 
-Highest-scoring cluster (R1, R2, R4, R6 ≈ 20–25): the *service cadence and minimum term promised in the idea text* are the primary existential risk, ahead of any market-choice question.
+### 2.1 Feather + Fernish (US furniture rental) — and the best quote in this whole file
+- **Feather** (YC S17, founder Jay Reno) raised **$76 million** and **closed in late 2022**.
+  rentfeather.com now says only "Feather is now Fernish."
+- **Fernish** raised a **$30M seed (~2019)** and a **$15M Series A (May 2020)**; it was sold in 2023
+  "not during distress" but facing "identical mechanics — needing capital in a difficult
+  fundraising environment."
+- **9 November 2023**: home-staging company **Vesta acquired both**. Combined headcount >200.
+  Example rental price point cited: **$118/month for a sectional**.
+
+Vesta CEO (Buckner), quoted verbatim in Business of Home:
+> "Subscription furniture companies all have really high fixed costs—to set up a warehouse,
+> acquire inventory and run a logistics operation. It's what I call a black hole of money."
+> "To achieve escape velocity and become profitable, you need either a big margin or a lot of volume."
+
+Critically: Buckner says both brands are **profitable now — but only after being plugged into
+Vesta's pre-existing staging logistics network**, i.e. the trucks were already rolling and already
+paid for. The rental business never covered its own last-mile.
+Source: https://businessofhome.com/articles/vesta-fernish-feather-subscription-furniture (9 Nov 2023) ;
+https://www.modernretail.co/operations/luxury-design-studio-vesta-acquires-furniture-rental-companies-fernish-feather/ (9 Nov 2023)
+
+**This is Planty's core risk in one sentence.** Planty's own trucks + own warehouse + own
+inventory + own technicians, at low route density, is exactly the "black hole of money."
+
+### 2.2 Grover (Berlin) — €300M+ raised, equity wiped out in 3 years
+The single most relevant German cautionary tale, because it is *the same city, the same model
+(rent a physical asset to consumers), and the same decade*.
+- **7 April 2022**: raised **$330 million in equity and debt** (**>€303 million**), hitting a
+  **>$1 billion valuation**. Total funding reported ~$323–330M incl. a **$110M Series C**.
+- **December 2024**: WirtschaftsWoche headline — "Grover: Technikverleiher wird zum **Sanierungsfall**"
+  (the device-renter becomes a restructuring case).
+- **25 April 2025**: the **Amtsgericht Charlottenburg confirmed Grover's StaRUG restructuring plan**.
+  **Existing shareholders were wiped out**; creditors **Fasanara Capital and M&G Investments**
+  took over the company.
+Sources: https://press.grover.com (7 Apr 2022) ; https://www.eu-startups.com (7 Apr 2022) ;
+https://www.forbes.com/sites/jonathankeane (7 Apr 2022) ;
+https://www.wiwo.de/unternehmen/it/elektrogeraete-zur-miete-berliner-tech-star-grover-wird-zum-sanierungsfall/30141782.html (20 Dec 2024) ;
+https://hengeler-news.com/en/articles (30 Apr 2025) ; https://www.bloomberg.com (17 Apr 2025)
+Lesson: asset-heavy rental businesses are **financed**, not just operated. Grover's growth was
+debt-fuelled; when the debt cost rose and utilisation/residual values disappointed, equity went to
+zero. Planty's plants are the same kind of depreciating, damage-prone, capex-funded inventory —
+except plants have a *worse* residual value curve than iPhones, because a stressed plant is
+often worth nothing at all.
+
+### 2.3 Swapfiets (NL/DE bike subscription) — 10 years, corporate parent, still losing money
+The best-run European "physical asset + field service subscription" business we can measure,
+and it is *still* not profitable.
+- Net loss by year: **€14m (2020)**, **€29m (2021)**, **€31m (2022)**, **€14.3m (2024)**,
+  **€7.0m (2025)** (2025 loss fell €6.3m YoY).
+- Revenue: **€85.3m (2023) → €91.1m (2024), +7%**. Cash flow returned positive in 2024.
+- Owned by Pon (a large Dutch bicycle group) — so it has a parent's balance sheet and buying power.
+- **May 2026**: Swapfiets **acquired Dance** — category consolidation, not category expansion.
+Sources: https://micromobility.io/news (11 Sep 2025) ; https://www.bike-eu.com/53075/pon-owned-swapfiets-cuts-losses-to-e7m (1 Sep 2026) ;
+https://www.bike-eu.com (22 Aug 2025) ; https://nieuwsfiets.nu (20 Aug 2025) ; https://micromobility.io/news/swapfiets-acquires-dance (19 May 2026)
+Lesson for Planty: Swapfiets has the *best possible* version of this model — extreme urban route
+density, a service call only when something breaks (not scheduled weekly), a €20/month price point,
+and hundreds of thousands of subscribers — and it took **~10 years and >€95m of cumulative losses**
+to approach breakeven. A solo founder cannot fund that curve.
 
 ---
 
-## 6. First-90-day kill criteria (proposed)
-1. Cost per stop (labour + vehicle) > 60% of monthly revenue per stop at 8+ stops/day → stop B2C visits, B2B only.
-2. Fewer than 15 paying B2B sites (or 40 B2C households) inside a single 5-km polygon by day 90 → density not achievable; pivot to maintenance-only (no plant capex) or event rentals.
-3. Monthly plant replacement > 8% of installed plants for two consecutive months → species/pot system wrong; pause new installs.
-4. Month-3 retention < 70% (B2C) / < 85% (B2B) → the subscription is not sticky; do not raise/spend on CAC.
-5. Founder field hours > 20/week by day 60 with no subcontractor found → ops model not delegable in this market.
+## 3. Unit-economics benchmarks that constrain Planty's design
+
+### 3.1 What the incumbent industry actually charges — and how often it actually visits
+This is the most decision-relevant block. **Nobody in the industry visits weekly at consumer prices.**
+
+**Dubai — MyDubaiPlants published price card (2026):**
+- Starter Office: **AED 299/month, up to 10 plants, minimum 3 months, ONE maintenance visit per month.**
+- Professional: **AED 549/month, 11–30 plants, minimum 3 months, bi-monthly maintenance.**
+- Enterprise: **30+ plants, custom pricing — this is the only tier that gets weekly maintenance visits**,
+  plus seasonal rotation, SLA, account manager.
+- Event plant hire: **from AED 85/day**.
+Source: https://mydubaiplants.com/plant-rental (2026)
+Derived: AED 299 ÷ 10 plants ≈ **AED ~30/plant/month (~€7.5)** at the entry tier. **[my estimate]**
+
+**Dubai — real buyer budget, from a marketplace job posting (Business Bay, 2026):**
+"Office reception plant rental, **12 large display plants, 12-month contract**, budget
+**AED 2,500 to 5,000 per month**." Source: https://allworks.ae/services/plant-rental-service (2026)
+Derived: **AED ~208–417 per large display plant per month** — 7–14× the entry-tier price. **[my estimate]**
+So the money in this category is in *large specimen displays for prestige commercial space*, not in
+small plants for flats.
+
+**Germany — WELO Green (2025):**
+"Pflanzen mieten **ab 199,-€/Monat**" with **12 Monate Mindestlaufzeit** (12-month minimum term),
+monthly cancellable thereafter. Included: consultation + site visit, delivery, professional
+installation, regular care (watering, fertilising, pruning, pest control), and a plant guarantee —
+"fällt eine Pflanze aus, wird sie ohne Mehrkosten ersetzt."
+Source: https://welo-green.de/blogs/journal/pflanzen-mieten-kosten (30 Sep 2025)
+
+**Germany — hydro-kulturen.de (2026):**
+Plants from **€6 per month**, with professional care **every two to four weeks** (not weekly);
+watering, fertilising, cleaning; plant exchange available. Leasing returns from €15 incl. VAT.
+Source: https://hydro-kulturen.de/pflanzen-mieten (2026)
+
+**UK — phs Greenleaf (2026, advertised):** office plants **"Less than £3.50 per week"** (~£15/month
+per display). Source: https://www.phsgreenleaf.co.uk/indoor/office-plants (2026 ad copy)
+
+**US — interiorscape.com pricing models (2025/26):**
+- Plant-as-a-Service: **$0.35–0.85 per sq ft of serviced area per year**
+- Full-service lease: **$0.50–1.20/SF/year all-inclusive**
+- Purchase + maintenance: $3–30/SF upfront + $0.15–0.50/SF/year
+- **Replacement guarantee: industry standard 90 days; top vendors 6–12 months**
+- **Contract length: 1–3 years for PaaS; 3–5 years for leases**
+- Insurance: $1M minimum commercial general liability
+- Worked example, 10,000 SF office: PaaS **$5,000–8,500/year**
+Source: https://interiorscape.com/cost/interior-plantscaping-pricing-models
+
+**US — per-visit service cost (2026):**
+- Monthly maintenance **$75–300+ per visit**; smaller commercial **$50–100 per visit** or $50–150/month
+- **Weekly care: $200–400 per month**
+- Professional plant survival rate **95%+ (guaranteed)** vs **DIY 40–60%**
+Source: https://www.mrplantsocal.com/interior-plant-design-vs-diy-office-plants (16 Mar 2026)
+
+### 3.2 The visit-cost problem, made explicit
+German gardener labour: **€30–55 per hour** (2026, handwerker-kontakte.de citing Destatis/ZDH);
+€30–50/hour (auftragsglueck.de, 2026); some portals quote €38–85 net/hour.
+Sources: https://handwerker-kontakte.de/de/kosten/gaertner (2026) ;
+https://auftragsglueck.de/ratgeber/gartenpflege-kosten (2026)
+
+**[my estimate]** Berlin B2C, weekly visits: assume a fully-loaded internal technician cost of
+€25–30/hour (below the €30–55 market *rate*, because that rate includes the firm's margin), and
+assume 15 minutes on-site plus 15 minutes travel/parking per home = **0.5 h = €12.50–15 per stop**.
+Weekly ⇒ **€50–65/month in labour alone**, before plant amortisation, pots, van, fuel, parking
+fines, replacement stock, payment fees, CAC or any margin. A B2C price that clears that is
+**€120–180/month** — an order of magnitude above the €6/plant/month and £3.50/week anchors above,
+and above WELO's €199 *whole-installation* entry price.
+Conclusion: **weekly technician visits to individual homes are not a viable B2C product at any
+price a mass consumer will pay.** Every incumbent has already converged on monthly-to-6-weekly
+cadence, and reserves weekly service for 30+ plant commercial sites. Planty's spec ("every week a
+technician visits") is the single most dangerous assumption in the brief.
+
+### 3.3 Churn benchmarks to hold Planty against
+Recurly 2025 benchmark study (2,200+ merchants, 67 million subscribers):
+- Subscription ecommerce overall: **3.4% monthly churn** (2.5% voluntary + 0.9% involuntary)
+- **Consumer goods & retail: 4.1% monthly** (3.3% voluntary + 0.8% involuntary)
+- Traditional ecommerce annual churn: **60–82%**
+Source: https://www.upcounting.com/blog/average-churn-rate-ecommerce (2025, citing Recurly)
+**[my estimate]** 4.1%/month ⇒ ~**40% of a B2C cohort gone within 12 months**, ~24-month average
+life at best. Against a 12-month payback on plants+pots+install, that is razor-thin. Note also
+that **~1/3 of churn is involuntary (failed cards)** — a Stripe/Supabase dunning flow is cheap,
+high-ROI MVP work.
 
 ---
 
-## 7. Implications for the Dubai vs Berlin choice (from this lens only)
-- Dubai: field labour ~5× cheaper (AED 2,352/month gardener vs ~€2,900 Berlin gross; both 2025), villas/offices have budget lines and 12-month AMC culture (Royal Plantscape, 800petals), and B2C plant-care visit pricing already exists (AED 120–499/month). Risks: visa-locked hires, summer absence, AC mortality, 1-year office leases, a market of incumbents since 1992. Best fit for the "villa + office, weekly visit" version of Planty.
-- Berlin: labour 5× dearer and scarce; incumbents rent plants at €7–13/month with *monthly* visits and 12–36-month terms; residential churn is low (4.6% moves) which helps retention, but office demand is soft (10.4% vacancy). The weekly-visit B2C model is very unlikely to clear unit economics here; a B2B "Plantclub-like" offer is already occupied by Plantclub (150+ Berlin members).
-- Net from the risk lens: if Planty keeps weekly visits and B2C, Dubai is the only market where the cost side can plausibly work; if Planty drops to 4-weekly B2B service, Berlin is viable but undifferentiated.
+## 4. Market-selection risk: Berlin vs Dubai, through a risk lens
+
+**Berlin offices (JLL, 14 July 2026):**
+- Vacancy **8.6% in Q2 2026**, up from 8.4% (Q1 2026) and **8.0% (Q2 2025)** — **rising**.
+- **1.98 million sq m vacant**.
+- But H1 2026 take-up **386,100 sq m vs 238,000 sq m in H1 2025 — +62%**, 26% above the 5-year average.
+- Prime rent **€48.00/sq m/month** (Q2 2026), up from €46.00.
+Source: https://www.jll.com/en-de/insights/market-dynamics/berlin-office (14 Jul 2026)
+Reading: Berlin B2B is *recovering but with rising vacancy* — leasing is being pulled into prime
+stock while secondary space empties. Landlord-driven amenity spend (which is what plant hire is)
+concentrates in prime buildings — a narrow, already-served, procurement-heavy segment.
+
+**Dubai offices (2026):**
+- Average vacancy across all office segments fell from **7.7% to 6.1% year-on-year** as of Q2 2026.
+  Source: LinkedIn market commentary, "Dubai Office Market 2026: Scarcity Continues to Dominate" (2026) — *anecdotal/secondary, verify.*
+- Q1 2026: office **rents +20% YoY to AED 191.9 per sq ft**; sales prices **+22.9% YoY to AED 2,029 per sq ft**.
+  Source: https://cavendishmaxwell.com (Dubai Office Market Performance Q1 2026)
+Reading: Dubai's office market is one of the tightest globally — new fit-outs, new occupiers,
+and expanding tenants are the demand driver for plant hire. Materially better B2B tailwind than Berlin.
+
+**Dubai residential stickiness (mitigates the "transient expat" churn fear):**
+- Average length of residency **10.5 years**; among tenants it rose from **6.7 years (2024) to
+  9.9 years (2025)**; ~6 in 10 residents plan to stay more than a decade.
+Source: Betterhomes report via https://www.khaleejtimes.com (18 Dec 2025) and
+https://propertynews.ae (19 Dec 2025)
+This is a genuine surprise and cuts *against* the assumption that Dubai B2C would churn faster.
+
+**Dubai-specific operational risks:**
+- **Heat/AC**: outdoor temps >43°C in summer; continuous HVAC drops indoor humidity to levels
+  "most indoor plants are not adapted to tolerate"; documented failure modes are AC dehydration,
+  root-zone heat near glass facades, disrupted summer maintenance schedules, and spider-mite/scale
+  outbreaks. Source: https://cultivateuae.com/what-the-uae-summer-does-to-indoor-plants (2026)
+  ⇒ expect a **summer mortality spike** precisely when many customers are on holiday.
+- **Import regime**: **Federal Law No. (7) of 2025 on Agricultural Quarantine** replaced Federal
+  Law No. 5 of 1979; plant imports require **import permits and phytosanitary certificates** from
+  the Ministry. Sources: https://uaelegislation.gov.ae/en/legislations (Federal Law No. 7 of 2025) ;
+  https://www.almaazmilawyers.com/insights (26 May 2026) ; https://focus.hidubai.com (27 Jan 2025)
+  ⇒ supply is regulated and concentrated; a solo founder should buy from local UAE nurseries,
+  not import.
+- **Competitive density**: mydubaiplants.com, 800petals.com, plantsworld.ae, plantsxpert.com,
+  adplants.com and others all already sell office plant rental in Dubai with published packages.
+  The category is present and commoditised — differentiation must be software/experience, not "we rent plants."
+
+**Germany-specific legal/brand risks:**
+- **Name collision**: **plantyworks.de** — a company in Essen (Tenderweg 1, 45141 Essen) already
+  markets "Büropflanzen mieten oder Leasing" under the brand *Plantyworks*, serving the Ruhr,
+  Düsseldorf and Cologne. Source: https://plantyworks.de (2026). Trademark and SEO collision risk
+  for a German launch under "Planty."
+- **Consumer subscription law**: the *Gesetz für faire Verbraucherverträge* (in force **1 March 2022**)
+  requires a **Kündigungsbutton** on the website for online consumer contracts, caps the initial
+  fixed term, and forces auto-renewals into a contract cancellable **monthly with one month's notice**.
+  Sources: https://www.verbraucherzentrale.de/wissen/vertraege-reklamation (29 Sep 2023) ;
+  https://www.test.de (16 Nov 2022) ; https://www.lutzabel.com/artikel (2 Aug 2022)
+  ⇒ Germany structurally **prevents** the long lock-ins that make plant-hire economics work for
+  consumers. B2B contracts are not affected the same way. This is a real, under-appreciated
+  argument for B2B-first in Germany, or for Dubai (min 3-month terms are normal there — see §3.1).
+
+---
+
+## 5. Risk register for Planty (likelihood × impact)
+
+Scale: L/M/H. "Score" = likelihood × impact, H×H = critical.
+
+| # | Risk | Evidence anchor | Likelihood | Impact | Mitigation |
+|---|------|-----------------|-----------|--------|------------|
+| R1 | **Weekly technician visits make B2C structurally unprofitable** | No incumbent visits weekly below 30 plants (MyDubaiPlants 2026); US weekly care $200–400/mo (2026); DE gardener €30–55/hr (2026) | **H** | **H** | Drop "weekly" from the product. Ship **hydroculture / self-watering pots with water-level gauges** so the interval is 4–6 weeks (hydro-kulturen.de services every 2–4 weeks). Sell "we visit every 4 weeks" as the standard and price weekly as a premium commercial SKU only. |
+| R2 | **Route density never reaches viability** — scattered addresses, one stop per building | Vesta/Buckner: fixed costs are "a black hole of money"; Fernish/Feather only became profitable inside an *existing* logistics network (2023) | **H** | **H** | Launch **postcode-by-postcode, not city-wide**. Refuse orders outside the active cluster (waitlist them). Target **multi-unit buildings, coworking, and 1 street at a time**. Track stops/technician-hour as the #1 internal metric from day 1. |
+| R3 | **Capex-heavy inventory funded by a solo founder** — plants + pots bought upfront, revenue trickles monthly | Grover: €303M raised, >$1bn valuation (2022) → shareholders wiped out via StaRUG (25 Apr 2025) | **H** | **H** | Do **not buy inventory upfront**. Start **consignment/dropship from one local nursery**, or run a *managed-service* model where the customer's payment funds the plant. Cap capex per customer at ≤1 month's revenue until 100 subscribers. |
+| R4 | **Churn kills payback before plant cost is recovered** | Recurly 2025: consumer goods/retail **4.1%/month**; PaaS industry contracts are **1–3 years** (interiorscape) | **H** | **H** | Kill the "2 weeks" and "1 month" B2C options — they guarantee negative unit economics. Minimum **3 months** (matches Dubai norm) or 12 months B2B (matches WELO). In DE, respect the Kündigungsbutton/monthly-rollover law by making the *first* term 3–12 months. Build dunning for the ~20% of churn that is failed cards. |
+| R5 | **Plant mortality / replacement cost exceeds budget**, especially UAE summer | DIY survival 40–60% vs professional 95%+ (2026); UAE AC + >43°C + mite pressure (2026); industry guarantee is only **90 days** standard | M–H | H | Ship a **hardened species list only** (ZZ, Sansevieria, Zamioculcas, Aglaonema, Epipremnum) for the MVP. Match the industry: **90-day replacement guarantee**, not unlimited. Instrument mortality per species per site from day 1; it is the input to every other number. |
+| R6 | **"Seasonal rotation" doubles logistics cost for a benefit nobody pays for** | Rotation is an Enterprise-tier feature only in Dubai pricing (2026); event hire is priced separately at AED 85/day | M | H | Cut seasonal rotation from the MVP. It is a *second* full logistics event per customer per season. Re-introduce only as a paid add-on once stops/hour is proven. |
+| R7 | **B2B sales cycle + procurement is slow and CAC-heavy for a solo founder** | Incumbents (phs Greenleaf, WELO, Ambius, Plantyworks) already hold the accounts; industry contracts are 1–3 yr, insurance min $1M | **H** | M | Sell to **small offices/coworking/clinics/salons/restaurants** where one person decides, not to corporate FM. Avoid RFPs. Use a self-serve price card (Dubai competitors publish theirs — that's the beatable weakness in Berlin, where nobody publishes prices). |
+| R8 | **Berlin B2B demand is structurally softer than Dubai's** | Berlin vacancy **8.6% Q2 2026, rising** from 8.0% Q2 2025, 1.98m sqm empty (JLL 2026) vs Dubai vacancy **7.7%→6.1% YoY**, rents **+20% YoY** (2026) | M | H | Weight market choice toward Dubai for B2B. If Berlin, target the prime segment that is actually absorbing space (take-up +62% H1 2026) — new fit-outs, not existing tenants. |
+| R9 | **Brand/trademark collision in Germany ("Plantyworks")** | https://plantyworks.de (2026), Essen, same category | M | M | Trademark search before spending on the brand. If launching DE, consider a different name or accept SEO cannibalisation. Non-issue in the UAE. |
+| RA | **German consumer-contract law prevents workable B2C lock-ins** | Gesetz für faire Verbraucherverträge, in force 1 Mar 2022 | H (certain) | M | Go **B2B-first in Germany**; B2C only as a low-touch, low-capex offer. In the UAE, 3-month minimums are already market-standard. |
+| RB | **Perishable + paid-acquisition DTC death spiral** | Colvin: concurso, half the staff cut (2024), sold to its creditor (May 2025); Leaf Envy CVL (Aug 2024); Horti closed (May 2025); Bloomscape absorbed | M | H | Do not buy growth. No paid acquisition until contribution margin per active subscriber is positive and measured. |
+| RC | **Field ops don't scale past the founder** — quality collapses with the first hire | Mr PlantSoCal: professional 95%+ survival is the *whole* value prop (2026) | M | H | Standardise: fixed species list, fixed pot system, checklist + photo per visit in the app. The software MVP should be the **technician route/visit app**, not the customer storefront. |
+| RD | **UAE plant import/quarantine regime disrupts supply** | Federal Law No. (7) of 2025; permits + phytosanitary certificates required | L–M | M | Source domestically from UAE nurseries; never build a plan that requires importing. |
+| RE | **Damage/liability at customer premises** (water damage, floors, pests) | Industry requires **$1M minimum** commercial general liability (interiorscape) | M | M | Get liability insurance before the first install. Self-watering pots with saucers reduce the main claim vector. |
+
+**Top 4 (H×H): R1 weekly-visit cost, R2 route density, R3 inventory capex, R4 churn vs payback.**
+All four are the *same* failure the furniture-rental cohort died of. Every one of them is
+addressable at the design stage and almost none of them is addressable after launch.
+
+---
+
+## 6. Kill criteria and metrics for the first 90 days
+
+Instrument these from the first customer. These are **[my proposed thresholds]**, calibrated
+against the benchmarks above, not sourced numbers.
+
+**The four numbers that decide everything**
+1. **Stops per technician-hour** (target ≥ 2.0 by day 90; ≤ 1.0 = kill the home-visit model).
+   Anchor: this is the metric Fernish/Feather could only fix by borrowing Vesta's network.
+2. **Service cost per stop, fully loaded** (labour + travel + van + parking).
+   Kill if > 25% of the monthly subscription revenue that stop generates.
+3. **Contribution margin per active subscriber per month** = revenue − service cost −
+   plant amortisation − replacements − payment fees. **Must be positive by day 60.** If it is
+   negative at 20 customers it will be more negative at 200.
+4. **Plant capex payback months** = (plant + pot + install) ÷ monthly contribution.
+   Kill if > 9 months, because expected customer life at 4.1%/month churn is ~24 months and
+   half of that is consumed before you've earned the pot back.
+
+**Retention / demand**
+5. **Month-1 → Month-2 retention ≥ 85%** (i.e. ≤ ~15% first-month churn). Recurly's steady-state
+   consumer-retail benchmark is 4.1%/month; a first-month figure far above that means the product
+   was mis-sold.
+6. **B2B: ≥ 5 signed paying accounts with a ≥ 3-month term by day 90.** Fewer than 3 ⇒ the B2B
+   wedge isn't real and the incumbents have the market.
+7. **CAC payback ≤ 3 months** on any paid channel; otherwise no paid channel at all.
+
+**Operations / quality**
+8. **90-day plant mortality ≤ 10%** per cohort (industry guarantees 90 days for a reason;
+   professional survival is quoted at 95%+). >20% ⇒ wrong species list or wrong pots — fix before growing.
+9. **Route radius**: ≥ 70% of active customers inside **one contiguous cluster**. If the map is
+   scattered after 90 days, R2 has already materialised.
+10. **Involuntary churn ≤ 1%/month** once dunning is live (Recurly: 0.8% for consumer retail).
+
+**Hard kill / pivot triggers at day 90**
+- Contribution margin per subscriber still negative → **stop B2C home visits entirely**; pivot to
+  B2B-only or to a **sell-with-care-plan** model (no rental capex at all).
+- Stops per technician-hour < 1.0 → the geography is wrong; either shrink the service area to one
+  district or abandon the field-service component.
+- <3 paying B2B accounts AND B2C payback >9 months → the idea does not have a viable wedge in the
+  chosen city; test the other city with a landing page before writing more code.
+
+**MVP scope implication (the cheapest way to test all of the above)**
+Build the **technician visit app + route list + per-plant mortality log** first, and run the first
+20 customers with a spreadsheet checkout and manual invoicing. The storefront ("browse plants,
+pick a duration, pay") is the part that is *not* in doubt and *not* where the business dies. Every
+company in §1 and §2 had a beautiful storefront.
 
 ---
 
 ## Sources
-- https://heyhorti.com/ (Horti closure banner, 2025)
-- https://heyhorti.com/pages/help-center-faqs
-- https://find-and-update.company-information.service.gov.uk/company/11734922 (Leaf Envy dissolved 2026)
-- https://www.retaildive.com/news/the-sill-closes-stores-shifts-to-online-only/729051/ (The Sill 2024)
-- https://www.cityam.com/bloom-and-wild-losses-balloon-to-over-100m-at-flower-seller/ (Bloom & Wild FY2023)
-- https://www.hortweek.com/bloom-wild-losses-reach-100m/retail/article/1868934
-- https://www.businesswire.com/news/home/20200930005620/en/Bloomscape-Raises-$15M-in-Series-B-Funding-After-Major-Year-of-Growth
-- https://bloomscape.com/press-release-welcoming-mike-klepfer/ (2021)
-- https://bloomscape.com/
-- https://www.glassdoor.com/Reviews/Bloomscape-Detroit-Reviews-EI_IE3129837.0,10_IL.11,18_IM236.htm (anecdotal, not fetched)
-- https://www.trustpilot.com/review/bloomscape.com (anecdotal)
-- https://tracxn.com/d/companies/bloomscape/__9tRbOWPziVFbT1qQ47IQBF2jv-UL_XZ7tyxemQRl2yM
-- https://tracxn.com/d/companies/patch/__dkSkDVCm-sZEN68ngj9Pr-S6KLqjTfMZXhlAMboYNvw
-- https://www.patchplants.com/pages/about/
-- https://pitchbook.com/profiles/company/338559-04 (Bloombox Club)
-- https://plantclub.io/de/pflanzen-mieten-berlin
-- https://www.deutsche-startups.de/2024/01/08/offline-insolvenzen-2023/
-- https://www.deutsche-startups.de/2024/07/08/offline-halbjahr_2024/
-- https://www.deutsche-startups.de/2026/06/10/ueber-10-millionenschwere-startup-pleiten-die-alle-mitbekommen-haben-sollten/
-- https://www.modernretail.co/operations/luxury-design-studio-vesta-acquires-furniture-rental-companies-fernish-feather/ (2023)
-- https://businessofhome.com/articles/vesta-fernish-feather-subscription-furniture (2023)
-- https://dfpi.ca.gov/press_release/los-angeles-based-rent-to-own-furniture-startup-agrees-to-refund-overcharges-and-comply-with-consumer-protection-laws/
-- https://locus.sh/blogs/last-mile-delivery-efficiency-furniture-big-box-retail/
-- https://www.wiwo.de/unternehmen/it/elektrogeraete-zur-miete-berliner-tech-star-grover-wird-zum-sanierungsfall/30141782.html (2024)
-- https://www.startbase.com/news/grover-entlaesst-mitarbeiter-um-gewinnschwelle-zu-erreichen/ (2022)
-- https://www.trueup.io/co/grover/layoffs
-- https://hengeler-news.com/en/articles/hengeler-mueller-advises-grover-on-financial-restructuring-via-starug-proceedings (2025)
-- https://www.bike-magazin.de/en/about-us/magazine/backgrounds/swapfiets-is-in-the-red-is-the-subscription-model-for-bicycles-on-the-brink-of-collapse/ (2023)
-- https://micromobility.substack.com/p/swapfiets-posts-911m-revenue-in-2024 (2025)
-- https://renttherunway.gcs-web.com/news-releases/news-release-details/rent-runway-inc-announces-second-quarter-2025-results
-- https://eightx.co/blog/us-teardown-rent-the-runway
-- https://fortune.com/2015/07/17/homejoy-closing-cleaning-google
-- https://techcrunch.com/2016/11/06/not-every-service-needs-to-be-an-on-demand-service/
-- https://homebusinessmag.com/businesses/business-opportunities/15-service-business-ideas-run-from-home-2026-with-real-startup-costs/
-- https://www.poolfounder.com/pool-route-profitability-tracking (2026)
-- https://poolservicemasterclass.com/pool-service-route-management/
-- https://www.serviceautopilot.com/lawn-care/lawn-care-labor-benchmarks/
-- https://bau.bi/galabau/nachrichten/tarifvertrag-so-hoch-sind-die-loehne-und-gehaelter-im-galabau-g19996 (2025)
-- https://www.stepstone.de/gehalt/Gartenbauer-in-Garten-und-Landschaftsbau/city/Berlin.html
-- https://ae.indeed.com/career/gardener/salaries/Dubai (2025)
-- https://terratern.com/blog/dubai-employment-visa-cost/ (2025)
-- https://www.awconnect-me.com/blog/2025/09/salary-benchmarks-hiring-costs-uae-2025
-- https://www.gaertner-gregg.de/mietpflanzen-muenster-dortmund/
-- https://welo-green.de/blogs/journal/pflanzen-mieten-kosten
-- https://welo-green.de/pages/mietpflanzen
-- https://officeplants.com/2026/08/03/office-plant-rental-pricing/
-- https://www.royalplantscape.com/pages/indoor-plant-maintenance-service
-- https://floweryduae.com/garden-maintenance-cost-dubai/ (2026)
-- https://800petals.com/office-plant-rental-dubai/
-- https://upscaleandposh.com/blogs/news/indoor-plants-in-dubai-the-2026-guide-to-greenery-that-thrives
-- https://kamegardens.ae/indoor-plant-care-in-dubai-overcoming-climate-ac-challenges/
-- https://www.subjolt.com/guides/churn-rate-benchmarks/
-- https://pmtoolkit.ai/calculators/churn-rate/subscription-box
-- https://berlin.t-online.de/region/berlin/id_101404280/wohnen-in-berlin-hauptstadt-steckt-in-der-wohnungskrise.html (IBB 2024)
-- https://www.cushmanwakefield.com/en/germany/news/2026/01/office-leasing-berlin (Berlin office 2025)
-- https://propertynews.ae/uae/the-average-tenure-of-dubai-residents-has-soared-to-over-a-decade/ (Betterhomes 2025)
-- https://www.thenationalnews.com/uae/more-people-opting-to-leave-uae-on-summer-breaks-1.646714
-- https://www.engelvoelkers.com/ae/en/resources/negotiate-office-lease-dubai
-- https://www.henryclub.ae/office-leasing-dubai-2026/
-- https://neuelandschaft.de/artikel/bgl-legt-erstmals-einen-branchenreport-vor-galabau-umsatz-buegelt-umsatzdelle-2024-aus-11717
-- https://de.statista.com/statistik/daten/studie/242885/umfrage/anzahl-der-beschaeftigten-gaertner-in-deutschland/
+
+Plant-sector failures
+- https://find-and-update.company-information.service.gov.uk/company/11734922 — LEAF ENVY LTD overview (dissolved 13 April 2026)
+- https://find-and-update.company-information.service.gov.uk/company/11734922/filing-history — CVL resolution 22 Aug 2024, liquidator appointed 2 Sep 2024
+- https://find-and-update.company-information.service.gov.uk/company/09897155/filing-history — PATCH GARDENS LTD, Arena Online PSC 12 Jan 2023, founder exit 3 May 2024
+- https://homeofdirectcommerce.com/news/arena-flowers-snaps-up-patch — Arena revenue £47.3m (16 Jan 2023)
+- https://www.arenaflowers.com/blogs/news — Arena acquires 100% of Patch Gardens Ltd (2023)
+- https://heyhorti.com/pages/help-center-faqs — Horti FAQ, last dated 31 May 2025
+- https://www.linkedin.com/posts (Horti) — "As of May 31, Horti has come to a gentle and intentional close" (2025) [anecdotal — company LinkedIn post]
+- https://www.20minutos.es/lainformacion/ — Colvin negotiating with creditors (26 Sep 2024)
+- https://emprendedores.es/startups/colvin-concurso — Colvin exits insolvency, acquired by Claret Capital (2025)
+- https://ecosistemastartup.com — Colvin exits concurso (7 May 2025)
+- https://www.elconfidencial.com/empresas/ — Colvin: same brand, new owner (5 May 2025)
+- https://techcrunch.com — Bloomscape $15M Series B + Vera acquisition (30 Sep 2020)
+- https://news.crunchbase.com — Bloomscape Series B, General Catalyst (30 Sep 2020)
+- https://tracxn.com/companies/bloomscape — Bloomscape listed as an acquired company (2026)
+- https://insightweeds.com/vera-plant-care-app-disappears-appstore — Vera app removed from App Store
+
+Adjacent rental/subscription failures
+- https://businessofhome.com/articles/vesta-fernish-feather-subscription-furniture — Buckner "black hole of money" quote (9 Nov 2023)
+- https://www.modernretail.co/operations/luxury-design-studio-vesta-acquires-furniture-rental-companies-fernish-feather/ — Feather $76m, Fernish $15m Series A + $30m seed, $118/mo sectional (9 Nov 2023)
+- https://rentfeather.com — "Feather is now Fernish"
+- https://startupfundraising.com/founders/jay-reno — Feather $76M raised
+- https://press.grover.com — Grover $330m raised, >$1bn valuation (7 Apr 2022)
+- https://www.eu-startups.com — Grover €303m+ (7 Apr 2022)
+- https://www.forbes.com/sites/jonathankeane — Grover valued >$1bn (7 Apr 2022)
+- https://www.wiwo.de/unternehmen/it/elektrogeraete-zur-miete-berliner-tech-star-grover-wird-zum-sanierungsfall/30141782.html — Grover a restructuring case (20 Dec 2024)
+- https://hengeler-news.com/en/articles — Grover StaRUG plan confirmed by AG Charlottenburg 25 April 2025
+- https://www.bloomberg.com — Grover nears restructuring, shareholders wiped out (17 Apr 2025)
+- https://micromobility.io/news — Swapfiets €91.1m revenue 2024, net loss €14.3m (11 Sep 2025)
+- https://www.bike-eu.com/53075/pon-owned-swapfiets-cuts-losses-to-e7m — Swapfiets net loss €7.0m 2025 (1 Sep 2026)
+- https://www.bike-eu.com — Swapfiets losses €14m 2020, €29m 2021, €31m 2022 (22 Aug 2025)
+- https://micromobility.io/news/swapfiets-acquires-dance — Swapfiets acquires Dance (19 May 2026)
+
+Pricing / unit economics
+- https://mydubaiplants.com/plant-rental — AED 299 / AED 549 / custom tiers, visit cadence by tier (2026)
+- https://allworks.ae/services/plant-rental-service — AED 2,500–5,000/mo for 12 large display plants, 12-mo contract (2026)
+- https://welo-green.de/blogs/journal/pflanzen-mieten-kosten — ab €199/Monat, 12-month minimum term (30 Sep 2025)
+- https://hydro-kulturen.de/pflanzen-mieten — from €6/plant/month, care every 2–4 weeks (2026)
+- https://www.phsgreenleaf.co.uk/indoor/office-plants — "Less than £3.50 per week" (2026, ad copy)
+- https://interiorscape.com/cost/interior-plantscaping-pricing-models — PaaS $0.35–0.85/SF/yr, 90-day guarantee, 1–3 yr contracts
+- https://www.mrplantsocal.com/interior-plant-design-vs-diy-office-plants — $75–300/visit, weekly $200–400/mo, 95%+ vs 40–60% survival (16 Mar 2026)
+- https://handwerker-kontakte.de/de/kosten/gaertner — German gardener €30–55/hour (2026)
+- https://auftragsglueck.de/ratgeber/gartenpflege-kosten — €30–50/hour (2026)
+- https://www.upcounting.com/blog/average-churn-rate-ecommerce — Recurly 2025: 4.1% monthly churn, consumer goods & retail
+
+Market & regulatory context
+- https://www.jll.com/en-de/insights/market-dynamics/berlin-office — Berlin vacancy 8.6% Q2 2026, take-up +62% H1 2026, prime €48/sqm/mo (14 Jul 2026)
+- https://cavendishmaxwell.com — Dubai office rents +20% YoY to AED 191.9/sqft Q1 2026
+- LinkedIn, "Dubai Office Market 2026: Scarcity Continues to Dominate" — vacancy 7.7%→6.1% YoY Q2 2026 [anecdotal/secondary]
+- https://www.khaleejtimes.com — Dubai average residency 10.5 years, Betterhomes (18 Dec 2025)
+- https://propertynews.ae — tenants' average residency 6.7 yrs (2024) → 9.9 yrs (2025) (19 Dec 2025)
+- https://cultivateuae.com/what-the-uae-summer-does-to-indoor-plants — UAE AC/heat failure modes (2026)
+- https://uaelegislation.gov.ae/en/legislations — Federal Law No. (7) of 2025 on Agricultural Quarantine
+- https://www.almaazmilawyers.com/insights — UAE new federal Agricultural Quarantine Law (26 May 2026)
+- https://focus.hidubai.com — guide to importing plants into the UAE (27 Jan 2025)
+- https://plantyworks.de — German "Plantyworks", Büropflanzen mieten/Leasing, Essen (2026)
+- https://www.verbraucherzentrale.de/wissen/vertraege-reklamation — Gesetz für faire Verbraucherverträge (29 Sep 2023)
+- https://www.test.de — Kündigungsbutton, in force 1 March 2022 (16 Nov 2022)
+- https://www.lutzabel.com/artikel — Kündigungsbutton obligations (2 Aug 2022)
