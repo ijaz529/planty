@@ -60,3 +60,24 @@ export function renewalPhrase(periodEnd: string | Date): string {
 export function needsAttention(condition: string | null | undefined): boolean {
   return condition === "declining" || condition === "needs_attention";
 }
+
+/**
+ * Whether to offer a plant up for a free replacement without being asked.
+ *
+ * The verdict comes from the last completed visit. If a replacement has been
+ * carried out since that visit, the plant standing there now is a fresh one
+ * and the old verdict no longer describes it — offering to replace it again
+ * would tell the customer something untrue about a plant that is new. The
+ * next visit records a verdict on the replacement and the offer returns if it
+ * is struggling too.
+ */
+export function offerReplacement(
+  condition: string | null | undefined,
+  visitCompletedAt: string | null | undefined,
+  replacedAt: string | null | undefined
+): boolean {
+  if (!needsAttention(condition)) return false;
+  if (!replacedAt) return true;
+  if (!visitCompletedAt) return false;
+  return new Date(replacedAt) <= new Date(visitCompletedAt);
+}

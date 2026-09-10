@@ -4,7 +4,7 @@ import {
   changeKindLabel,
   changeStatusLabel,
   isOpen,
-  needsAttention,
+  offerReplacement,
   renewalPhrase,
   rotationsPhrase,
   type ChangeKind,
@@ -42,7 +42,7 @@ export async function CareSection({
       .order("species_name"),
     supabase
       .from("plant_change_requests")
-      .select("id, subscription_line_id, kind, status, reason, decision_note, created_at, requested_variant_id")
+      .select("id, subscription_line_id, kind, status, reason, decision_note, created_at, fulfilled_at, requested_variant_id")
       .eq("subscription_id", subscriptionId)
       .order("created_at", { ascending: false }),
     supabase.rpc("rotations_remaining", { p_subscription_id: subscriptionId }),
@@ -60,7 +60,7 @@ export async function CareSection({
   // without the customer having to describe the problem (FR-002).
   const { data: lastVisit } = await supabase
     .from("visits")
-    .select("id")
+    .select("id, completed_at")
     .eq("subscription_id", subscriptionId)
     .eq("status", "done")
     .order("scheduled_date", { ascending: false })
@@ -83,12 +83,27 @@ export async function CareSection({
       .map((r) => [r.subscription_line_id, r])
   );
 
+  // When each plant was last actually replaced, so a verdict the replacement
+  // has already answered stops being offered up.
+  const replacedAt = new Map<string, string>();
+  for (const r of requests ?? []) {
+    if (r.kind !== "replacement" || !r.fulfilled_at) continue;
+    const seen = replacedAt.get(r.subscription_line_id);
+    if (!seen || r.fulfilled_at > seen) {
+      replacedAt.set(r.subscription_line_id, r.fulfilled_at);
+    }
+  }
+
   const plants: CarePlant[] = (lines ?? []).map((l) => ({
     line_id: l.id,
     species_name: l.species_name,
     size_tier: l.size_tier,
     quantity: l.quantity,
-    flagged: needsAttention(condition.get(l.id)),
+    flagged: offerReplacement(
+      condition.get(l.id),
+      lastVisit?.completed_at,
+      replacedAt.get(l.id)
+    ),
     has_open_request: openByLine.has(l.id),
   }));
 

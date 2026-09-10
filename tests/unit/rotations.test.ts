@@ -4,6 +4,7 @@ import {
   changeStatusLabel,
   isOpen,
   needsAttention,
+  offerReplacement,
   renewalPhrase,
   rotationsPhrase,
 } from "../../src/lib/rotations";
@@ -72,5 +73,37 @@ describe("needsAttention", () => {
     expect(needsAttention("healthy")).toBe(false);
     expect(needsAttention("replaced")).toBe(false);
     expect(needsAttention(null)).toBe(false);
+  });
+});
+
+describe("offerReplacement", () => {
+  const visit = "2026-09-14T08:30:00Z";
+
+  it("offers a struggling plant up when nothing has been replaced", () => {
+    expect(offerReplacement("declining", visit, null)).toBe(true);
+    expect(offerReplacement("needs_attention", visit, null)).toBe(true);
+  });
+
+  it("stays quiet about a healthy plant whatever the history", () => {
+    expect(offerReplacement("healthy", visit, null)).toBe(false);
+    expect(offerReplacement("healthy", visit, "2026-09-20T10:00:00Z")).toBe(false);
+  });
+
+  it("stops offering once the plant has actually been replaced", () => {
+    // The fresh plant is not the one the technician found declining.
+    expect(offerReplacement("declining", visit, "2026-09-20T10:00:00Z")).toBe(false);
+  });
+
+  it("keeps offering when the replacement came before that verdict", () => {
+    // A later visit found the *replacement* struggling too. Still a candidate.
+    expect(offerReplacement("declining", visit, "2026-08-30T10:00:00Z")).toBe(true);
+  });
+
+  it("treats a replacement at the same instant as the visit as older", () => {
+    expect(offerReplacement("declining", visit, visit)).toBe(true);
+  });
+
+  it("does not offer when the verdict has no date to compare against", () => {
+    expect(offerReplacement("declining", null, "2026-09-20T10:00:00Z")).toBe(false);
   });
 });
