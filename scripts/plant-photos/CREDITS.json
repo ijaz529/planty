@@ -1,0 +1,74 @@
+[
+  {
+    "path": "seed/snake-desk.jpg",
+    "title": "Sansevieria Trifasciata .jpg",
+    "author": "Enzo Rippa",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sansevieria_Trifasciata_.jpg"
+  },
+  {
+    "path": "seed/snake-floor.jpg",
+    "title": "20210623 Hortus botanicus Leiden - Sansevieria trifasciata v2.jpg",
+    "author": "Rudolphous",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20210623_Hortus_botanicus_Leiden_-_Sansevieria_trifasciata_v2.jpg"
+  },
+  {
+    "path": "seed/zz-desk.jpg",
+    "title": "Zamioculcas zamiifolia Chameleon 1.jpg",
+    "author": "Dbwolfe",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_Chameleon_1.jpg"
+  },
+  {
+    "path": "seed/zz-floor.jpg",
+    "title": "Zamioculcas zamiifolia.png",
+    "author": "Mx Lucy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia.png"
+  },
+  {
+    "path": "seed/pothos-desk.jpg",
+    "title": "Epipremnum aureum (Marble Queen) houseplant.png",
+    "author": "Spnq",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_(Marble_Queen)_houseplant.png"
+  },
+  {
+    "path": "seed/aglaonema-desk.jpg",
+    "title": "Aglaonema commutatum 'Silver Queen' 01.jpg",
+    "author": "Digigalos",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_%27Silver_Queen%27_01.jpg"
+  },
+  {
+    "path": "seed/aglaonema-floor.jpg",
+    "title": "Aglaonema commutatum kz2.jpg",
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aglaonema_commutatum_kz2.jpg"
+  },
+  {
+    "path": "seed/kentia-statement.jpg",
+    "title": "Howea forsteriana in Palm House Schoenbrunn (2).jpg",
+    "author": "Tournasol7",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Howea_forsteriana_in_Palm_House_Schoenbrunn_(2).jpg"
+  },
+  {
+    "path": "seed/areca-statement.jpg",
+    "title": "Dypsis lutescens (Family Arecaceae) - leaves close-up.jpg",
+    "author": "Juan Carlos Fonseca Mata",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dypsis_lutescens_(Family_Arecaceae)_-_leaves_close-up.jpg"
+  }
+]

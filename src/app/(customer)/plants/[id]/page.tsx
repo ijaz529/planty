@@ -15,6 +15,7 @@ import {
   type LightRequirement,
   type SizeTier,
 } from "@/lib/catalog";
+import { creditsFor } from "@/lib/photo-credits";
 import { createClient } from "@/lib/supabase/server";
 
 type Variant = {
@@ -46,6 +47,7 @@ export default async function SpeciesPage({
   if (!data) notFound();
 
   const variants = [...((data.plant_variants ?? []) as Variant[])].sort(byTier);
+  const credits = creditsFor(variants.map((v) => v.photo_path));
 
   return (
     <>
@@ -140,6 +142,35 @@ export default async function SpeciesPage({
             })}
           </ul>
         </section>
+
+        {/* CC BY and CC BY-SA ask for the photographer wherever the photo runs. */}
+        {credits.length > 0 && (
+          <p className="mt-8 text-xs text-muted">
+            Photographs:{" "}
+            {credits.map((c, i) => (
+              <span key={c.path}>
+                {i > 0 && "; "}
+                <a
+                  href={c.source}
+                  className="underline underline-offset-2"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {c.author}
+                </a>{" "}
+                <a
+                  href={c.licenseUrl}
+                  className="underline underline-offset-2"
+                  rel="noopener noreferrer license"
+                  target="_blank"
+                >
+                  {c.license}
+                </a>
+              </span>
+            ))}
+            . Planty&rsquo;s own photographs replace these before launch.
+          </p>
+        )}
       </main>
     </>
   );
